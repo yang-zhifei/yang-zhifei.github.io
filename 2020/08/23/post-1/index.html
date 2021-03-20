@@ -1,0 +1,618 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <link rel="icon" type="image/png" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="yang zhifei">
+  <meta name="keywords" content="">
+  <title>对抗性reid论文学习中知识补充 - 一阵风的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>一阵风</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://rmt.dogedoge.com/fetch/fluid/storage/bg/1cm6iu.png?w=1920&fmt=webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-08-23 16:19" pubdate>
+        2020年8月23日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      22
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">对抗性reid论文学习中知识补充</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h5 id="论文题目-Transferable-Controllable-and-Inconspicuous-Adversarial-Attacks-on-Person"><a href="#论文题目-Transferable-Controllable-and-Inconspicuous-Adversarial-Attacks-on-Person" class="headerlink" title="论文题目 Transferable, Controllable, and Inconspicuous Adversarial Attacks on Person"></a>论文题目 Transferable, Controllable, and Inconspicuous Adversarial Attacks on Person</h5><p>参考<a target="_blank" rel="noopener" href="https://juejin.im/post/6854573214853496846">https://juejin.im/post/6854573214853496846</a></p>
+<h5 id="PPT展示"><a href="#PPT展示" class="headerlink" title="PPT展示"></a>PPT展示</h5><p><br> 
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1ltLoclun4oN9hzmDyENHPe24X4J9VXpT/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+</p>
+<p><br></p>
+<h5 id="对抗样本是什么？"><a href="#对抗样本是什么？" class="headerlink" title="对抗样本是什么？"></a>对抗样本是什么？</h5><ul>
+<li><p>定义：在数据中加入人眼不可察觉的扰动，使得模型对数据的标签预测发生混淆和错误。</p>
+</li>
+<li><p>非正式定义：以人类不可感知的方式对输入进行修改，使得修改后的输入能够被机器学习系统误分类，尽管原始输入是被正确分类的。这一修改后的输入即被称为对抗样本。</p>
+</li>
+<li><p>数学符号表示：</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+x_{adv} = max_{\delta} L(f,x_{orig}, y)</script><script type="math/tex; mode=display">
+such that \|\delta\|_{p}\leq\epsilon</script><script type="math/tex; mode=display">
+and x_{orig}+\delta\in[0,1]^D</script><p>其中 L 是我们试图最大化的损失函数，x_orig 是原始图像，𝛿是扰动，y 是真实标签，所选的ε用于确保扰动后的图像看上去没有那么杂乱，并且对于人类来说仍然像是原始类别的图片。</p>
+<h5 id="什么是感知损失？"><a href="#什么是感知损失？" class="headerlink" title="什么是感知损失？"></a>什么是感知损失？</h5><p>问：其实还不是很理解感知损失是什么，是feature map之间的差异吗？</p>
+<p>答：因为high-level features 指的是图片全局的模样，感知损失就相当于是看图片是否一致，若相似损失就小，如果不相似损失就大。</p>
+<p>答：个人理解，区别于MSE那种基于每个pixel来做loss，我们理解一副图片往往不是基于单独某个pixel的，你是通过一张图片的形状，轮廓之类的高级语义信息来理解。那么我们就不再对每个pixel求loss，而是比较待生成的图片经过CNN的feature map与目标图片经过同样网络结构的CNN的feature map，根据高级语义信息的误差来做loss</p>
+<h5 id="什么是feature-map？"><a href="#什么是feature-map？" class="headerlink" title="什么是feature map？"></a>什么是feature map？</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/dengheCSDN/article/details/77848246">https://blog.csdn.net/dengheCSDN/article/details/77848246</a></li>
+</ul>
+<h5 id="四个最大的-re-ID-基准数据集（即-Market1501，CUHK03，DukeMTMC-和-MSMT17）"><a href="#四个最大的-re-ID-基准数据集（即-Market1501，CUHK03，DukeMTMC-和-MSMT17）" class="headerlink" title="四个最大的 re-ID 基准数据集（即 Market1501，CUHK03，DukeMTMC 和 MSMT17）"></a>四个最大的 <strong>re-ID</strong> 基准数据集（即 Market1501，CUHK03，DukeMTMC 和 MSMT17）</h5><h5 id="MSE（Mean-Squared-Error）均方误差"><a href="#MSE（Mean-Squared-Error）均方误差" class="headerlink" title="MSE（Mean Squared Error）均方误差"></a>MSE（Mean Squared Error）均方误差</h5><script type="math/tex; mode=display">
+MSE= \frac{1}{M\times N} \sum_{i=1}^{M}\sum_{i=1}^{N}(K(i,j)-I(i,j))^2</script><p>K(i,j)和I(i,j)分别表示的是待评价图像和原始图像，M,N分别表示图像的长与宽.</p>
+<ul>
+<li>MSE指参数估计值与参数真值之差平方的期望值，在图像处理算法中就是处理后图像像素值与原始像素值之差平方和的均值。</li>
+</ul>
+<h6 id="GAN-的谱归一化-Spectral-Norm-和矩阵的奇异值分解-Singular-Value-Decompostion"><a href="#GAN-的谱归一化-Spectral-Norm-和矩阵的奇异值分解-Singular-Value-Decompostion" class="headerlink" title="GAN 的谱归一化(Spectral Norm)和矩阵的奇异值分解(Singular Value Decompostion"></a>GAN 的谱归一化(<strong>Spectral Norm</strong>)和矩阵的奇异值分解(Singular Value Decompostion</h6><p>  具体内容见<a target="_blank" rel="noopener" href="http://kaizhao.net/posts/spectral-norm">http://kaizhao.net/posts/spectral-norm</a></p>
+<h5 id="非线性激活函数ReLu"><a href="#非线性激活函数ReLu" class="headerlink" title="非线性激活函数ReLu"></a>非线性激活函数ReLu</h5><h5 id="损失函数-Loss-function"><a href="#损失函数-Loss-function" class="headerlink" title="损失函数 Loss function"></a>损失函数 Loss function</h5><ul>
+<li>损失函数和激活函数softmax会一起使用。<br>激活函数会根据输入的参数（一个矢量，表示每个分类的可能性），计算每个分类的概率(0, 1)。<br>损失函数根据softmax的计算结果$ y\head $和期望结果$ y $，根据交叉熵方法(cross entropy loss) 可得到损失L。</li>
+</ul>
+<h5 id="BatchNorm"><a href="#BatchNorm" class="headerlink" title="BatchNorm"></a>BatchNorm</h5><p>为了在深度神经网络训练过程中使得每一层神经网络的输入保持相同分布，通过一定的规范化手段，把每层神经网络任意神经元这个输入值的分布强行拉回到均值为0方差为1的标准正态分布</p>
+<h5 id="下采样"><a href="#下采样" class="headerlink" title="下采样"></a>下采样</h5><ul>
+<li>定义：对于一个样值序列间隔几个样值取样一次，这样得到新序列就是原序列的下采样。</li>
+</ul>
+<ul>
+<li><p>缩小图像（或称为下采样（subsampled）或降采样（downsampled））</p>
+</li>
+<li><p><strong>下采样原理：</strong>对于一幅图像I尺寸为MXN，对其进行s倍下采样，即得到(M/s)X(N/s)尺寸的得分辨率图像，当然s应该是M和N的公约数才行，如果考虑的是矩阵形式的图像，就是把原始图像sXs窗口内的图像变成一个像素，这个像素点的值就是窗口内所有像素的均值</p>
+</li>
+<li><p>深度学习中卷积、池化都可以用于下采样（其实就是提取数据，卷积结果就是提取特征）</p>
+</li>
+</ul>
+<h5 id="上采样"><a href="#上采样" class="headerlink" title="上采样"></a>上采样</h5><ul>
+<li><p>放大图像（或称为上采样（upsampling）或图像插值（interpolating））</p>
+</li>
+<li><p><strong>上采样原理：</strong>图像放大几乎都是采用内插值方法，即在原有图像像素的基础上在像素点之间采用合适的插值算法插入新的元素。（数值计算中的插值方法）</p>
+<h5 id="逐元素运算-element-wise"><a href="#逐元素运算-element-wise" class="headerlink" title="逐元素运算(element-wise)"></a>逐元素运算(element-wise)</h5></li>
+</ul>
+<p>这个类别包含了 Tensor 的一些基础运算，由于输出的数据点只跟对应的哪一个输入的数据点有关，因此可以称为 element-wise 运算，这类运算与输入的数据的维度和结构无关，可以等价的认为是一维向量运算的 Tensor 等效表示。</p>
+<h5 id="双线性池化bilinear-pooling与双线性插值Bilinear-Interpolation"><a href="#双线性池化bilinear-pooling与双线性插值Bilinear-Interpolation" class="headerlink" title="双线性池化bilinear pooling与双线性插值Bilinear Interpolation"></a>双线性池化bilinear pooling与双线性插值Bilinear Interpolation</h5><ul>
+<li><p>在数学上，双线性插值是有两个变量的插值函数的线性插值扩展，其核心思想是在两个方向分别进行一次线性插值，参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/xbinworld/article/details/65660665">https://blog.csdn.net/xbinworld/article/details/65660665</a></p>
+</li>
+<li><p>bilinear pooling主要用于特征融合，对于从同一个样本提取出来的特征x和特征y，通过bilinear pooling得到两个特征融合后的向量，进而用来分类。</p>
+</li>
+</ul>
+<h5 id="空洞卷积-Dilated-Atrous-Convolution"><a href="#空洞卷积-Dilated-Atrous-Convolution" class="headerlink" title="空洞卷积(Dilated/Atrous Convolution)"></a>空洞卷积(Dilated/Atrous Convolution)</h5><p>在nXn卷积核中间填充0，有两种实现方式，第一，卷积核填充0，第二，输入等间隔采样。</p>
+<h5 id="1x1卷积方法：可以理解为给所有通道应用一个全连接神经网络"><a href="#1x1卷积方法：可以理解为给所有通道应用一个全连接神经网络" class="headerlink" title="1x1卷积方法：可以理解为给所有通道应用一个全连接神经网络**"></a>1x1卷积方法：可以理解为给所有通道应用一个<strong>全连接神经网络**</strong></h5><h5 id="全连接神经网络"><a href="#全连接神经网络" class="headerlink" title="全连接神经网络"></a>全连接神经网络</h5><ul>
+<li><p>指除输出层外，每一个神经元都与下一层中的各神经元相连接。</p>
+</li>
+<li><p>神经网络结构详解<a target="_blank" rel="noopener" href="https://blog.csdn.net/hennyxu/article/details/102990123">https://blog.csdn.net/hennyxu/article/details/102990123</a></p>
+</li>
+</ul>
+<h5 id="示意图中加号和乘号的含义（找的我心累）"><a href="#示意图中加号和乘号的含义（找的我心累）" class="headerlink" title="示意图中加号和乘号的含义（找的我心累）"></a>示意图中加号和乘号的含义（找的我心累）</h5><ul>
+<li><p>加号：concatenate操作是网络结构设计中很重要的一种操作，经常用于将特征联合，多个卷积特征提取框架提取的特征融合或者是将输出层的信息进行融合，而add层更像是信息之间的叠加。</p>
+</li>
+<li><p>你可以这么理解，add是描述图像的特征下的信息量增多了，但是描述图像的维度本身并没有增加，只是每一维下的信息量在增加，这显然是对最终的图像的分类是有益的。而concatenate是通道数的合并，也就是说描述图像本身的特征增加了，而每一特征下的信息是没有增加。只看单个输出通道</p>
+<script type="math/tex; mode=display">
+Z_{concat}=\sum_{i=1}^{C}X_{i}*K_{i}+\sum_{i=1}^{C}Y_{i}*K_{i+c}</script><script type="math/tex; mode=display">
+Z_{add}=\sum_{i=1}^{C}(X_{i}+Y_{i})*K_{i}=\sum_{i=1}^{C}X_{i}*K_{i}+\sum_{i=1}^{C}Y_{i}*K_{i}</script></li>
+<li><p>乘法：element wise mltipliction</p>
+</li>
+</ul>
+<h5 id="生成式对抗网络（GAN）"><a href="#生成式对抗网络（GAN）" class="headerlink" title="生成式对抗网络（GAN）"></a>生成式对抗网络（GAN）</h5><ul>
+<li><p><strong>生成模型</strong>，以图像生成模型举例。假设我们有一个图片生成模型（generator），它的目标是生成一张真实的图片。与此同时我们有一个图像判别模型（discriminator），它的目标是能够正确判别一张图片是生成出来的还是真实存在的。那么如果我们把刚才的场景映射成图片生成模型和判别模型之间的博弈，就变成了如下模式：生成模型生成一些图片-&gt;判别模型学习区分生成的图片和真实图片-&gt;生成模型根据判别模型改进自己，生成新的图片-&gt;····</p>
+</li>
+<li><p>这个场景直至生成模型与判别模型无法提高自己——即判别模型无法判断一张图片是生成出来的还是真实的而结束，此时生成模型就会成为一个完美的模型。</p>
+</li>
+</ul>
+<h5 id="SSIM与MS-SSIM图像评价函数"><a href="#SSIM与MS-SSIM图像评价函数" class="headerlink" title="SSIM与MS-SSIM图像评价函数"></a>SSIM与MS-SSIM图像评价函数</h5><ul>
+<li>SSIM的全称为structural similarity index，即为结构相似性，是一种衡量两幅图像相似度的指标</li>
+<li>MS-SSIM多级结构相似性</li>
+</ul>
+<h5 id="在损失函数中出现了margin，如何理解"><a href="#在损失函数中出现了margin，如何理解" class="headerlink" title="在损失函数中出现了margin，如何理解"></a>在损失函数中出现了margin，如何理解</h5><h5 id="前向和后向传播指的是什么？"><a href="#前向和后向传播指的是什么？" class="headerlink" title="前向和后向传播指的是什么？"></a>前向和后向传播指的是什么？</h5>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/23/post-2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">虚拟试衣Try- on论文与评价方法改进的Reid</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/23/My-New-Post-3/">
+                        <span class="hidden-mobile">关于论文学习中的几点疑惑</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "对抗性reid论文学习中知识补充&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

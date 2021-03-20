@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <link rel="icon" type="image/png" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="yang zhifei">
+  <meta name="keywords" content="">
+  <title>Person Re-identification in the 3D Space + 第一次跑代码 - 一阵风的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>一阵风</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://rmt.dogedoge.com/fetch/fluid/storage/bg/1cm6iu.png?w=1920&fmt=webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-04 09:41" pubdate>
+        2020年9月4日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      47
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Person Re-identification in the 3D Space + 第一次跑代码</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="论文展示"><a href="#论文展示" class="headerlink" title="论文展示"></a>论文展示</h1><p><br> 
+
+	<div class="row">
+    <embed src="https://arxiv.org/pdf/2006.04569.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+</p>
+<p><br></p>
+<h1 id="论文代码"><a href="#论文代码" class="headerlink" title="论文代码"></a><a target="_blank" rel="noopener" href="https://github.com/layumi/person-reid-3d">论文代码</a></h1><h1 id="论文阅读"><a href="#论文阅读" class="headerlink" title="论文阅读"></a>论文阅读</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ul>
+<li><p>人的再识别通常被认为是在不重叠的摄像机中定位人的图像检索问题</p>
+</li>
+<li><p>In this paper, we argue that the key to learning an effective and scalable person representation is to consider both the human appearance and 3D geometry structure. With the prior knowledge of 3D human geometry information, we could learn a depth-aware model, thus making the representation robust to real-world scenarios. As shown in Figure 1, we map the visible surface to the human mesh,<br>and make the person free from the 2D space. Without the need to worry about the part matching from two different viewpoints, the 3D data structure eases the matching difficulty in nature. The model could concentrate on learning the identity-related features, and dealing with the other variants, such as illumination.</p>
+<p>在本文中，我们认为学习有效和可扩展的人的表示的关键是同时考虑人的外观和三维几何结构。有了三维人体几何信息的先验知识，我们可以学习一个深度感知模型，从而使表示鲁棒的真实场景。如图1所示，我们将可见表面映射到人体网格，并将人从2D空间中解放出来。三维数据结构在本质上减轻了零件匹配的难度，无需从两种不同的角度进行零件匹配。该模型可以集中学习与身份相关的特征，并处理其他变量，如光照。</p>
+</li>
+<li><p>To fully take advantage of the 3D structure and 2D appearance, we propose a novel Omni-scale<br>Graph Network for person re-id in the 3D space, called OG-Net. The model is based on graph<br>neural network (GNN) to communicate between the discrete cloud points of arbitrary locations. In<br>particular, following the spirit of the conventional convolutional neural network (CNN), we adopt<br>the KNN-Graph [30] to capture the information from neighbor points.To leverage multi-scale information in 3D data, we propose the Omni-scale module to aggregate the feature from multiple 3D receptive fields. Given the 3D point cloud and the corresponding color information, OG-Net predicts the person identity and outputs the robust human representation for subsequent matching.</p>
+<p>为了充分利用3D结构和2D外观的优势，我们提出了一种新颖的Omni-scale Graph网络，用于3D空间中的人员身份识别，称为OG-Net。 <strong>该模型基于图神经网络（GNN）在任意位置的离散云点之间进行通信。</strong> 特别是，按照传统的卷积神经网络（CNN）的精神，我们采用<strong>KNN-Graph [30]来捕获来自邻居点的信息。</strong>为了利用3D数据中的多尺度信息，我们提出了Omni-scale模块 汇总来自多个3D接收字段的要素。 给定3D点云和相应的颜色信息，OG-Net可以预测人的身份并输出健壮的人像表示以进行后续匹配。</p>
+</li>
+<li><p>那么什么是KNN-Graph？</p>
+<ul>
+<li>knn即k邻近分类算法，包括距离KNN和概率KNN。</li>
+</ul>
+</li>
+<li><p>相关工作：<strong>点云</strong>分割——<a target="_blank" rel="noopener" href="https://www.cnblogs.com/li-yao7758258/p/8182846.html">https://www.cnblogs.com/li-yao7758258/p/8182846.html</a></p>
+<p>The point cloud is a flexible geometric representation of 3D data<br>structure.One of the earliest works, i.e., PointNet [15], proposes to<br>leverage the multi-layer perceptron (MLP) networks and max-pooling layer to fuse the information from multiple points.</p>
+<p>点云是3D数据结构的灵活几何表示。最早的作品之一，即PointNet [15]，提出利用多层感知器（MLP）网络和最大池化层来融合来自多个点的信息。</p>
+<ul>
+<li>pointnet:介绍可以看<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/77019339">https://zhuanlan.zhihu.com/p/77019339</a></li>
+</ul>
+</li>
+<li><p>讨论班想到的一个推断问题</p>
+</li>
+<li><p>视觉对话<a target="_blank" rel="noopener" href="https://visualdialog.org/">https://visualdialog.org/</a></p>
+</li>
+</ul>
+<h2 id="论文主体结构"><a href="#论文主体结构" class="headerlink" title="论文主体结构"></a>论文主体结构</h2><p>OG-net由模块omni-scale Moudle，所以先要明白omni-scale Moudle的结构</p>
+<h3 id="Omni-scale-Module"><a href="#Omni-scale-Module" class="headerlink" title="Omni-scale Module"></a>Omni-scale Module</h3><h4 id="理解Dynamic-Graph-Convolution"><a href="#理解Dynamic-Graph-Convolution" class="headerlink" title="理解Dynamic Graph Convolution"></a>理解Dynamic Graph Convolution</h4><p>该文章是最新出的一篇针对点云数据分类、分割的网路，它是受PointNet以及PointNet++的启发所进行的修改，PointNet只是独立处理每个点，同过最大池化后的全局特征来进行网络输出，但忽视了点之间的局部特征。</p>
+<p>动态体现在——-KNN图每次都要重新计算</p>
+<p>对距离点x_{i}与离它最近的K个点的特征（由公式）进行<strong>一个通道级的对称聚合</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20190321192247145.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTM3MzQ4MA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<p>动态图卷积提取局部还是全局的特征取决于h（x<em>{i}，x</em>{j}）</p>
+<p><strong>具体细节</strong></p>
+<p><img src="https://img-blog.csdnimg.cn/20190321193511229.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTM3MzQ4MA==,size_16,color_FFFFFF,t_70" srcset="/img/loading.gif" alt=""></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39373480/article/details/88724518">https://blog.csdn.net/weixin_39373480/article/details/88724518</a></p>
+</blockquote>
+<h4 id="omni-scale-Moudle输入输出"><a href="#omni-scale-Moudle输入输出" class="headerlink" title="omni-scale Moudle输入输出"></a>omni-scale Moudle输入输出</h4><p>input:RGB/KNN/location</p>
+<p>output:new feature/location</p>
+<h4 id="下采样"><a href="#下采样" class="headerlink" title="下采样"></a>下采样</h4><ul>
+<li><p>location——-&gt;fps算法下采样——-&gt;selected location</p>
+</li>
+<li><p>根据selected location选择selected feature</p>
+</li>
+</ul>
+<h4 id="我们部署三个分组率不同的分支r-8-16-32-，这三个分支不共享权重。"><a href="#我们部署三个分组率不同的分支r-8-16-32-，这三个分支不共享权重。" class="headerlink" title="我们部署三个分组率不同的分支r ={8,16,32}，这三个分支不共享权重。"></a>我们部署三个分组率不同的分支r ={8,16,32}，这三个分支不共享权重。</h4><p>这样，我们可以像传统的二维神经网络[26]一样，捕获具有不同感受野的信息。每个分支由一个分组层、两个线性层、两个批处理归一化(BN)层、一个压榨激励(SE)块[7]和一个组max池化层来聚合本地信息。具体来说，grouping-r层是对每个点的r个最近点进行采样和复制，然后是线性层、批归一化和SE块。在总结三个分支之前，我们引入SE-block[7]作为一个自适应门函数来重新缩放每个分支的权重x0= x×sigmod(h(x))。</p>
+<h4 id="SE-block"><a href="#SE-block" class="headerlink" title="SE-block"></a>SE-block</h4><p><img src="https://pic3.zhimg.com/80/v2-c90409a847db3a33fa5b5995fedbeea6_hd.jpg" srcset="/img/loading.gif" alt=""></p>
+<p><strong>SENet的核心思想在于通过网络根据loss去学习特征权重，使得有效的feature map权重大，无效或效果小的feature map权重小的方式训练模型达到更好的结果</strong>。</p>
+<script type="math/tex; mode=display">F_{tr} : X \rightarrow U,  X\in R^{W'\times H'\times C'},U\in R^{W \times H\times C}</script><p>那么这个Ftr的公式就是下面的公式1（卷积操作，vc表示第c个卷积核，xs表示第s个输入）</p>
+<script type="math/tex; mode=display">u_{c}=v_{c}\cdot X=\sum_{s=1}^{C'}v_{c}^{s} \cdot x^{s}</script><p>Ftr得到的U就是Figure1中的左边第二个三维矩阵，也叫tensor，或者叫C个大小为H*W的feature map。而uc表示U中第c个二维矩阵，下标c表示channel。</p>
+<p>接下来就是<strong>Squeeze</strong>操作，公式非常简单，就是一个global average pooling：</p>
+<script type="math/tex; mode=display">z_{c}= F_{sq}(u_{c})=\frac{1}{W \times H}\sum_{i=1}^{W}\sum_{j=1}^{H}u_{c}(i,j)</script><p>因此公式2就将H<em>W</em>C的输入转换成1<em>1</em>C的输出，对应Figure1中的Fsq操作。<strong>为什么会有这一步呢？这一步的结果相当于表明该层C个feature map的数值分布情况，或者叫全局信息。</strong></p>
+<p>再接下来就是Excitation操作，如公式3。直接看最后一个等号，前面squeeze得到的结果是z，这里先用W1乘以z，就是一个全连接层操作，<strong>W1的维度是C/r * C，这个r是一个缩放参数，在文中取的是16，这个参数的目的是为了减少channel个数从而降低计算量</strong>。又因为z的维度是1<em>1</em>C，所以W1z的结果就是1<em>1</em>C/r；然后再经过一个ReLU层，输出的维度不变；然后再和W2相乘，和W2相乘也是一个全连接层的过程，<strong>W2的维度是C*C/r</strong>，因此输出的维度就是1<em>1</em>C；最后再经过sigmoid函数，得到s。</p>
+<script type="math/tex; mode=display">s = F_{ex}(z,W) = \sigma(g(z,W)) = \sigma(W_{2}\delta(W_{1}z))</script><p>也就是说最后得到的这个s的维度是1<em>1</em>C，C表示channel数目。<strong>这个s其实是本文的核心，它是用来刻画tensor U中C个feature map的权重。而且这个权重是通过前面这些全连接层和非线性层学习得到的，因此可以end-to-end训练。这两个全连接层的作用就是融合各通道的feature map信息，因为前面的squeeze都是在某个channel的feature map里面操作。</strong></p>
+<p>在得到s之后，就可以对原来的tensor U操作了，就是进行channel-wise multiplication。uc是一个二维矩阵，sc是一个数，也就是权重，因此相当于把uc矩阵中的每个值都乘以sc。对应Figure1中的Fscale。</p>
+<script type="math/tex; mode=display">\widetilde{X_{c}} = F_{scale}(u_{c},s_{c}) = s_{c} \cdot u_{c}</script><blockquote>
+<p>SENet（Squeeze-and-Excitation Networks）算法笔记<a target="_blank" rel="noopener" href="https://blog.csdn.net/u014380165/article/details/78006626">https://blog.csdn.net/u014380165/article/details/78006626</a></p>
+</blockquote>
+<h4 id="最后，我们使用“添加”来计算三个分支的总和而不是连接"><a href="#最后，我们使用“添加”来计算三个分支的总和而不是连接" class="headerlink" title="最后，我们使用“添加”来计算三个分支的总和而不是连接"></a>最后，我们使用<strong>“添加”</strong>来计算三个分支的总和而不是连接</h4><p>你可以这么理解，add是描述图像的特征下的信息量增多了，但是描述图像的维度本身并没有增加，只是每一维下的信息量在增加，这显然是对最终的图像的分类是有益的。而concatenate是通道数的合并，也就是说描述图像本身的特征增加了，而每一特征下的信息是没有增加。</p>
+<h4 id="omni-scale-Moudle总结"><a href="#omni-scale-Moudle总结" class="headerlink" title="omni-scale Moudle总结"></a>omni-scale Moudle总结</h4><p>To summarize, the key of Omni-scale Module is two cross-point functions. The cross-point function<br>indicates the function considers the neighbor points, while the pre-point function only considers<br>the feature of one point itself. One cross-point function is the dynamic graph convolution before<br>downsampling, which could be simply formulated asPh(xi, xj). It mimics the conventional 2D<br>CNN to aggregate the local patterns according to the position. The other is the max group pooling<br>layer in each branch, which could be simply formulated as maxh(xi). It maximizes neighbor features<br>in each group as the new point feature</p>
+<p>综上所述，全尺度模块的关键是两个交叉点函数。交叉点函数表示函数考虑相邻点，而前置点函数只考虑一个点本身的特征。一个交叉点函数是降采样前的动态图卷积，可以简单地表示为asPh(xi, xj)。模拟传统的二维CNN，根据位置聚合局部模式。另一个是每个分支中的max组池化层，可以简单表示为maxh(xi)。将每组中的近邻特征最大化作为新的点特征</p>
+<ul>
+<li><p>这里用两个全连接层先降维再升维的目的和原理是什么呢？</p>
+</li>
+<li><p>降维是为了更简单的计算权重部分，而且实验也给出r不同取值对结果的影响；而升维是必须的，这样才能和原来的Uc相乘，得到每一层特征的权重。</p>
+</li>
+</ul>
+<h3 id="OGNet-Architecture"><a href="#OGNet-Architecture" class="headerlink" title="OGNet Architecture"></a>OGNet Architecture</h3><p>OG-Net的结构由四个Omniscale模块组成。与传统CNN一样，我们逐步减少选择点的数量。每减少一个点，外观特征的通道数就增加一倍。经过四个全尺度模块，512-dim外观特征得到96个点。与[30]类似，我们使用max pooling和average pooling对点特征进行聚合，并将两个输出连接起来，得到1024-dim feature。通过添加全连通层和批量归一化层，将特征压缩到512维作为行人表示。</p>
+<p>在进行推理（实际应用）时，我们去掉最后一个线性分类器进行借口分类任务，提取512-dim特征进行图像匹配。</p>
+<h4 id="线性分类器"><a href="#线性分类器" class="headerlink" title="线性分类器"></a>线性分类器</h4><p><a target="_blank" rel="noopener" href="https://scientificrat.com/2018/06/21/理解softmax分类器/">https://scientificrat.com/2018/06/21/%E7%90%86%E8%A7%A3softmax%E5%88%86%E7%B1%BB%E5%99%A8/</a>写的</p>
+<h3 id="Training-Objective"><a href="#Training-Objective" class="headerlink" title="Training Objective"></a>Training Objective</h3><p>条件概率是指<strong>事件A在事件B发生的条件下</strong>发生的概率。</p>
+<script type="math/tex; mode=display">P(A \mid B)= \frac{P(AB)}{P(B)}</script><p>损失函数<script type="math/tex">L_{id} = \mathbf{E}[-log(p(y_{n} \mid s_{n}))]</script></p>
+<p>其中<script type="math/tex">p(y_{n} \mid s_{n})</script>是sn归属于ground-truth类yn的预测可能性。训练目标要求模型能够根据输入点区分不同的身份。</p>
+<h3 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h3><h4 id="Qualitative-Results"><a href="#Qualitative-Results" class="headerlink" title="Qualitative Results"></a>Qualitative Results</h4><h4 id="Quantitative-Results"><a href="#Quantitative-Results" class="headerlink" title="Quantitative Results"></a>Quantitative Results</h4><h3 id="Further-Analysis-and-Discussions"><a href="#Further-Analysis-and-Discussions" class="headerlink" title="Further Analysis and Discussions"></a>Further Analysis and Discussions</h3><h1 id="实际运行代码时遇到的问题"><a href="#实际运行代码时遇到的问题" class="headerlink" title="实际运行代码时遇到的问题"></a>实际运行代码时遇到的问题</h1><p>实验要求pytoch 1.4.0版本</p>
+<h2 id="配置环境失败（这可能是每次都会遇到的）"><a href="#配置环境失败（这可能是每次都会遇到的）" class="headerlink" title="配置环境失败（这可能是每次都会遇到的）"></a>配置环境失败（这可能是每次都会遇到的）</h2><pre><code class="hljs cmake">pip <span class="hljs-keyword">install</span> -r requirements.txt</code></pre>
+<ul>
+<li><p>解决方法一：</p>
+<p>查出原因是在执行这一语句前需要先创建requirements.txt 文件，所以必须先执行</p>
+<pre><code class="hljs pgsql">pip <span class="hljs-keyword">freeze</span> &gt; requirements.txt</code></pre>
+</li>
+<li><p>解决方法二：</p>
+<p>直接打开</p>
+</li>
+</ul>
+<h2 id="下载数据集"><a href="#下载数据集" class="headerlink" title="下载数据集"></a>下载数据集</h2><p>数据集在Google Drive里。之前，我都是通过浏览器直接下载的，但是经常下载到一半就失败了。查了很多方法，都没有解决，甚至还让别人帮忙保存到百度云……最后，终于找到了成功下载的办法。</p>
+<p><strong>下载速度提升10倍以上，大大节省了时间成本</strong></p>
+<ol>
+<li>安装IDM。下载IDM(<a href="https://link.zhihu.com/?target=http%3A//www.internetdownloadmanager.com/">IDM官网</a>)，默认安装即可。</li>
+<li>如果第一步安装完，chrome中没有成功安装IDM插件，可按照以下步骤安装。</li>
+</ol>
+<p>​       1）进入官网菜单栏<strong>Support</strong>下的<strong>FAQ</strong>中。</p>
+<p>​       2）进入 <a href="https://link.zhihu.com/?target=http%3A//www.internetdownloadmanager.com/register/new_faq/bi_main.cgi%3Fmode%3D1">BROWSER INTEGRATION QUESTIONS</a></p>
+<p>​       3）进入 <a href="https://link.zhihu.com/?target=http%3A//www.internetdownloadmanager.com/register/new_faq/bi31.html">I cannot install IDM extension for Chrome manually. It tells that extensions cannot be added from this site. How can I install it?</a></p>
+<p>​       4）点击下载安装。</p>
+<blockquote>
+<p>​        转自<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/96654477">https://zhuanlan.zhihu.com/p/96654477</a></p>
+</blockquote>
+<h2 id="服务器下载数据集"><a href="#服务器下载数据集" class="headerlink" title="服务器下载数据集"></a>服务器下载数据集</h2><p>因为文件太大，不能进行移动，demo形式是onedrive和Google drive。</p>
+<h3 id="onedrive-耗时2小时解决"><a href="#onedrive-耗时2小时解决" class="headerlink" title="onedrive -耗时2小时解决"></a>onedrive -耗时2小时解决</h3><h4 id="step1：首先打开官方分享界面链接，发现并不是真是下载的地址。点开之后，找个文件点击下载，然后取消，在devtool中输入文件名字，可以找到真实链接"><a href="#step1：首先打开官方分享界面链接，发现并不是真是下载的地址。点开之后，找个文件点击下载，然后取消，在devtool中输入文件名字，可以找到真实链接" class="headerlink" title="step1：首先打开官方分享界面链接，发现并不是真是下载的地址。点开之后，找个文件点击下载，然后取消，在devtool中输入文件名字，可以找到真实链接"></a>step1：首先打开官方分享界面链接，发现并不是真是下载的地址。点开之后，找个文件点击下载，然后取消，在devtool中输入文件名字，可以找到真实链接</h4><h4 id="step2：如果直接在服务器里-wget-这个下载链接，100-会403-Forbidden。有经验的老手都知道肯定是没带-Cookie-，但是要怎么带Cookie呢，其实很简单（？？？）"><a href="#step2：如果直接在服务器里-wget-这个下载链接，100-会403-Forbidden。有经验的老手都知道肯定是没带-Cookie-，但是要怎么带Cookie呢，其实很简单（？？？）" class="headerlink" title="step2：如果直接在服务器里 wget 这个下载链接，100%会403: Forbidden。有经验的老手都知道肯定是没带 Cookie ，但是要怎么带Cookie呢，其实很简单（？？？）"></a>step2：如果直接在服务器里 wget 这个下载链接，100%会403: Forbidden。有经验的老手都知道肯定是没带 Cookie ，但是要怎么带Cookie呢，其实很简单（？？？）</h4><ul>
+<li><p>首先你需要按下F12，打开开发人员工具，然后转到网络选项，之后点击想要下载的文件进行下载，同时观察开发人员工具窗口，找到带有download.aspx/?…. 的那个链接</p>
+</li>
+<li><p>之后在那个链接上右键，选择 复制-复制为cURL命令(POSIX)</p>
+</li>
+<li><p>会在剪切板出现类似下面的命令语句</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">curl</span> &#x27;https://gitaccuacnz<span class="hljs-number">2</span>-my.sharepoint.com/personal/mail_finderacg_com/_layouts/<span class="hljs-number">15</span>/download.aspx?UniqueId=cb<span class="hljs-number">44677</span>f%<span class="hljs-number">2</span>Dc<span class="hljs-number">4</span>af%<span class="hljs-number">2</span>D<span class="hljs-number">44</span>ad%<span class="hljs-number">2</span>D<span class="hljs-number">88</span>d<span class="hljs-number">4</span>%<span class="hljs-number">2</span>Dceb<span class="hljs-number">07</span>d<span class="hljs-number">9625</span>da&#x27; -H &#x27;User-Agent: Mozilla/<span class="hljs-number">5</span>.<span class="hljs-number">0</span> (Windows NT <span class="hljs-number">10</span>.<span class="hljs-number">0</span>; Win<span class="hljs-number">64</span>; x<span class="hljs-number">64</span>; rv:<span class="hljs-number">78</span>.<span class="hljs-number">0</span>) Gecko/<span class="hljs-number">20100101</span> Firefox/<span class="hljs-number">78</span>.<span class="hljs-number">0</span>&#x27; -H &#x27;Accept: text/html,application/xhtml+xml,application/xml;q=<span class="hljs-number">0</span>.<span class="hljs-number">9</span>,image/webp,*/*;q=<span class="hljs-number">0</span>.<span class="hljs-number">8</span>&#x27; -H &#x27;Accept-Language: zh-HK,zh-TW;q=<span class="hljs-number">0</span>.<span class="hljs-number">5</span>&#x27; --compressed -H &#x27;Connection: keep-alive&#x27; -H &#x27;Referer: https://gitaccuacnz<span class="hljs-number">2</span>-my.sharepoint.com/personal/mail_finderacg_com/_layouts/<span class="hljs-number">15</span>/onedrive.aspx?.......&#x27; -H &#x27;Cookie: CCSInfo=NS<span class="hljs-number">8</span>yOS<span class="hljs-number">8</span>yMDIwIDEwOjE<span class="hljs-number">1</span>OjE<span class="hljs-number">0</span>IEFNC/.....; FeatureOverrides_enableFeatures=; FeatureOverrides_disableFeatures=&#x27; -H &#x27;Upgrade-Insecure-Requests: <span class="hljs-number">1</span>&#x27; -H &#x27;Sec-Fetch-Dest: iframe&#x27; -H &#x27;Sec-Fetch-Mode: navigate&#x27; -H &#x27;Sec-Fetch-Site: same-origin&#x27;</code></pre>
+</li>
+<li><p>之后粘贴到Linux的命令行里，最后在后面补加一句 <code>--output file.extension</code> ,其中 <code>file.extension</code> 是想要保存的文件名。最终执行的命令就是类似这样的：</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">curl</span> &#x27;https://gitaccuacnz<span class="hljs-number">2</span>-my.sharepoint.com/personal/mail_finderacg_com/_layouts/<span class="hljs-number">15</span>/download.aspx?UniqueId=cb<span class="hljs-number">44677</span>f%<span class="hljs-number">2</span>Dc<span class="hljs-number">4</span>af%<span class="hljs-number">2</span>D<span class="hljs-number">44</span>ad%<span class="hljs-number">2</span>D<span class="hljs-number">88</span>d<span class="hljs-number">4</span>%<span class="hljs-number">2</span>Dceb<span class="hljs-number">07</span>d<span class="hljs-number">9625</span>da&#x27; -H &#x27;User-Agent: Mozilla/<span class="hljs-number">5</span>.<span class="hljs-number">0</span> (Windows NT <span class="hljs-number">10</span>.<span class="hljs-number">0</span>; Win<span class="hljs-number">64</span>; x<span class="hljs-number">64</span>; rv:<span class="hljs-number">78</span>.<span class="hljs-number">0</span>) Gecko/<span class="hljs-number">20100101</span> Firefox/<span class="hljs-number">78</span>.<span class="hljs-number">0</span>&#x27; -H &#x27;Accept: text/html,application/xhtml+xml,application/xml;q=<span class="hljs-number">0</span>.<span class="hljs-number">9</span>,image/webp,*/*;q=<span class="hljs-number">0</span>.<span class="hljs-number">8</span>&#x27; -H &#x27;Accept-Language: zh-HK,zh-TW;q=<span class="hljs-number">0</span>.<span class="hljs-number">5</span>&#x27; --compressed -H &#x27;Connection: keep-alive&#x27; -H &#x27;Referer: https://gitaccuacnz<span class="hljs-number">2</span>-my.sharepoint.com/personal/mail_finderacg_com/_layouts/<span class="hljs-number">15</span>/onedrive.aspx?.......&#x27; -H &#x27;Cookie: CCSInfo=NS<span class="hljs-number">8</span>yOS<span class="hljs-number">8</span>yMDIwIDEwOjE<span class="hljs-number">1</span>OjE<span class="hljs-number">0</span>IEFNC/.....; FeatureOverrides_enableFeatures=; FeatureOverrides_disableFeatures=&#x27; -H &#x27;Upgrade-Insecure-Requests: <span class="hljs-number">1</span>&#x27; -H &#x27;Sec-Fetch-Dest: iframe&#x27; -H &#x27;Sec-Fetch-Mode: navigate&#x27; -H &#x27;Sec-Fetch-Site: same-origin&#x27; --output file.extension</code></pre>
+</li>
+<li><p>同时这个方法也适合文件夹下载，只不过前缀是 <code>xxxxx-mediap.svc.ms</code> ，其中<code>xxxxx</code>是地区代号，不同的下载链接所指向的地区不同，具体看情况，这里就不再赘述。</p>
+</li>
+<li>如果使用Chrome下载，需要选择 复制cURL(Bash) 然后把里面的换行和\ 都处理掉，要不然会不行，但是我没成功过，按理讲应该是能成功的，算了，Firefox能用就行了，又不是天天下载。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021098910">这篇文章也写得不错</a></p>
+<h3 id="什么是cookie？我们如何利用cookie高效下载"><a href="#什么是cookie？我们如何利用cookie高效下载" class="headerlink" title="什么是cookie？我们如何利用cookie高效下载"></a>什么是cookie？我们如何利用cookie高效下载</h3><h3 id="google-drive-未解决"><a href="#google-drive-未解决" class="headerlink" title="google drive 未解决"></a>google drive 未解决</h3>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/09/04/post-3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">师兄的讲义</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/09/02/post3/">
+                        <span class="hidden-mobile">计图</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Person Re-identification in the 3D Space + 第一次跑代码&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

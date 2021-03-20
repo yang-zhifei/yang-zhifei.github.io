@@ -1,0 +1,1713 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <link rel="icon" type="image/png" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="yang zhifei">
+  <meta name="keywords" content="">
+  <title>Python程序设计基础 - 一阵风的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>一阵风</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://rmt.dogedoge.com/fetch/fluid/storage/bg/1cm6iu.png?w=1920&fmt=webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-10 17:37" pubdate>
+        2020年10月10日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      10.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      135
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Python程序设计基础</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <p>编辑工具：IDLE/Sublime Text</p>
+<p>项目管理：pycharm/Anconada</p>
+<h1 id="第一章：python基本语法元素"><a href="#第一章：python基本语法元素" class="headerlink" title="第一章：python基本语法元素"></a>第一章：python基本语法元素</h1><h2 id="1-1-程序设计基本方法"><a href="#1-1-程序设计基本方法" class="headerlink" title="1.1 程序设计基本方法"></a>1.1 程序设计基本方法</h2><h3 id="计算机是根据指令操作数据的设备，必须满足功能性（对数据的操作）和可编程性。"><a href="#计算机是根据指令操作数据的设备，必须满足功能性（对数据的操作）和可编程性。" class="headerlink" title="计算机是根据指令操作数据的设备，必须满足功能性（对数据的操作）和可编程性。"></a>计算机是根据指令操作数据的设备，必须满足功能性（对数据的操作）和可编程性。</h3><h3 id="编程语言的执行方式分为编译和解释"><a href="#编程语言的执行方式分为编译和解释" class="headerlink" title="编程语言的执行方式分为编译和解释"></a>编程语言的执行方式分为编译和解释</h3><h4 id="编译-将源代码一次性转化为目标代码的过程"><a href="#编译-将源代码一次性转化为目标代码的过程" class="headerlink" title="编译;将源代码一次性转化为目标代码的过程"></a>编译;将源代码一次性转化为目标代码的过程</h4><h4 id="解释：将源代码逐条转换成目标代码同时逐条运行的过程"><a href="#解释：将源代码逐条转换成目标代码同时逐条运行的过程" class="headerlink" title="解释：将源代码逐条转换成目标代码同时逐条运行的过程"></a>解释：将源代码逐条转换成目标代码同时逐条运行的过程</h4><h3 id="编程语言分为两类"><a href="#编程语言分为两类" class="headerlink" title="编程语言分为两类"></a>编程语言分为两类</h3><h4 id="静态语言：编译执行，c-c-java"><a href="#静态语言：编译执行，c-c-java" class="headerlink" title="静态语言：编译执行，c/c++/java"></a>静态语言：编译执行，c/c++/java</h4><h4 id="脚本语言：-解释执行，Python-javaScript-PHP"><a href="#脚本语言：-解释执行，Python-javaScript-PHP" class="headerlink" title="脚本语言： 解释执行，Python/javaScript/PHP"></a>脚本语言： 解释执行，Python/javaScript/PHP</h4><h2 id="1-2-Python开发环境配置"><a href="#1-2-Python开发环境配置" class="headerlink" title="1.2 Python开发环境配置"></a>1.2 Python开发环境配置</h2><p><strong>下载andaconda</strong></p>
+<p>汉化<a target="_blank" rel="noopener" href="https://www.py.cn/tools/spyder/16379.html">https://www.py.cn/tools/spyder/16379.html</a></p>
+<p><strong>更新conda</strong></p>
+<ul>
+<li><p>打开anaconda prompt</p>
+</li>
+<li><p>更新Anaconda，命令如下：</p>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">conda update conda</span></code></pre>
+</li>
+<li><p>更新各种常用包，命令如下：</p>
+<pre><code class="hljs n1ql">conda <span class="hljs-keyword">update</span> --<span class="hljs-keyword">all</span></code></pre>
+</li>
+<li><p>升级spyder命令为</p>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">conda update spyder</span></code></pre>
+</li>
+</ul>
+<h2 id="1-3-温度转换实例"><a href="#1-3-温度转换实例" class="headerlink" title="1.3 温度转换实例"></a>1.3 温度转换实例</h2><pre><code class="hljs python"><span class="hljs-comment">#TempConvert.py</span>
+TempStr = input(<span class="hljs-string">&quot;请输入带有符号的温度值：&quot;</span>)
+<span class="hljs-keyword">if</span> TempStr[<span class="hljs-number">-1</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&#x27;F&#x27;</span>,<span class="hljs-string">&#x27;f&#x27;</span>]
+	C = (eval(TempStr[<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>]) - <span class="hljs-number">32</span>)/<span class="hljs-number">1.8</span> <span class="hljs-comment">#注意他是怎么取到字符串中所有的量</span>
+    print(<span class="hljs-string">&quot;转换后的温度是&#123;:.2f&#125;C&quot;</span>.format(F))
+<span class="hljs-keyword">elif</span> TempStr[<span class="hljs-number">-1</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&#x27;C&#x27;</span>,<span class="hljs-string">&#x27;c&#x27;</span>]:
+    F = <span class="hljs-number">1.8</span>*eval(TempStr[<span class="hljs-number">0</span>:<span class="hljs-number">-1</span>]) + <span class="hljs-number">32</span>
+    print(<span class="hljs-string">&quot;转换后的温度是&#123;:.2f&#125;F&quot;</span>.format(F))
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">&quot;输入格式错误&quot;</span>)</code></pre>
+<h2 id="1-4-Python程序语法元素分析"><a href="#1-4-Python程序语法元素分析" class="headerlink" title="1.4 Python程序语法元素分析"></a>1.4 Python程序语法元素分析</h2><h3 id="程序的格式框架"><a href="#程序的格式框架" class="headerlink" title="程序的格式框架"></a>程序的格式框架</h3><h4 id="缩进：一行py代码开始前的空白区域，表达程序的格式框架-严格-所属-长度"><a href="#缩进：一行py代码开始前的空白区域，表达程序的格式框架-严格-所属-长度" class="headerlink" title="缩进：一行py代码开始前的空白区域，表达程序的格式框架(严格/所属/长度)"></a>缩进：一行py代码开始前的空白区域，表达程序的格式框架(严格/所属/长度)</h4><h4 id="注释：用于提高代码可读性的辅助性文字，不被执行"><a href="#注释：用于提高代码可读性的辅助性文字，不被执行" class="headerlink" title="注释：用于提高代码可读性的辅助性文字，不被执行"></a>注释：用于提高代码可读性的辅助性文字，不被执行</h4><h3 id="命名与保留字"><a href="#命名与保留字" class="headerlink" title="命名与保留字"></a>命名与保留字</h3><h4 id="变量-程序中用于保存和表示数据的占位符号"><a href="#变量-程序中用于保存和表示数据的占位符号" class="headerlink" title="变量:   程序中用于保存和表示数据的占位符号"></a>变量:   程序中用于保存和表示数据的占位符号</h4><h4 id="命名-关联标识符的过程"><a href="#命名-关联标识符的过程" class="headerlink" title="命名:   关联标识符的过程"></a>命名:   关联标识符的过程</h4><h4 id="命名规则-大小写字母、数字、下划线和中文等字符及组合"><a href="#命名规则-大小写字母、数字、下划线和中文等字符及组合" class="headerlink" title="命名规则 :   大小写字母、数字、下划线和中文等字符及组合"></a>命名规则 :   大小写字母、数字、下划线和中文等字符及组合</h4><h4 id="保留字-被编程语言内部定义并保留使用的标识符"><a href="#保留字-被编程语言内部定义并保留使用的标识符" class="headerlink" title="保留字:   被编程语言内部定义并保留使用的标识符"></a>保留字:   被编程语言内部定义并保留使用的标识符</h4><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h4 id="数据类型-供计算机程序理解的数据形式"><a href="#数据类型-供计算机程序理解的数据形式" class="headerlink" title="数据类型:   供计算机程序理解的数据形式"></a>数据类型:   供计算机程序理解的数据形式</h4><h4 id="数据类型：字符串、整数、浮点数、列表"><a href="#数据类型：字符串、整数、浮点数、列表" class="headerlink" title="数据类型：字符串、整数、浮点数、列表"></a>数据类型：字符串、整数、浮点数、列表</h4><h5 id="字符串-由-0-个或多个字符组成的有序字符序列"><a href="#字符串-由-0-个或多个字符组成的有序字符序列" class="headerlink" title="字符串:   由 0 个或多个字符组成的有序字符序列"></a>字符串:   由 0 个或多个字符组成的有序字符序列</h5><ul>
+<li>字符串由一对单引号或一对双引号表示</li>
+<li>字符串是字符的有序序列，可以对其中的字符进行索引</li>
+<li>字符串的序号:   正向递增序号和反向递减序号</li>
+<li>字符串的使用:   [ ]获取字符串中一个或多个字符<ul>
+<li>索引：返回字符串中单个字符 &lt;字符串 &gt;[]</li>
+<li>切片：返回字符串中一段字符子串 &lt;字符串 &gt;[M: N]</li>
+</ul>
+</li>
+</ul>
+<h5 id="数字类型-整数和浮点数"><a href="#数字类型-整数和浮点数" class="headerlink" title="数字类型:   整数和浮点数"></a>数字类型:   整数和浮点数</h5><h5 id="列表类型-由-0-个或多个数据组成的有序序列"><a href="#列表类型-由-0-个或多个数据组成的有序序列" class="headerlink" title="列表类型:   由 0 个或多个数据组成的有序序列"></a>列表类型:   由 0 个或多个数据组成的有序序列</h5><ul>
+<li>列表使用 [ ]表示，采用逗号 (,)分隔各元素</li>
+<li>使用保留字 in 判断一个元素是否在列表中</li>
+</ul>
+<h3 id="语句与函数"><a href="#语句与函数" class="headerlink" title="语句与函数"></a>语句与函数</h3><h4 id="赋值语句：由赋值符号构成的一行代码"><a href="#赋值语句：由赋值符号构成的一行代码" class="headerlink" title="赋值语句：由赋值符号构成的一行代码"></a>赋值语句：由赋值符号构成的一行代码</h4><h4 id="分支语句：由判断条件决定程序运行方向的语句"><a href="#分支语句：由判断条件决定程序运行方向的语句" class="headerlink" title="分支语句：由判断条件决定程序运行方向的语句"></a>分支语句：由判断条件决定程序运行方向的语句</h4><h4 id="函数-根据输入参数产生不同输出的功能过程"><a href="#函数-根据输入参数产生不同输出的功能过程" class="headerlink" title="函数:   根据输入参数产生不同输出的功能过程"></a>函数:   根据输入参数产生不同输出的功能过程</h4><h3 id="Python-程序的输入输出"><a href="#Python-程序的输入输出" class="headerlink" title="Python 程序的输入输出"></a>Python 程序的输入输出</h3><h4 id="输入函数input-从控制台获得用户输入的函数"><a href="#输入函数input-从控制台获得用户输入的函数" class="headerlink" title="输入函数input():   从控制台获得用户输入的函数"></a>输入函数input():   从控制台获得用户输入的函数</h4><ul>
+<li>使用格式：&lt;变量 &gt; input 提示信息字符串</li>
+<li>用户输入的信息以字符串类型保存在&lt;变量&gt; 中</li>
+</ul>
+<h4 id="输出函数print-以字符形式向控制台输出结果的函数"><a href="#输出函数print-以字符形式向控制台输出结果的函数" class="headerlink" title="输出函数print():   以字符形式向控制台输出结果的函数"></a>输出函数print():   以字符形式向控制台输出结果的函数</h4><ul>
+<li>print(&lt;拟输出字符串或字符串变量&gt;)</li>
+<li>字符串类型的一对引号仅在程序内部使用，输出无引号</li>
+<li>输出函数的格式化： print（转换后的温度是 {:.2f} C”. format(c))</li>
+</ul>
+<h4 id="eval-：去掉参数最外侧引号并执行余下语句的函数"><a href="#eval-：去掉参数最外侧引号并执行余下语句的函数" class="headerlink" title="eval()：去掉参数最外侧引号并执行余下语句的函数"></a>eval()：去掉参数最外侧引号并执行余下语句的函数</h4><ul>
+<li>eval(&lt;拟输出字符串或字符串变量&gt;)</li>
+<li>理解执行余下语句是什么意思，数值会变成数值，运算符会参与运算</li>
+</ul>
+<h4 id="format-：函数控制输出格式"><a href="#format-：函数控制输出格式" class="headerlink" title="format()：函数控制输出格式"></a>format()：函数控制输出格式</h4><p>和%用法相似，</p>
+<p>print(‘{}{}’).format(a,b)</p>
+<p>print(‘{:.2f}b’).format(a)</p>
+<h2 id="第一章作业"><a href="#第一章作业" class="headerlink" title="第一章作业"></a>第一章作业</h2><pre><code class="hljs python">n=input()
+s=<span class="hljs-string">&quot;零一二三四五六七八九&quot;</span>
+<span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;0123456789&quot;</span>:
+    n=n.replace(c,s[eval(c)]) <span class="hljs-comment">#这行代码给我整懵了</span>
+print(n) 
+
+通过作业理解字符串/字符数组的下标取用
+TempStr = input()
+print(TempStr[<span class="hljs-number">0</span>])
+&gt;&gt;F32
+&gt;&gt;F</code></pre>
+<p>python与c语言是不同的，c语言中最后一位是\0</p>
+<pre><code class="hljs python"><span class="hljs-comment">#TempConvert.py</span>
+TempStr = input()
+<span class="hljs-keyword">if</span> TempStr[<span class="hljs-number">0</span>] == <span class="hljs-string">&#x27;R&#x27;</span>:
+    USD = eval(TempStr[<span class="hljs-number">3</span>:])/<span class="hljs-number">6.78</span>
+    print(<span class="hljs-string">&quot;USD&#123;:.2f&#125;&quot;</span>.format(USD))
+<span class="hljs-keyword">elif</span> TempStr[<span class="hljs-number">0</span>] == <span class="hljs-string">&#x27;U&#x27;</span>:
+    RMB = <span class="hljs-number">6.78</span>*eval(TempStr[<span class="hljs-number">3</span>:])
+    print(<span class="hljs-string">&quot;RMB&#123;:.2f&#125;&quot;</span>.format(RMB))</code></pre>
+<h1 id="第二章：python基本图像绘制"><a href="#第二章：python基本图像绘制" class="headerlink" title="第二章：python基本图像绘制"></a>第二章：python基本图像绘制</h1><h2 id="2-1理解python语言"><a href="#2-1理解python语言" class="headerlink" title="2.1理解python语言"></a>2.1理解python语言</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">编程语言</th>
+<th style="text-align:center">学习内容</th>
+<th style="text-align:center">语言本质</th>
+<th style="text-align:center">解决问题</th>
+<th style="text-align:center">适用专业</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">指针、内存、数据类型</td>
+<td style="text-align:center">理解计算机系统结构</td>
+<td style="text-align:center">性能</td>
+<td style="text-align:center">计算机</td>
+</tr>
+<tr>
+<td style="text-align:center">Java</td>
+<td style="text-align:center">对象、跨平台、运行时</td>
+<td style="text-align:center">理解主客体关系</td>
+<td style="text-align:center">跨平台</td>
+<td style="text-align:center">软件</td>
+</tr>
+<tr>
+<td style="text-align:center">C++</td>
+<td style="text-align:center">对象、多态、继承</td>
+<td style="text-align:center">理解主客体关系</td>
+<td style="text-align:center">大规模程序</td>
+<td style="text-align:center">计算机</td>
+</tr>
+<tr>
+<td style="text-align:center">Python</td>
+<td style="text-align:center">编程逻辑、第三方库</td>
+<td style="text-align:center">理解问题求解</td>
+<td style="text-align:center">各类问题</td>
+<td style="text-align:center">所有</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2-2绘制蟒蛇"><a href="#2-2绘制蟒蛇" class="headerlink" title="2.2绘制蟒蛇"></a>2.2绘制蟒蛇</h2><pre><code class="hljs python"><span class="hljs-comment">#PythonDraw.py</span>
+<span class="hljs-keyword">import</span> turtle
+turtle.setup(<span class="hljs-number">650</span>, <span class="hljs-number">350</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
+turtle.penup()
+turtle.fd(<span class="hljs-number">-250</span>) 
+turtle.pendown() 
+turtle.pensize(<span class="hljs-number">25</span>)
+turtle.pencolor(<span class="hljs-string">&quot;purple&quot;</span>)
+turtle.seth(<span class="hljs-number">-40</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>):
+    turtle.circle(<span class="hljs-number">40</span>, <span class="hljs-number">80</span>)
+    turtle.circle(<span class="hljs-number">-40</span>, <span class="hljs-number">80</span>)
+turtle.circle(<span class="hljs-number">40</span>, <span class="hljs-number">80</span>/<span class="hljs-number">2</span>)
+turtle.fd(<span class="hljs-number">40</span>)
+turtle.circle(<span class="hljs-number">16</span>, <span class="hljs-number">180</span>)
+turtle.fd(<span class="hljs-number">40</span> * <span class="hljs-number">2</span>/<span class="hljs-number">3</span>)
+turtle.done()</code></pre>
+<p>import+保留字</p>
+<ul>
+<li>引入了一个绘图库</li>
+</ul>
+<h3 id="程序参数的改变"><a href="#程序参数的改变" class="headerlink" title="程序参数的改变"></a>程序参数的改变</h3><h4 id="Python蟒蛇的颜色：黑色、白色、七彩色…"><a href="#Python蟒蛇的颜色：黑色、白色、七彩色…" class="headerlink" title="Python蟒蛇的颜色：黑色、白色、七彩色…"></a>Python蟒蛇的颜色：黑色、白色、七彩色…</h4><h4 id="Python蟒蛇的长度：1节、3节、10节…"><a href="#Python蟒蛇的长度：1节、3节、10节…" class="headerlink" title="Python蟒蛇的长度：1节、3节、10节…"></a>Python蟒蛇的长度：1节、3节、10节…</h4><h4 id="Python蟒蛇的方向：向左走、斜着走…"><a href="#Python蟒蛇的方向：向左走、斜着走…" class="headerlink" title="Python蟒蛇的方向：向左走、斜着走…"></a>Python蟒蛇的方向：向左走、斜着走…</h4><h3 id="计算问题的扩展"><a href="#计算问题的扩展" class="headerlink" title="计算问题的扩展"></a>计算问题的扩展</h3><h4 id="Python蟒蛇绘制问题是各类图像绘制问题的代表"><a href="#Python蟒蛇绘制问题是各类图像绘制问题的代表" class="headerlink" title="Python蟒蛇绘制问题是各类图像绘制问题的代表"></a>Python蟒蛇绘制问题是各类图像绘制问题的代表</h4><h4 id="圆形绘制、五角星绘制、国旗绘制、机器猫绘制…"><a href="#圆形绘制、五角星绘制、国旗绘制、机器猫绘制…" class="headerlink" title="圆形绘制、五角星绘制、国旗绘制、机器猫绘制…"></a>圆形绘制、五角星绘制、国旗绘制、机器猫绘制…</h4><h4 id="掌握绘制一条线的方法，就可以绘制整个世界"><a href="#掌握绘制一条线的方法，就可以绘制整个世界" class="headerlink" title="掌握绘制一条线的方法，就可以绘制整个世界"></a>掌握绘制一条线的方法，就可以绘制整个世界</h4><h2 id="2-3第一个模块：turtle-库的使用"><a href="#2-3第一个模块：turtle-库的使用" class="headerlink" title="2.3第一个模块：turtle 库的使用"></a>2.3第一个模块：turtle 库的使用</h2><h3 id="turtle-库基本介绍"><a href="#turtle-库基本介绍" class="headerlink" title="turtle 库基本介绍"></a>turtle 库基本介绍</h3><h4 id="Python计算生态-标准库-第三方库"><a href="#Python计算生态-标准库-第三方库" class="headerlink" title="Python计算生态 = 标准库 + 第三方库"></a>Python计算生态 = 标准库 + 第三方库</h4><h5 id="标准库：随解释器直接安装到操作系统中的功能模块"><a href="#标准库：随解释器直接安装到操作系统中的功能模块" class="headerlink" title="标准库：随解释器直接安装到操作系统中的功能模块"></a>标准库：随解释器直接安装到操作系统中的功能模块</h5><h5 id="第三方库：需要经过安装才能使用的功能模块"><a href="#第三方库：需要经过安装才能使用的功能模块" class="headerlink" title="第三方库：需要经过安装才能使用的功能模块"></a>第三方库：需要经过安装才能使用的功能模块</h5><h5 id="库Library、包Package、模块Module，统称模块"><a href="#库Library、包Package、模块Module，统称模块" class="headerlink" title="库Library、包Package、模块Module，统称模块"></a>库Library、包Package、模块Module，统称模块</h5><h3 id="turtle-绘图窗体布局"><a href="#turtle-绘图窗体布局" class="headerlink" title="turtle 绘图窗体布局"></a>turtle 绘图窗体布局</h3><h4 id="turtle的一个画布空间中最小单位是像素"><a href="#turtle的一个画布空间中最小单位是像素" class="headerlink" title="turtle的一个画布空间中最小单位是像素"></a>turtle的一个画布空间中最小单位是像素</h4><h4 id="turtle的绘图窗体"><a href="#turtle的绘图窗体" class="headerlink" title="turtle的绘图窗体"></a>turtle的绘图窗体</h4><p><img src="https://i.loli.net/2020/10/27/cDyRSugKvalF9TU.png" srcset="/img/loading.gif" alt=""></p>
+<p><code>turtle.setup(width, height, startx, starty)</code></p>
+<ul>
+<li>setup()设置窗体大小及位置</li>
+<li>4个参数中后两个可选</li>
+<li>setup()不是必须的</li>
+</ul>
+<h3 id="turtle-空间坐标体系"><a href="#turtle-空间坐标体系" class="headerlink" title="turtle 空间坐标体系"></a>turtle 空间坐标体系</h3><h4 id="绝对坐标：以窗体为中心建立直角坐标系"><a href="#绝对坐标：以窗体为中心建立直角坐标系" class="headerlink" title="绝对坐标：以窗体为中心建立直角坐标系"></a>绝对坐标：以窗体为中心建立直角坐标系</h4><p><code>turtle.goto(x, y)</code>以（0，0）点为起点开始</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> turtle
+turtle.goto( <span class="hljs-number">100</span>, <span class="hljs-number">100</span>)
+turtle.goto( <span class="hljs-number">100</span>,<span class="hljs-number">-100</span>) 
+turtle.goto(<span class="hljs-number">-100</span>,<span class="hljs-number">-100</span>) 
+turtle.goto(<span class="hljs-number">-100</span>, <span class="hljs-number">100</span>)
+turtle.goto(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)</code></pre>
+<h4 id="海龟坐标：以窗体为中心，x为前进后退方向，y为左侧右侧方向"><a href="#海龟坐标：以窗体为中心，x为前进后退方向，y为左侧右侧方向" class="headerlink" title="海龟坐标：以窗体为中心，x为前进后退方向，y为左侧右侧方向"></a>海龟坐标：以窗体为中心，x为前进后退方向，y为左侧右侧方向</h4><h3 id="turtle-角度坐标体系"><a href="#turtle-角度坐标体系" class="headerlink" title="turtle 角度坐标体系"></a>turtle 角度坐标体系</h3><h4 id="绝对角度：极坐标的角度划分"><a href="#绝对角度：极坐标的角度划分" class="headerlink" title="绝对角度：极坐标的角度划分"></a>绝对角度：极坐标的角度划分</h4><ul>
+<li><p>turtle.seth(angle)</p>
+</li>
+<li><p>seth()改变海龟行进方向</p>
+</li>
+<li>angle为<strong>绝对度数</strong></li>
+<li>seth()表示只改变方向但不行</li>
+</ul>
+<h4 id="海龟角度：turtle-left-angle-turtle-right-angle"><a href="#海龟角度：turtle-left-angle-turtle-right-angle" class="headerlink" title="海龟角度：turtle.left angle//turtle.right angle"></a>海龟角度：turtle.left angle//turtle.right angle</h4><h3 id="RGB-色彩体系-由三种颜色构成的万物色"><a href="#RGB-色彩体系-由三种颜色构成的万物色" class="headerlink" title="RGB 色彩体系-由三种颜色构成的万物色"></a>RGB 色彩体系-由三种颜色构成的万物色</h3><h4 id="RGB指红蓝绿三个通道的颜色组合"><a href="#RGB指红蓝绿三个通道的颜色组合" class="headerlink" title="RGB指红蓝绿三个通道的颜色组合"></a>RGB指红蓝绿三个通道的颜色组合</h4><h4 id="覆盖视力所能感知的所有颜色"><a href="#覆盖视力所能感知的所有颜色" class="headerlink" title="覆盖视力所能感知的所有颜色"></a>覆盖视力所能感知的所有颜色</h4><h4 id="RGB每色取值范围0-255整数或0-1小数"><a href="#RGB每色取值范围0-255整数或0-1小数" class="headerlink" title="RGB每色取值范围0-255整数或0-1小数"></a>RGB每色取值范围0-255整数或0-1小数</h4><h4 id="默认采用小数值-可切换为整数值"><a href="#默认采用小数值-可切换为整数值" class="headerlink" title="默认采用小数值  可切换为整数值"></a>默认采用小数值  可切换为整数值</h4><ul>
+<li><p>1.0：RGB小数值模式</p>
+</li>
+<li><p>255：RGB整数值模式</p>
+<pre><code class="hljs css"><span class="hljs-selector-tag">turtle</span><span class="hljs-selector-class">.colormode</span>(<span class="hljs-selector-tag">mode</span>)</code></pre>
+</li>
+</ul>
+<h2 id="2-4turtle程序语法元素分析"><a href="#2-4turtle程序语法元素分析" class="headerlink" title="2.4turtle程序语法元素分析"></a>2.4turtle程序语法元素分析</h2><h3 id="库引用与import"><a href="#库引用与import" class="headerlink" title="库引用与import"></a>库引用与import</h3><h4 id="扩充Python-程序功能的方式"><a href="#扩充Python-程序功能的方式" class="headerlink" title="扩充Python 程序功能的方式"></a>扩充Python 程序功能的方式</h4><p>​    import &lt;库名&gt;<br>​    &lt;库名&gt;.&lt;函数名&gt;(&lt;函数参数&gt;)</p>
+<h4 id="使用from和import保留字共同完成"><a href="#使用from和import保留字共同完成" class="headerlink" title="使用from和import保留字共同完成"></a>使用from和import保留字共同完成</h4><p>​    from &lt;库名&gt; import &lt;函数名&gt;<br>​    from &lt;库名&gt; import *<br>​    &lt;函数名&gt;(&lt;函数参数&gt;)</p>
+<h4 id="（推荐）使用import和as保留字共同完成"><a href="#（推荐）使用import和as保留字共同完成" class="headerlink" title="（推荐）使用import和as保留字共同完成"></a>（推荐）使用import和as保留字共同完成</h4><p>​    import &lt;库名&gt; as &lt;库别名&gt;<br>​    &lt;库别名&gt;.&lt;函数名&gt;(&lt;函数参数&gt;)</p>
+<h3 id="turtle画笔控制函数"><a href="#turtle画笔控制函数" class="headerlink" title="turtle画笔控制函数"></a>turtle画笔控制函数</h3><h4 id="画笔操作后一直有效，一般成对出现"><a href="#画笔操作后一直有效，一般成对出现" class="headerlink" title="画笔操作后一直有效，一般成对出现"></a>画笔操作后一直有效，一般成对出现</h4><ul>
+<li>turtle.penup()          别名     turtle.pu()<br>抬起画笔，海龟在飞行</li>
+<li>turtle.pendown()     别名     turtle.pd()<br>落下画笔，海龟在爬行</li>
+</ul>
+<h4 id="画笔设置后一直有效，直至下次重新设置"><a href="#画笔设置后一直有效，直至下次重新设置" class="headerlink" title="画笔设置后一直有效，直至下次重新设置"></a>画笔设置后一直有效，直至下次重新设置</h4><ul>
+<li>turtle.pensize(width)    别名   turtle.width(width)<br>画笔宽度，海龟的腰围</li>
+<li>turtle.pencolor(color)  color为颜色字符串或r,g,b值<br>画笔颜色，海龟在涂装</li>
+</ul>
+<h4 id="pencolor-color-的-color-可以-有三种形式"><a href="#pencolor-color-的-color-可以-有三种形式" class="headerlink" title="pencolor(color)的 color 可以 有三种形式"></a>pencolor(color)的 color 可以 有三种形式</h4><ul>
+<li>颜色字符串    ：turtle.pencolor(“purple”)</li>
+<li>RGB的小数值：turtle.pencolor(0.63, 0.13, 0.94)</li>
+<li>RGB的元组值：turtle.pencolor((0.63,0.13,0.94))</li>
+</ul>
+<h3 id="turtle运动控制函数"><a href="#turtle运动控制函数" class="headerlink" title="turtle运动控制函数"></a>turtle运动控制函数</h3><h4 id="控制海龟行进：走直线-amp-走曲线"><a href="#控制海龟行进：走直线-amp-走曲线" class="headerlink" title="控制海龟行进：走直线 &amp; 走曲线"></a>控制海龟行进：走直线 &amp; 走曲线</h4><ul>
+<li><p>turtle.forward(d)    别名   turtle.fd(d)<br>向前行进，海龟走直线</p>
+<ul>
+<li>d: 行进距离，可以为负数<br>控制海龟行进：走直线 &amp; 走曲线</li>
+</ul>
+</li>
+<li><p>turtle.circle(r, extent=None)<br>根据半径r绘制extent角度的弧形</p>
+</li>
+<li><p>r: 默认圆心在海龟左侧r距离的位置</p>
+</li>
+<li><p>extent: 绘制角度，默认是360度整圆</p>
+</li>
+</ul>
+<h3 id="turtle方向控制函数"><a href="#turtle方向控制函数" class="headerlink" title="turtle方向控制函数"></a>turtle方向控制函数</h3><h4 id="绝对角度"><a href="#绝对角度" class="headerlink" title="绝对角度"></a>绝对角度</h4><ul>
+<li>turtle.setheading(angle)      别名     turtle.seth(angle)<br>改变行进方向，海龟走角度</li>
+<li>angle: 行进方向的绝对角度</li>
+</ul>
+<h4 id="相对角度"><a href="#相对角度" class="headerlink" title="相对角度"></a>相对角度</h4><ul>
+<li>turtle.left(angle)          海龟向左转</li>
+<li>turtle.right(angle)       海龟向右转</li>
+<li>angle: 在海龟当前行进方向上旋转的角度</li>
+</ul>
+<h3 id="基本循环语句"><a href="#基本循环语句" class="headerlink" title="基本循环语句"></a>基本循环语句</h3><h4 id="for循环-按照一定次数循环执行一组语句"><a href="#for循环-按照一定次数循环执行一组语句" class="headerlink" title="for循环-按照一定次数循环执行一组语句"></a>for循环-按照一定次数循环执行一组语句</h4><p>for &lt;变量&gt;  in  range(&lt;次数&gt;):<br>&lt;被循环执行的语句&gt;</p>
+<ul>
+<li>&lt;变量&gt;表示每次循环的计数，0到&lt;次数&gt;-1</li>
+</ul>
+<h4 id="range-函数-产生循环计数序列"><a href="#range-函数-产生循环计数序列" class="headerlink" title="range()函数-产生循环计数序列"></a>range()函数-产生循环计数序列</h4><ul>
+<li>range(N)<br>产生 0 到 N-1的整数序列，共N个</li>
+<li>range(M,N)<br><strong>产生 M 到 N-1的整数序列，共N-M个</strong></li>
+</ul>
+<h3 id="“Python蟒蛇绘制”代码分析"><a href="#“Python蟒蛇绘制”代码分析" class="headerlink" title="“Python蟒蛇绘制”代码分析"></a>“Python蟒蛇绘制”代码分析</h3><h4 id="绘制正方形"><a href="#绘制正方形" class="headerlink" title="绘制正方形"></a>绘制正方形</h4><pre><code class="hljs python"><span class="hljs-comment">#PythonDraw.py</span>
+<span class="hljs-keyword">import</span> turtle <span class="hljs-keyword">as</span> t
+t.setup(<span class="hljs-number">650</span>,<span class="hljs-number">350</span>,<span class="hljs-number">200</span>,<span class="hljs-number">200</span> )
+t.penup()
+t.goto(<span class="hljs-number">-50</span>,<span class="hljs-number">-50</span>)
+t.pendown() 
+t.pensize(<span class="hljs-number">10</span>)
+t.pencolor(<span class="hljs-string">&quot;black&quot;</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>):
+    t.fd(<span class="hljs-number">100</span>)
+    t.left(<span class="hljs-number">90</span>)
+t.done()</code></pre>
+<h4 id="绘制六边形"><a href="#绘制六边形" class="headerlink" title="绘制六边形"></a>绘制六边形</h4><pre><code class="hljs python"><span class="hljs-comment">#PythonDraw.py</span>
+<span class="hljs-keyword">import</span> turtle <span class="hljs-keyword">as</span> t
+t.setup(<span class="hljs-number">650</span>,<span class="hljs-number">350</span>,<span class="hljs-number">200</span>,<span class="hljs-number">200</span> )
+t.penup()
+t.right(<span class="hljs-number">-120</span>)
+t.fd(<span class="hljs-number">100</span>)
+t.pendown() 
+t.pensize(<span class="hljs-number">5</span>)
+t.pencolor(<span class="hljs-string">&quot;black&quot;</span>)
+t.right(<span class="hljs-number">120</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">6</span>):
+    t.fd(<span class="hljs-number">50</span>)
+    t.left(<span class="hljs-number">60</span>)
+t.done()</code></pre>
+<h4 id="绘制叠边形"><a href="#绘制叠边形" class="headerlink" title="绘制叠边形"></a>绘制叠边形</h4><pre><code class="hljs python"><span class="hljs-comment">#PythonDraw.py</span>
+<span class="hljs-keyword">import</span> turtle <span class="hljs-keyword">as</span> t
+t.setup(<span class="hljs-number">650</span>,<span class="hljs-number">350</span>,<span class="hljs-number">200</span>,<span class="hljs-number">200</span> )
+t.penup()
+t.goto(<span class="hljs-number">-50</span>,<span class="hljs-number">-50</span>)
+t.pendown() 
+t.pensize(<span class="hljs-number">5</span>)
+t.pencolor(<span class="hljs-string">&quot;black&quot;</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">9</span>):
+    t.fd(<span class="hljs-number">50</span>)
+    t.left(<span class="hljs-number">80</span>)
+t.done()</code></pre>
+<h4 id="风轮绘制"><a href="#风轮绘制" class="headerlink" title="风轮绘制"></a>风轮绘制</h4><pre><code class="hljs python"><span class="hljs-comment">#PythonDraw.py</span>
+<span class="hljs-keyword">import</span> turtle <span class="hljs-keyword">as</span> t
+t.setup(<span class="hljs-number">650</span>,<span class="hljs-number">350</span>,<span class="hljs-number">200</span>,<span class="hljs-number">200</span> )
+t.pensize(<span class="hljs-number">5</span>)
+t.pencolor(<span class="hljs-string">&quot;black&quot;</span>)
+t.seth(<span class="hljs-number">-135</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>):
+    t.fd(<span class="hljs-number">150</span>)
+    t.left(<span class="hljs-number">90</span>)
+    t.circle(<span class="hljs-number">150</span>,<span class="hljs-number">45</span>)
+    t.left(<span class="hljs-number">90</span>)
+    t.fd(<span class="hljs-number">150</span>)
+    t.right(<span class="hljs-number">135</span>)
+t.done()</code></pre>
+<h1 id="第三章：基本数据类型"><a href="#第三章：基本数据类型" class="headerlink" title="第三章：基本数据类型"></a>第三章：基本数据类型</h1><h2 id="3-1数字类型及操作"><a href="#3-1数字类型及操作" class="headerlink" title="3.1数字类型及操作"></a>3.1数字类型及操作</h2><h3 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h3><h4 id="与数学中整数的概念一致"><a href="#与数学中整数的概念一致" class="headerlink" title="与数学中整数的概念一致"></a>与数学中整数的概念一致</h4><ul>
+<li>可正可负，没有取值范围限制</li>
+<li>pow(x,y)函数：计算 xy，想算多大算多大</li>
+</ul>
+<h4 id="4种进制表示形式"><a href="#4种进制表示形式" class="headerlink" title="4种进制表示形式"></a>4种进制表示形式</h4><ul>
+<li>十进制：1010, 99, -217</li>
+<li>二进制，以0b或0B开头：0b010, -0B101</li>
+<li>八进制，以0o或0O开头：0o123, -0O456</li>
+<li>十六进制，以0x或0X开头：0x9a, -0X89</li>
+</ul>
+<h3 id="浮点数类型"><a href="#浮点数类型" class="headerlink" title="浮点数类型"></a>浮点数类型</h3><h4 id="与数学中实数的概念一致"><a href="#与数学中实数的概念一致" class="headerlink" title="与数学中实数的概念一致"></a>与数学中实数的概念一致</h4><ul>
+<li>带有小数点及小数的数字</li>
+<li>浮点数取值范围和小数精度都存在限制，但常规计算可忽略</li>
+<li>取值范围数量级约-10^307至10^308，精度数量级10^-16</li>
+</ul>
+<h4 id="浮点数间运算存在不确定尾数，不是bug"><a href="#浮点数间运算存在不确定尾数，不是bug" class="headerlink" title="浮点数间运算存在不确定尾数，不是bug"></a>浮点数间运算存在不确定尾数，不是bug</h4><p>53位二进制表示小数部分,转换为十进制会出现误差</p>
+<p><strong>二进制表示小数，可以无限接近，但不完全相同</strong></p>
+<ul>
+<li>round(x, d)：对x四舍五入，d是小数截取位数</li>
+<li>浮点数间运算与比较用round()函数辅助</li>
+<li>不确定尾数一般发生在10-16左右，round()十分有效</li>
+</ul>
+<h4 id="浮点数可以采用科学计数法表示"><a href="#浮点数可以采用科学计数法表示" class="headerlink" title="浮点数可以采用科学计数法表示"></a>浮点数可以采用科学计数法表示</h4><ul>
+<li>使用字母e或E作为幂的符号，以10为基数</li>
+</ul>
+<h3 id="复数类型"><a href="#复数类型" class="headerlink" title="复数类型"></a>复数类型</h3><h4 id="与数学中复数的概念一致"><a href="#与数学中复数的概念一致" class="headerlink" title="与数学中复数的概念一致"></a>与数学中复数的概念一致</h4><h4 id="z-real-获得实部"><a href="#z-real-获得实部" class="headerlink" title="z.real 获得实部"></a>z.real 获得实部</h4><h4 id="z-imag-获得虚部"><a href="#z-imag-获得虚部" class="headerlink" title="z.imag 获得虚部"></a>z.imag 获得虚部</h4><h3 id="数值运算操作符"><a href="#数值运算操作符" class="headerlink" title="数值运算操作符"></a>数值运算操作符</h3><p>加减乘除整数除，模运算（求余），幂运算（x ** y）</p>
+<p>二元操作符有对应的增强赋值操作符</p>
+<h4 id="类型间可进行混合运算，生成结果为”最宽”类型"><a href="#类型间可进行混合运算，生成结果为”最宽”类型" class="headerlink" title="类型间可进行混合运算，生成结果为”最宽”类型"></a>类型间可进行混合运算，生成结果为”最宽”类型</h4><ul>
+<li>三种类型存在一种逐渐”扩展”或”变宽”的关系：<br>整数  -&gt;  浮点数  -&gt;  复数</li>
+<li>例如：123 + 4.0 = 127.0    (整数+浮点数 = 浮点数)</li>
+</ul>
+<h3 id="数值运算函数"><a href="#数值运算函数" class="headerlink" title="数值运算函数"></a>数值运算函数</h3><h4 id="一些以函数形式提供的数值运算功能"><a href="#一些以函数形式提供的数值运算功能" class="headerlink" title="一些以函数形式提供的数值运算功能"></a>一些以函数形式提供的数值运算功能</h4><p>abs(x)</p>
+<p>divmod(x,y)</p>
+<p>pow(x, y[, z])</p>
+<ul>
+<li>幂余，(x**y)%z，[..]表示参数z可省略<br>pow(3, pow(3, 99), 10000) 结果为 4587</li>
+</ul>
+<h2 id="3-2实例3-天天向上的力量"><a href="#3-2实例3-天天向上的力量" class="headerlink" title="3.2实例3: 天天向上的力量"></a>3.2实例3: 天天向上的力量</h2><h3 id="问题1：-1‰的力量"><a href="#问题1：-1‰的力量" class="headerlink" title="问题1： 1‰的力量"></a>问题1： 1‰的力量</h3><pre><code class="hljs python"><span class="hljs-comment">#DayDayUpQ1.py </span>
+dayup = pow(<span class="hljs-number">1.001</span>, <span class="hljs-number">365</span>) 
+daydown = pow(<span class="hljs-number">0.999</span>, <span class="hljs-number">365</span>) 
+print(<span class="hljs-string">&quot;向上：&#123;:.2f&#125;，向下：&#123;:.2f&#125;&quot;</span>.format(dayup, daydown))</code></pre>
+<h3 id="问题3：-工作日的力量"><a href="#问题3：-工作日的力量" class="headerlink" title="问题3： 工作日的力量"></a>问题3： 工作日的力量</h3><pre><code class="hljs python"><span class="hljs-comment">#DayDayUpQ3.py</span>
+dayup = <span class="hljs-number">1.0</span>
+dayfactor = <span class="hljs-number">0.01</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">365</span>):
+<span class="hljs-keyword">if</span> i % <span class="hljs-number">7</span> <span class="hljs-keyword">in</span> [<span class="hljs-number">6</span>,<span class="hljs-number">0</span>]:
+dayup = dayup*(<span class="hljs-number">1</span>-dayfactor)
+<span class="hljs-keyword">else</span>:
+dayup = dayup*(<span class="hljs-number">1</span>+dayfactor)
+print(<span class="hljs-string">&quot;工作日的力量：&#123;:.2f&#125; &quot;</span>.format(dayup))</code></pre>
+<h3 id="问题4：-工作日的努力到什么水平，才能与每天努力1-一样？"><a href="#问题4：-工作日的努力到什么水平，才能与每天努力1-一样？" class="headerlink" title="问题4： 工作日的努力到什么水平，才能与每天努力1%一样？"></a>问题4： 工作日的努力到什么水平，才能与每天努力1%一样？</h3><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dayUP</span>(<span class="hljs-params">df</span>):</span>
+    dayup = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">365</span>):
+        <span class="hljs-keyword">if</span> i % <span class="hljs-number">7</span> <span class="hljs-keyword">in</span> [<span class="hljs-number">6</span>,<span class="hljs-number">0</span>]:
+            dayup = dayup*(<span class="hljs-number">1</span> - <span class="hljs-number">0.01</span>)
+        <span class="hljs-keyword">else</span>:
+            dayup = dayup*(<span class="hljs-number">1</span> + df)
+    <span class="hljs-keyword">return</span> dayup
+dayfactor = <span class="hljs-number">0.01</span>
+<span class="hljs-keyword">while</span> dayUP(dayfactor) &lt; <span class="hljs-number">37.78</span>:
+    dayfactor += <span class="hljs-number">0.001</span>
+print(<span class="hljs-string">&quot;工作日的努力参数是: &#123;:.3f&#125;&quot;</span>.format(dayfactor))</code></pre>
+<h2 id="3-3字符串类型及操作"><a href="#3-3字符串类型及操作" class="headerlink" title="3.3字符串类型及操作"></a>3.3字符串类型及操作</h2><h3 id="3-3-1字符串：由0个或多个字符组成的有序字符序列"><a href="#3-3-1字符串：由0个或多个字符组成的有序字符序列" class="headerlink" title="3.3.1字符串：由0个或多个字符组成的有序字符序列"></a>3.3.1字符串：由0个或多个字符组成的有序字符序列</h3><h3 id="3-3-2字符串类型的表示"><a href="#3-3-2字符串类型的表示" class="headerlink" title="3.3.2字符串类型的表示"></a>3.3.2字符串类型的表示</h3><h4 id="字符串有2类共4种表示方法"><a href="#字符串有2类共4种表示方法" class="headerlink" title="字符串有2类共4种表示方法"></a>字符串有2类共4种表示方法</h4><ul>
+<li><p>由一对单引号或双引号表示，仅表示单行字符串<br>“请输入带有符号的温度值: “  或者   ‘C’</p>
+</li>
+<li><p>由一对三单引号或三双引号表示，可表示多行字符串</p>
+<p>‘’’ Python</p>
+<pre><code>            语言   &#39;&#39;&#39;
+</code></pre></li>
+</ul>
+<h4 id="字符串的序号：正向递增序号和反向递减序号"><a href="#字符串的序号：正向递增序号和反向递减序号" class="headerlink" title="字符串的序号：正向递增序号和反向递减序号"></a>字符串的序号：正向递增序号和反向递减序号</h4><h4 id="使用-获取字符串中一个或多个字符"><a href="#使用-获取字符串中一个或多个字符" class="headerlink" title="使用[ ]获取字符串中一个或多个字符"></a>使用[ ]获取字符串中一个或多个字符</h4><h5 id="索引：返回字符串中单个字符-lt-字符串-gt-M"><a href="#索引：返回字符串中单个字符-lt-字符串-gt-M" class="headerlink" title="索引：返回字符串中单个字符     &lt;字符串&gt;[M]"></a>索引：返回字符串中单个字符     &lt;字符串&gt;[M]</h5><p>“请输入带有符号的温度值: “[0]  或者    TempStr[-1]</p>
+<h5 id="切片：返回字符串中一段字符子串-lt-字符串-gt-M-N"><a href="#切片：返回字符串中一段字符子串-lt-字符串-gt-M-N" class="headerlink" title="切片：返回字符串中一段字符子串    &lt;字符串&gt;[M: N]"></a>切片：返回字符串中一段字符子串    &lt;字符串&gt;[M: N]</h5><p>“请输入带有符号的温度值: “[1:3] 或者    TempStr[0:-1]</p>
+<h5 id="使用-M-N-K-根据步长对字符串切片"><a href="#使用-M-N-K-根据步长对字符串切片" class="headerlink" title="使用[M:N: K]根据步长对字符串切片"></a>使用[M:N: K]根据步长对字符串切片</h5><h4 id="字符串的特殊字符：转义符"><a href="#字符串的特殊字符：转义符" class="headerlink" title="字符串的特殊字符：转义符\"></a>字符串的特殊字符：转义符\</h4><h5 id="“-b”回退”-n”换行-光标移动到下行首-”-r”回车-光标移动到本行首"><a href="#“-b”回退”-n”换行-光标移动到下行首-”-r”回车-光标移动到本行首" class="headerlink" title="“\b”回退”\n”换行(光标移动到下行首)”\r”回车(光标移动到本行首)"></a>“\b”回退”\n”换行(光标移动到下行首)”\r”回车(光标移动到本行首)</h5><h3 id="3-3-3字符串操作符"><a href="#3-3-3字符串操作符" class="headerlink" title="3.3.3字符串操作符"></a>3.3.3字符串操作符</h3><h4 id="获取星期字符串"><a href="#获取星期字符串" class="headerlink" title="获取星期字符串"></a>获取星期字符串</h4><pre><code class="hljs python"><span class="hljs-comment">#WeekNamePrintV1.py</span>
+weekStr = <span class="hljs-string">&quot;星期一星期二星期三星期四星期五星期六星期日&quot;</span>
+weekId = eval(input(<span class="hljs-string">&quot;请输入星期数字(1-7)：&quot;</span>))
+pos = (weekId – <span class="hljs-number">1</span> ) * <span class="hljs-number">3</span>
+print(weekStr[pos: pos+<span class="hljs-number">3</span>])</code></pre>
+<pre><code class="hljs python"><span class="hljs-comment">#WeekNamePrintV2.py</span>
+weekStr = <span class="hljs-string">&quot;一二三四五六日&quot;</span>
+weekId = eval(input(<span class="hljs-string">&quot;请输入星期数字(1-7)：&quot;</span>))
+print(<span class="hljs-string">&quot;星期&quot;</span> + weekStr[weekId<span class="hljs-number">-1</span>])</code></pre>
+<h3 id="3-3-4字符串处理函数"><a href="#3-3-4字符串处理函数" class="headerlink" title="3.3.4字符串处理函数"></a>3.3.4字符串处理函数</h3><h4 id="chr-u-：u为Unicode编码，返回其对应的字符"><a href="#chr-u-：u为Unicode编码，返回其对应的字符" class="headerlink" title="chr(u)：u为Unicode编码，返回其对应的字符"></a>chr(u)：u为Unicode编码，返回其对应的字符</h4><h4 id="ord-x-：x为字符，返回其对应的Unicode编码"><a href="#ord-x-：x为字符，返回其对应的Unicode编码" class="headerlink" title="ord(x)：x为字符，返回其对应的Unicode编码"></a>ord(x)：x为字符，返回其对应的Unicode编码</h4><h4 id="Unicode编码-Python字符串的编码方式"><a href="#Unicode编码-Python字符串的编码方式" class="headerlink" title="Unicode编码-Python字符串的编码方式"></a>Unicode编码-Python字符串的编码方式</h4><ul>
+<li>统一字符编码，即覆盖几乎所有字符的编码方式</li>
+<li>从0到1114111 (0x10FFFF)空间，每个编码对应一个字符</li>
+<li>Python字符串中每个字符都是Unicode编码字符</li>
+<li>有趣尝试chr(10004)</li>
+</ul>
+<h3 id="3-3-5字符串处理方法"><a href="#3-3-5字符串处理方法" class="headerlink" title="3.3.5字符串处理方法"></a>3.3.5字符串处理方法</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>str.lower() 或 str.upper()</th>
+<th>返回字符串的副本，全部字符小写/大写”AbCdEfGh”.lower() 结果为 “abcdefgh”</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>str.split(sep=None)</strong></td>
+<td><strong>返回一个列表，由str根据sep被分隔的部分组成”A,B,C”.split(“,”) 结果为 [‘A’,’B’,’C’]</strong></td>
+</tr>
+<tr>
+<td><strong>str.count(sub)</strong></td>
+<td><strong>返回子串sub在str中出现的次数”an apple a day”.count(“a”) 结果为 4</strong></td>
+</tr>
+<tr>
+<td><strong>str.replace(old, new)</strong></td>
+<td><strong>返回字符串str副本，所有old子串被替换为new<br/>“python”.replace(“n”,”n123.io”) 结果为”python123.io”</strong></td>
+</tr>
+<tr>
+<td><strong>str.center(width[,fillchar])</strong></td>
+<td><strong>字符串str根据宽度width居中，fillchar可选”python”.center(20,”=”) 结果为<br/>‘=======python=======’</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="3-3-6字符串类型的格式化"><a href="#3-3-6字符串类型的格式化" class="headerlink" title="3.3.6字符串类型的格式化"></a>3.3.6字符串类型的格式化</h3><h4 id="lt-模板字符串-gt-format-lt-逗号分隔的参数-gt"><a href="#lt-模板字符串-gt-format-lt-逗号分隔的参数-gt" class="headerlink" title="&lt;模板字符串&gt;.format(&lt;逗号分隔的参数&gt;)"></a>&lt;模板字符串&gt;.format(&lt;逗号分隔的参数&gt;)</h4><h4 id="槽内部对格式化的配置方式"><a href="#槽内部对格式化的配置方式" class="headerlink" title="槽内部对格式化的配置方式"></a>槽内部对格式化的配置方式</h4><p>​    { &lt;参数序号&gt; ： &lt;格式控制标记&gt;}</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>：</th>
+<th>&lt;填充&gt;</th>
+<th>&lt;对齐&gt;</th>
+<th>&lt;宽度&gt;</th>
+<th>&lt;,&gt;</th>
+<th>&lt;.精度&gt;</th>
+<th>&lt;类型&gt;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>引导符号</td>
+<td>用于填充的单个字符</td>
+<td>&lt; 左对齐<br/>&gt; 右对齐<br/>^ 居中对齐<br/></td>
+<td>槽设定的输出宽度</td>
+<td>数字的千位<br/>分隔符<br/></td>
+<td>浮点数小数精度 或 字符串最大输出长度</td>
+<td>整数类型<br/>b, c, d, o, x, X<br/>浮点数类型<br/>e, E, f, %</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="3-4time库基本介绍"><a href="#3-4time库基本介绍" class="headerlink" title="3.4time库基本介绍"></a>3.4time库基本介绍</h2><h3 id="概述：time库是Python中处理时间的标准库"><a href="#概述：time库是Python中处理时间的标准库" class="headerlink" title="概述：time库是Python中处理时间的标准库"></a>概述：time库是Python中处理时间的标准库</h3><ul>
+<li>计算机时间的表达</li>
+<li>提供获取系统时间并格式化输出功能</li>
+<li>提供系统级精确计时功能，用于程序性能分析</li>
+</ul>
+<h3 id="time库包括三类函数"><a href="#time库包括三类函数" class="headerlink" title="time库包括三类函数"></a>time库包括三类函数</h3><ul>
+<li>时间获取：time()  ctime()  gmtime()</li>
+<li>时间格式化：strftime()   strptime()</li>
+<li>程序计时：sleep(), perf_counter()</li>
+</ul>
+<h4 id="时间获取"><a href="#时间获取" class="headerlink" title="时间获取"></a>时间获取</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time()</td>
+<td>获取当前时间戳，即计算机内部时间值，浮点数<br/>&gt;&gt;&gt;time.time()<br/>1516939876.6022282</td>
+</tr>
+<tr>
+<td>ctime()</td>
+<td>获取当前时间并以易读方式表示，返回字符串<br/>&gt;&gt;&gt;time.ctime()<br/>‘Fri Jan 26 12:11:16 2018’</td>
+</tr>
+<tr>
+<td>gmtime()</td>
+<td>获取当前时间，表示为计算机可处理的时间格式<br/>&gt;&gt;&gt;time.gmtime()<br/>time.struct_time(tm_year=2018, tm_mon=1, tm_mday=26, tm_hour=4, tm_min=11, tm_sec=16,<br/>tm_wday=4, tm_yday=26, tm_isdst=0)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="时间格式化-将时间以合理的方式展示出来"><a href="#时间格式化-将时间以合理的方式展示出来" class="headerlink" title="时间格式化-将时间以合理的方式展示出来"></a>时间格式化-将时间以合理的方式展示出来</h4><ul>
+<li>格式化：类似字符串格式化，需要有展示模板</li>
+<li>展示模板由特定的格式化控制符组成</li>
+</ul>
+<h5 id="strftime-方法"><a href="#strftime-方法" class="headerlink" title="strftime()方法"></a>strftime()方法</h5><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>strftime(tpl,ts)</td>
+<td>tpl是格式化模板字符串，用来定义输出效果<br/>ts是计算机内部时间类型变量<br/>&gt;&gt;&gt;t = time.gmtime()<br/>&gt;&gt;&gt;time.strftime(“%Y-%m-%d %H:%M:%S”,t)<br/>‘2018-01-26 12:55:20’</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>%Y-年份/%m-月份/%d-日期</p>
+<p>%H-小时/%P-上下午/%S-秒</p>
+<h4 id="程序计时应用"><a href="#程序计时应用" class="headerlink" title="程序计时应用"></a>程序计时应用</h4><p>程序计时应用广泛</p>
+<ul>
+<li>程序计时指测量起止动作所经历时间的过程</li>
+<li>测量时间：perf_counter()</li>
+<li>产生时间：sleep()</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sleep（）</td>
+<td>s拟休眠的时间，单位是秒，可以是浮点数<br/>&gt;&gt;&gt;def wait():<br/>time.sleep(3.3)<br/>&gt;&gt;&gt;wait()   #程序将等待3.3秒后再退出</td>
+</tr>
+<tr>
+<td>perf_counter()</td>
+<td>返回一个CPU级别的精确时间计数值，单位为秒<br/>由于这个计数值起点不确定，连续调用差值才有意义<br/>&gt;&gt;&gt;start = time.perf_counter()<br/>318.66599499718114<br/>&gt;&gt;&gt;end = time.perf_counter()<br/>341.3905185375658<br/>&gt;&gt;&gt;end - start<br/>22.724523540384666</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="3-5实例4：文本进度条"><a href="#3-5实例4：文本进度条" class="headerlink" title="3.5实例4：文本进度条"></a>3.5实例4：文本进度条</h2><h3 id="初级版本"><a href="#初级版本" class="headerlink" title="初级版本"></a>初级版本</h3><pre><code class="hljs python"><span class="hljs-comment">#TextProBarV1.py</span>
+<span class="hljs-keyword">import</span> time 
+scale = <span class="hljs-number">10</span>
+print(<span class="hljs-string">&quot;------执行开始------&quot;</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(scale+<span class="hljs-number">1</span>): 
+	a = <span class="hljs-string">&#x27;*&#x27;</span> * i
+	b = <span class="hljs-string">&#x27;.&#x27;</span> * (scale - i) 
+	c = (i/scale)*<span class="hljs-number">100</span>
+	print(<span class="hljs-string">&quot;&#123;:^3.0f&#125;%[&#123;&#125;-&gt;&#123;&#125;]&quot;</span>.format(c,a,b)) time.sleep(<span class="hljs-number">0.1</span>)
+print(<span class="hljs-string">&quot;------执行结束------&quot;</span>)</code></pre>
+<h3 id="“文本进度条”单行动态刷新-r"><a href="#“文本进度条”单行动态刷新-r" class="headerlink" title="“文本进度条”单行动态刷新\r"></a>“文本进度条”单行动态刷新\r</h3><ul>
+<li>刷新的本质是：用之后打印的字符覆盖之前的字符</li>
+<li>不能换行：print()需要被控制</li>
+<li>要能回退：打印后光标退回到之前的位置 \r</li>
+</ul>
+<pre><code class="hljs python"><span class="hljs-comment">#TextProBarV2.py</span>
+<span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">101</span>): 
+    print(<span class="hljs-string">&quot;\r&#123;:3&#125;%&quot;</span>.format(i), end=<span class="hljs-string">&quot;&quot;</span>)
+	time.sleep(<span class="hljs-number">0.1</span>)</code></pre>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><pre><code class="hljs python"><span class="hljs-comment">#TextProBarV3.py</span>
+<span class="hljs-keyword">import</span> time 
+scale = <span class="hljs-number">50</span>
+print(<span class="hljs-string">&quot;执行开始&quot;</span>.center(scale//<span class="hljs-number">2</span>, <span class="hljs-string">&quot;-&quot;</span>))
+start = time.perf_counter()
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(scale+<span class="hljs-number">1</span>): 
+    a = <span class="hljs-string">&#x27;*&#x27;</span> * i
+	b = <span class="hljs-string">&#x27;.&#x27;</span> * (scale - i) 
+    c = (i/scale)*<span class="hljs-number">100</span>
+	dur = time.perf_counter() - start
+	print(<span class="hljs-string">&quot;\r&#123;:^3.0f&#125;%[&#123;&#125;-&gt;&#123;&#125;]&#123;:.2f&#125;s&quot;</span>.format(c,a,b,dur),end=<span class="hljs-string">&#x27;&#x27;</span>) 			       time.sleep(<span class="hljs-number">0.1</span>)
+print(<span class="hljs-string">&quot;\n&quot;</span>+<span class="hljs-string">&quot;执行结束&quot;</span>.center(scale//<span class="hljs-number">2</span>,<span class="hljs-string">&#x27;-&#x27;</span>))</code></pre>
+<h3 id="计算问题扩展"><a href="#计算问题扩展" class="headerlink" title="计算问题扩展"></a>计算问题扩展</h3><ul>
+<li>文本进度条程序使用了perf_counter()计时</li>
+<li>计时方法适合各类需要统计时间的计算问题</li>
+<li>例如：比较不同算法时间、统计程序运行时间<br>PY01B15 天志</li>
+</ul>
+<h3 id="文本进度条的不同设计函数"><a href="#文本进度条的不同设计函数" class="headerlink" title="文本进度条的不同设计函数"></a>文本进度条的不同设计函数</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>设计名称</th>
+<th>设计函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Liner</td>
+<td>f(x) = x</td>
+</tr>
+<tr>
+<td>early pause</td>
+<td>f(x) = x+(1-sin(x<em>π</em>2+π/2)/-8</td>
+</tr>
+<tr>
+<td>late pause</td>
+<td>f(x) = x+(1-sin(x<em>π</em>2+π/2)/8</td>
+</tr>
+<tr>
+<td>solw wavy</td>
+<td>f(x) = x+sin(x<em>π</em>5)/20</td>
+</tr>
+<tr>
+<td>fast wavy</td>
+<td>f(x) = x+sin(x<em>π</em>20)/80</td>
+</tr>
+<tr>
+<td>power</td>
+<td>f(x) = (x+(1-x)*0.03)^2</td>
+</tr>
+<tr>
+<td>inverse power</td>
+<td>f(x) =1+(1-x)^1.5 *-1</td>
+</tr>
+<tr>
+<td>fast power</td>
+<td>f(x) = (x+(1-x)/2)^8</td>
+</tr>
+<tr>
+<td>inver fast power</td>
+<td>f(x) = 1+(1-x)^3 *-1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="第三单元作业-凯撒密码"><a href="#第三单元作业-凯撒密码" class="headerlink" title="第三单元作业-凯撒密码"></a>第三单元作业-凯撒密码</h3><pre><code class="hljs perl"><span class="hljs-keyword">s</span> = input()
+t = <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">for</span> c in <span class="hljs-keyword">s</span>:
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;a&#x27;</span> &lt;= c &lt;= <span class="hljs-string">&#x27;z&#x27;</span>: 
+        t += <span class="hljs-keyword">chr</span>( <span class="hljs-keyword">ord</span>(<span class="hljs-string">&#x27;a&#x27;</span>) + ((<span class="hljs-keyword">ord</span>(c)-<span class="hljs-keyword">ord</span>(<span class="hljs-string">&#x27;a&#x27;</span>)) + <span class="hljs-number">3</span> )%26 )
+    elif <span class="hljs-string">&#x27;A&#x27;</span> &lt;= c &lt;= <span class="hljs-string">&#x27;Z&#x27;</span>:
+        t += <span class="hljs-keyword">chr</span>( <span class="hljs-keyword">ord</span>(<span class="hljs-string">&#x27;A&#x27;</span>) + ((<span class="hljs-keyword">ord</span>(c)-<span class="hljs-keyword">ord</span>(<span class="hljs-string">&#x27;A&#x27;</span>)) + <span class="hljs-number">3</span> )%26 )
+    <span class="hljs-keyword">else</span>:
+        t += c
+<span class="hljs-keyword">print</span>(t)</code></pre>
+<h1 id="第四章：程序控制结构"><a href="#第四章：程序控制结构" class="headerlink" title="第四章：程序控制结构"></a>第四章：程序控制结构</h1><h2 id="4-1程序的分支结构"><a href="#4-1程序的分支结构" class="headerlink" title="4.1程序的分支结构"></a>4.1程序的分支结构</h2><h3 id="单分支结构：根据判断条件结果而选择不同向前路径的运行方式"><a href="#单分支结构：根据判断条件结果而选择不同向前路径的运行方式" class="headerlink" title="单分支结构：根据判断条件结果而选择不同向前路径的运行方式"></a>单分支结构：根据判断条件结果而选择不同向前路径的运行方式</h3><p>if  &lt;条件&gt; :<br>&lt;语句块&gt;</p>
+<h3 id="二分支结构：根据判断条件结果而选择不同向前路径的运行方式"><a href="#二分支结构：根据判断条件结果而选择不同向前路径的运行方式" class="headerlink" title="二分支结构：根据判断条件结果而选择不同向前路径的运行方式"></a>二分支结构：根据判断条件结果而选择不同向前路径的运行方式</h3><p>if  &lt;条件&gt; :<br>&lt;语句块1&gt;<br>else :<br>&lt;语句块2&gt;</p>
+<h4 id="紧凑形式：适用于简单表达式的二分支结构"><a href="#紧凑形式：适用于简单表达式的二分支结构" class="headerlink" title="紧凑形式：适用于简单表达式的二分支结构"></a>紧凑形式：适用于简单表达式的二分支结构</h4><p>&lt;表达式1&gt; if  &lt;条件&gt; else &lt;表达式2&gt;</p>
+<h3 id="多分支结构"><a href="#多分支结构" class="headerlink" title="多分支结构"></a>多分支结构</h3><p>if  &lt;条件1&gt; :<br>&lt;语句块1&gt;<br>elif  &lt;条件2&gt; :<br>&lt;语句块2&gt;<br>……<br>else :<br>&lt;语句块N&gt;</p>
+<ul>
+<li>注意多条件之间的包含关系</li>
+<li>注意变量取值范围的覆盖</li>
+</ul>
+<h3 id="条件判断及组合"><a href="#条件判断及组合" class="headerlink" title="条件判断及组合"></a>条件判断及组合</h3><h4 id="判断语句"><a href="#判断语句" class="headerlink" title="判断语句"></a>判断语句</h4><p>“&lt;”“&lt;=”“=”“!=”“==”</p>
+<h4 id="条件组合：用于条件组合的三个保留字"><a href="#条件组合：用于条件组合的三个保留字" class="headerlink" title="条件组合：用于条件组合的三个保留字"></a>条件组合：用于条件组合的三个保留字</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>操作符及使用</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x and y</td>
+<td>两个条件x和y的逻辑与</td>
+</tr>
+<tr>
+<td>x or y</td>
+<td>两个条件x和y的逻辑或</td>
+</tr>
+<tr>
+<td>not x</td>
+<td>条件x的逻辑非</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="程序的异常处理"><a href="#程序的异常处理" class="headerlink" title="程序的异常处理"></a>程序的异常处理</h3><h4 id="错误提示的三个点：异常代码发生的代码行数，异常类型，异常内容提示"><a href="#错误提示的三个点：异常代码发生的代码行数，异常类型，异常内容提示" class="headerlink" title="错误提示的三个点：异常代码发生的代码行数，异常类型，异常内容提示"></a>错误提示的三个点：异常代码发生的代码行数，异常类型，异常内容提示</h4><p>try :<br>&lt;语句块1&gt;<br>except :<br>&lt;语句块2&gt;</p>
+<p>try :<br>&lt;语句块1&gt;<br>except &lt;异常类型&gt; :<br>&lt;语句块2&gt;</p>
+<h4 id="异常处理的高级使用"><a href="#异常处理的高级使用" class="headerlink" title="异常处理的高级使用"></a>异常处理的高级使用</h4><p>try :<br>&lt;语句块1&gt;<br>except :<br>&lt;语句块2&gt;<br>else :<br>&lt;语句块3&gt;<br>finally :<br>&lt;语句块4&gt;</p>
+<ul>
+<li>finally对应语句块4一定执行</li>
+<li>else对应语句块3在不发生异常时执行</li>
+</ul>
+<h2 id="4-2实例5：身体质量指数BMI"><a href="#4-2实例5：身体质量指数BMI" class="headerlink" title="4.2实例5：身体质量指数BMI"></a>4.2实例5：身体质量指数BMI</h2><h3 id="国际BMI"><a href="#国际BMI" class="headerlink" title="国际BMI"></a>国际BMI</h3><pre><code class="hljs stylus"><span class="hljs-selector-id">#CalBMIv1</span>.py
+<span class="hljs-attribute">height</span>, weight = eval(input(<span class="hljs-string">&quot;请输入身高(米)和体重(公斤)[逗号隔开]: &quot;</span>))
+bmi = weight / pow(<span class="hljs-attribute">height</span>, <span class="hljs-number">2</span>)
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&quot;BMI 数值为：&#123;:.2f&#125;&quot;</span>.format(bmi)</span></span>)
+who = <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">if</span> bmi &lt; <span class="hljs-number">18.5</span>:
+    who = <span class="hljs-string">&quot;偏瘦&quot;</span>
+elif <span class="hljs-number">18.5</span> &lt;= bmi &lt; <span class="hljs-number">25</span>:
+    who = <span class="hljs-string">&quot;正常&quot;</span>
+elif <span class="hljs-number">25</span> &lt;= bmi &lt; <span class="hljs-number">30</span>:
+    who = <span class="hljs-string">&quot;偏胖&quot;</span>
+<span class="hljs-keyword">else</span>:
+    who = <span class="hljs-string">&quot;肥胖&quot;</span>
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-string">&quot;BMI 指标为:国际&#x27;&#123;0&#125;&#x27;&quot;</span>.format(who)</span></span>)</code></pre>
+<h3 id="国内国际BMI"><a href="#国内国际BMI" class="headerlink" title="国内国际BMI"></a>国内国际BMI</h3><pre><code class="hljs routeros"><span class="hljs-comment">#CalBMIv3.py</span>
+height, weight = eval(input(<span class="hljs-string">&quot;请输入身高(米)和体重(公斤)[逗号隔开]: &quot;</span>))
+bmi = weight / pow(height, 2)
+<span class="hljs-builtin-name">print</span>(<span class="hljs-string">&quot;BMI 数值为：&#123;:.2f&#125;&quot;</span>.format(bmi))
+who,<span class="hljs-built_in"> nat </span>= <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">if</span> bmi &lt; 18.5:
+    who,<span class="hljs-built_in"> nat </span>= <span class="hljs-string">&quot;偏瘦&quot;</span>, <span class="hljs-string">&quot;偏瘦&quot;</span>
+elif 18.5 &lt;= bmi &lt; 24:
+    who,<span class="hljs-built_in"> nat </span>= <span class="hljs-string">&quot;正常&quot;</span>, <span class="hljs-string">&quot;正常&quot;</span>
+elif 24 &lt;= bmi &lt; 25:
+    who,<span class="hljs-built_in"> nat </span>= <span class="hljs-string">&quot;正常&quot;</span>, <span class="hljs-string">&quot;偏胖&quot;</span>
+elif 25 &lt;= bmi &lt; 28:
+    who,<span class="hljs-built_in"> nat </span>= <span class="hljs-string">&quot;偏胖&quot;</span>, <span class="hljs-string">&quot;偏胖&quot;</span>
+elif 28 &lt;= bmi &lt; 30:
+    who,<span class="hljs-built_in"> nat </span>= <span class="hljs-string">&quot;偏胖&quot;</span>, <span class="hljs-string">&quot;肥胖&quot;</span>
+<span class="hljs-keyword">else</span>:
+    who,<span class="hljs-built_in"> nat </span>= <span class="hljs-string">&quot;肥胖&quot;</span>, <span class="hljs-string">&quot;肥胖&quot;</span>
+<span class="hljs-builtin-name">print</span>(<span class="hljs-string">&quot;BMI 指标为:国际&#x27;&#123;0&#125;&#x27;, 国内&#x27;&#123;1&#125;&#x27;&quot;</span>.format(who, nat))</code></pre>
+<h2 id="4-3程序的循坏结构"><a href="#4-3程序的循坏结构" class="headerlink" title="4.3程序的循坏结构"></a>4.3程序的循坏结构</h2><h3 id="遍历循环：遍历某个结构形成的循环运行方式"><a href="#遍历循环：遍历某个结构形成的循环运行方式" class="headerlink" title="遍历循环：遍历某个结构形成的循环运行方式"></a>遍历循环：遍历某个结构形成的循环运行方式</h3><p>for  &lt;循环变量&gt; in &lt;遍历结构&gt; :<br>        &lt;语句块&gt;</p>
+<ul>
+<li>从遍历结构中逐一提取元素，放在循环变量中</li>
+<li>由保留字for和in组成，完整遍历所有元素后结束</li>
+<li>每次循环，所获得元素放入循环变量，并执行一次语句块</li>
+</ul>
+<h4 id="应用1：计数循环-特定次-—————熟悉range-函数的性质"><a href="#应用1：计数循环-特定次-—————熟悉range-函数的性质" class="headerlink" title="应用1：计数循环(特定次)—————熟悉range()函数的性质"></a>应用1：计数循环(特定次)—————熟悉range()函数的性质</h4><p>for  i  in  range(M,N,K) :<br>        &lt;语句块&gt;</p>
+<h4 id="应用2：字符串遍历循环"><a href="#应用2：字符串遍历循环" class="headerlink" title="应用2：字符串遍历循环"></a>应用2：字符串遍历循环</h4><p>for  c  in  s  :<br>        &lt;语句块&gt;</p>
+<ul>
+<li>s是字符串，遍历字符串每个字符，产生循环</li>
+</ul>
+<h4 id="应用3：列表遍历循环"><a href="#应用3：列表遍历循环" class="headerlink" title="应用3：列表遍历循环"></a>应用3：列表遍历循环</h4><p>for  item  in  ls  :<br>        &lt;语句块&gt;</p>
+<ul>
+<li>ls是一个列表，遍历其每个元素，产生循环</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>for item in [123, “PY”, 456] :<br>print(item, end=”,”)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h4 id="应用4：文件遍历循环"><a href="#应用4：文件遍历循环" class="headerlink" title="应用4：文件遍历循环"></a>应用4：文件遍历循环</h4><p>for  line  in  fi  :<br>        &lt;语句块&gt;</p>
+<ul>
+<li>fi是一个文件标识符，遍历其每行，产生循环</li>
+</ul>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>for line in fi :<br>print(line)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="无限循环：由条件控制的循环运行方式"><a href="#无限循环：由条件控制的循环运行方式" class="headerlink" title="无限循环：由条件控制的循环运行方式"></a>无限循环：由条件控制的循环运行方式</h3><p>while  &lt;条件&gt; :<br>        &lt;语句块&gt;</p>
+<ul>
+<li>反复执行语句块，直到条件不满足时结束</li>
+</ul>
+<h3 id="循环控制保留字：break-和continue"><a href="#循环控制保留字：break-和continue" class="headerlink" title="循环控制保留字：break 和continue"></a>循环控制保留字：break 和continue</h3><ul>
+<li>break跳出并结束当前<strong>整个循环</strong>，执行循环后的语句</li>
+<li>continue结束<strong>当次循环</strong>，继续执行后续次数循环</li>
+<li>break和continue可以与for和while循环搭配使用</li>
+</ul>
+<h4 id="循环的高级用法"><a href="#循环的高级用法" class="headerlink" title="循环的高级用法"></a>循环的高级用法</h4><hr>
+<p>for  &lt;变量&gt; in &lt;遍历结构&gt; :<br>        &lt;语句块1&gt;<br>else :<br>        &lt;语句块2&gt;</p>
+<hr>
+<p>while  &lt;条件&gt; :<br>        &lt;语句块1&gt;<br>else :<br>        &lt;语句块2&gt;</p>
+<hr>
+<ul>
+<li>当循环没有被break语句退出时，执行else语句块</li>
+<li>else语句块作为<strong>“正常”完成循环的奖励</strong></li>
+<li>这里else的用法与异常处理中else用法相似</li>
+</ul>
+<h2 id="4-4模块3：random库的使用"><a href="#4-4模块3：random库的使用" class="headerlink" title="4.4模块3：random库的使用"></a>4.4模块3：random库的使用</h2><h3 id="random库基本介绍"><a href="#random库基本介绍" class="headerlink" title="random库基本介绍"></a>random库基本介绍</h3><h4 id="概述：random库是使用随机数的Python标准库"><a href="#概述：random库是使用随机数的Python标准库" class="headerlink" title="概述：random库是使用随机数的Python标准库"></a>概述：random库是使用随机数的Python标准库</h4><ul>
+<li>伪随机数: 采用<strong>梅森旋转算法</strong>生成的(伪)随机序列中元素</li>
+<li>random库主要用于生成随机数</li>
+<li>使用random库:    import random</li>
+</ul>
+<h4 id="random库包括两类函数，常用共8个"><a href="#random库包括两类函数，常用共8个" class="headerlink" title="random库包括两类函数，常用共8个"></a>random库包括两类函数，常用共8个</h4><ul>
+<li>基本随机数函数： seed(), random()</li>
+<li>扩展随机数函数： randint(), getrandbits(), uniform(),<br>randrange(), choice(), shuffle()</li>
+</ul>
+<h3 id="基本随机数函数"><a href="#基本随机数函数" class="headerlink" title="基本随机数函数"></a>基本随机数函数</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>seed(a=None)</td>
+<td>初始化给定的随机数种子，<strong>默认</strong>（如果你不给他赋初值）为当前系统时间<br/>&gt;&gt;&gt;random.seed(10)  #产生种子10对应的序列</td>
+</tr>
+<tr>
+<td>random()</td>
+<td>生成一个[0.0, 1.0)之间的随机小数<br/>&gt;&gt;&gt;random.random()<br/>0.5714025946899135</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="扩展随机数函数"><a href="#扩展随机数函数" class="headerlink" title="扩展随机数函数"></a>扩展随机数函数</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>randint(a, b)</td>
+<td>生成一个[a, b]之间的整数<br/>&gt;&gt;&gt;random.randint(10,<br/>100)<br/>64</td>
+</tr>
+<tr>
+<td>randrange(m, n[, k])</td>
+<td>生成一个[m, n)之间以k为步长的随机整数<br/>&gt;&gt;&gt;random.randrange(10, 100, 10)<br/>80</td>
+</tr>
+<tr>
+<td>getrandbits(k)</td>
+<td>生成一个k比特长的随机整数<br/>&gt;&gt;&gt;random.getrandbits(16)<br/>37885</td>
+</tr>
+<tr>
+<td>uniform(a, b)</td>
+<td>生成一个[a, b]之间的随机小数<br/>&gt;&gt;&gt;random.uniform(10, 100)<br/>13.096321648808136</td>
+</tr>
+<tr>
+<td>choice(seq)</td>
+<td>从序列seq中随机选择一个元素<br/>&gt;&gt;&gt;random.choice([1,2,3,4,5,6,7,8,9])<br/>8</td>
+</tr>
+<tr>
+<td>shuffle(seq)</td>
+<td>将序列seq中元素随机排列，返回打乱后的序列<br/>&gt;&gt;&gt;s=[1,2,3,4,5,6,7,8,9];random.shuffle(s);print(s)<br/>[3, 5, 8, 9, 6, 1, 2, 7, 4]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="4-5实例6：圆周率的计算"><a href="#4-5实例6：圆周率的计算" class="headerlink" title="4.5实例6：圆周率的计算"></a>4.5实例6：圆周率的计算</h2><h3 id="公式法"><a href="#公式法" class="headerlink" title="公式法"></a>公式法</h3><pre><code class="hljs python"><span class="hljs-comment">#CalPiV1.py</span>
+pi = <span class="hljs-number">0</span>
+N = <span class="hljs-number">100</span>
+<span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> range(N):
+    pi += <span class="hljs-number">1</span>/pow(<span class="hljs-number">16</span>,k)*( \
+              <span class="hljs-number">4</span>/(<span class="hljs-number">8</span>*k+<span class="hljs-number">1</span>) - <span class="hljs-number">2</span>/(<span class="hljs-number">8</span>*k+<span class="hljs-number">4</span>) - \
+              <span class="hljs-number">1</span>/(<span class="hljs-number">8</span>*k+<span class="hljs-number">5</span>) - <span class="hljs-number">1</span>/(<span class="hljs-number">8</span>*k+<span class="hljs-number">6</span>) ) 
+print(<span class="hljs-string">&quot;圆周率值是: &#123;&#125;&quot;</span>.format(pi))</code></pre>
+<h3 id="蒙特卡罗方法"><a href="#蒙特卡罗方法" class="headerlink" title="蒙特卡罗方法"></a>蒙特卡罗方法</h3><pre><code class="hljs python"><span class="hljs-comment">#CalPiV2.py</span>
+<span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> random
+<span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> per_counter
+DARTS = <span class="hljs-number">1000</span>*<span class="hljs-number">1000</span>
+hits = <span class="hljs-number">0.0</span>
+start = perf_counter()
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>，DARTS+<span class="hljs-number">1</span>)：
+	x,y = random(),random()
+    dist = pow(x **<span class="hljs-number">2</span> + y ** <span class="hljs-number">2</span>,<span class="hljs-number">0.5</span>)
+    <span class="hljs-keyword">if</span> dist &lt;=<span class="hljs-number">1.0</span>:
+        hits = hits +<span class="hljs-number">1</span>
+pi = <span class="hljs-number">4</span> * (hits/DARTS)
+print(<span class="hljs-string">&quot;圆周率值是：&#123;&#125;&quot;</span>.format(pi))
+print(<span class="hljs-string">&quot;运行时间是：&#123;:.5f&#125;s&quot;</span>.format(perf_counter()-start))</code></pre>
+<h2 id="4-6练习"><a href="#4-6练习" class="headerlink" title="4.6练习"></a>4.6练习</h2><h3 id="一点思考"><a href="#一点思考" class="headerlink" title="一点思考"></a>一点思考</h3><p>在练习中，我发现一个很有意思的错误</p>
+<p>题目任然是蒙特卡洛计算圆周率，请以123作为随机数种子，获得用户输入的撒点数量，编写程序输出圆周率的值，保留小数点后6位。输入：1024；输出：3.218750</p>
+<pre><code class="hljs python"><span class="hljs-comment">#CalPiV2.py</span>
+<span class="hljs-keyword">import</span> random
+DARTS = eval(input())
+random.seed(<span class="hljs-number">123</span>)
+hits = <span class="hljs-number">0.0</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(DARTS+<span class="hljs-number">1</span>):
+    x, y = random.random(), random.random()
+    dist = pow(x ** <span class="hljs-number">2</span> + y ** <span class="hljs-number">2</span>, <span class="hljs-number">0.5</span>)
+    <span class="hljs-keyword">if</span> dist &lt;= <span class="hljs-number">1.0</span>:
+        hits = hits + <span class="hljs-number">1</span>
+pi = <span class="hljs-number">4</span> * (hits/DARTS)
+print(<span class="hljs-string">&quot;&#123;:.6f&#125;&quot;</span>.format(pi))</code></pre>
+<p>在输入为1048576时，结果是错误的</p>
+<pre><code class="hljs python"><span class="hljs-comment">#CalPiV2.py</span>
+<span class="hljs-keyword">import</span> random
+DARTS = eval(input())
+random.seed(<span class="hljs-number">123</span>)
+hits = <span class="hljs-number">0.0</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, DARTS+<span class="hljs-number">1</span>):
+    x, y = random.random(), random.random()
+    dist = pow(x ** <span class="hljs-number">2</span> + y ** <span class="hljs-number">2</span>, <span class="hljs-number">0.5</span>)
+    <span class="hljs-keyword">if</span> dist &lt;= <span class="hljs-number">1.0</span>:
+        hits = hits + <span class="hljs-number">1</span>
+pi = <span class="hljs-number">4</span> * (hits/DARTS)
+print(<span class="hljs-string">&quot;&#123;:.6f&#125;&quot;</span>.format(pi))</code></pre>
+<p>这就是成功的，那么为什么整数循环控制出了问题呢？？？显然可以改成range(DARTS)</p>
+<p>通过这个例子，我认识到了range()函数的控制范围，程序必须严谨。</p>
+<h3 id="水仙花数"><a href="#水仙花数" class="headerlink" title="水仙花数"></a>水仙花数</h3><p>例如：ABC是一个”3位水仙花数”，则：A的3次方＋B的3次方＋C的3次方 = ABC。‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‭‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‭‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬</p>
+<p>请按照从小到大的顺序输出所有的3位水仙花数，请用”逗号”分隔输出结果。</p>
+<p>关键在于把数字和字符串怎么联系起来？你细品</p>
+<pre><code class="hljs python">s = <span class="hljs-string">&quot;&quot;</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>, <span class="hljs-number">1000</span>):
+    t = str(i)
+    <span class="hljs-keyword">if</span> pow(eval(t[<span class="hljs-number">0</span>]),<span class="hljs-number">3</span>) + pow(eval(t[<span class="hljs-number">1</span>]),<span class="hljs-number">3</span>) + pow(eval(t[<span class="hljs-number">2</span>]),<span class="hljs-number">3</span>) == i :
+        s += <span class="hljs-string">&quot;&#123;&#125;,&quot;</span>.format(i)
+print(s[:<span class="hljs-number">-1</span>])</code></pre>
+<h3 id="用户登录的三次机会—涉及到计数问题时，无限循环非常好用"><a href="#用户登录的三次机会—涉及到计数问题时，无限循环非常好用" class="headerlink" title="用户登录的三次机会—涉及到计数问题时，无限循环非常好用"></a>用户登录的三次机会—涉及到计数问题时，无限循环非常好用</h3><pre><code class="hljs python"><span class="hljs-comment">#ThreeChancesOfUserToAssign.py</span>
+count = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> count &lt; <span class="hljs-number">3</span>:
+    name = input()
+    password = input()
+    <span class="hljs-keyword">if</span> name == <span class="hljs-string">&#x27;Kate&#x27;</span><span class="hljs-keyword">and</span> password == <span class="hljs-string">&#x27;666666&#x27;</span>:
+        print(<span class="hljs-string">&quot;登录成功！&quot;</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">else</span>:
+        count += <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span> count == <span class="hljs-number">3</span>:
+            print(<span class="hljs-string">&quot;3次用户名或者密码均有误！退出程序。&quot;</span>)</code></pre>
+<h4 id="四位玫瑰数"><a href="#四位玫瑰数" class="headerlink" title="四位玫瑰数"></a>四位玫瑰数</h4><pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>, <span class="hljs-number">10000</span>):
+    t = str(i)
+    <span class="hljs-keyword">if</span> pow(eval(t[<span class="hljs-number">0</span>]),<span class="hljs-number">4</span>) + pow(eval(t[<span class="hljs-number">1</span>]),<span class="hljs-number">4</span>) + pow(eval(t[<span class="hljs-number">2</span>]),<span class="hljs-number">4</span>) + pow(eval(t[<span class="hljs-number">3</span>]),<span class="hljs-number">4</span>)== i :
+        print(i)</code></pre>
+<h4 id="100以内素数之和"><a href="#100以内素数之和" class="headerlink" title="100以内素数之和"></a>100以内素数之和</h4><pre><code class="hljs python">num = <span class="hljs-number">0</span>
+cond = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>,<span class="hljs-number">101</span>):
+    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>,i):
+        <span class="hljs-keyword">if</span> i%j == <span class="hljs-number">0</span>:
+            cond = <span class="hljs-number">1</span>
+            <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">if</span> cond == <span class="hljs-number">0</span>:
+        num += i
+    <span class="hljs-keyword">else</span>:
+        cond = <span class="hljs-number">0</span>
+print(num)</code></pre>
+<h1 id="第五章：函数和代码复用"><a href="#第五章：函数和代码复用" class="headerlink" title="第五章：函数和代码复用"></a>第五章：函数和代码复用</h1><p>函数式编程主要源于C语言，Python不是C，”函数式编程”的说法不流行，Python编程中函数不必须，因此更灵活，更探寻本质</p>
+<h2 id="5-1-函数的定义与使用"><a href="#5-1-函数的定义与使用" class="headerlink" title="5.1 函数的定义与使用"></a>5.1 函数的定义与使用</h2><h3 id="5-1-1函数的理解与定义"><a href="#5-1-1函数的理解与定义" class="headerlink" title="5.1.1函数的理解与定义"></a>5.1.1函数的理解与定义</h3><p>函数是一段代码的表示（下面是废话）</p>
+<ul>
+<li>函数是一段具有特定功能的、可重用的语句组</li>
+<li>函数是一种功能的抽象，一般函数表达特定功能</li>
+<li>两个作用：降低编程难度 和 代码复用</li>
+</ul>
+<h3 id="5-1-2函数的使用及调用过程—-调用是运行函数代码的方式"><a href="#5-1-2函数的使用及调用过程—-调用是运行函数代码的方式" class="headerlink" title="5.1.2函数的使用及调用过程—-调用是运行函数代码的方式"></a>5.1.2函数的使用及调用过程—-调用是运行函数代码的方式</h3><ul>
+<li>调用时要给出实际参数</li>
+<li>实际参数替换定义中的参数</li>
+<li>函数调用后得到返回值</li>
+</ul>
+<h3 id="5-1-3函数的参数传递"><a href="#5-1-3函数的参数传递" class="headerlink" title="5.1.3函数的参数传递"></a>5.1.3函数的参数传递</h3><h4 id="参数个数：函数可以有参数，也可以没有，但必须保留括号"><a href="#参数个数：函数可以有参数，也可以没有，但必须保留括号" class="headerlink" title="参数个数：函数可以有参数，也可以没有，但必须保留括号"></a>参数个数：函数可以有参数，也可以没有，但必须保留括号</h4><p>def  &lt;函数名&gt;() :<br>        &lt;函数体&gt;<br>return  &lt;返回值&gt;</p>
+<h4 id="可选参数传递：函数定义时可以为某些参数指定默认值，构成可选参数"><a href="#可选参数传递：函数定义时可以为某些参数指定默认值，构成可选参数" class="headerlink" title="可选参数传递：函数定义时可以为某些参数指定默认值，构成可选参数"></a>可选参数传递：函数定义时可以为某些参数指定默认值，构成可选参数</h4><p><strong>注意：</strong>可选必须在非可选后面</p>
+<p>def  &lt;函数名&gt;(&lt;非可选参数&gt;, &lt;可选参数&gt;) :<br>        &lt;函数体&gt;<br>return  &lt;返回值&gt;</p>
+<h4 id="可变参数传递：函数定义时可以设计可变数量参数，即不确定参数总数量"><a href="#可变参数传递：函数定义时可以设计可变数量参数，即不确定参数总数量" class="headerlink" title="可变参数传递：函数定义时可以设计可变数量参数，即不确定参数总数量"></a>可变参数传递：函数定义时可以设计可变数量参数，即不确定参数总数量</h4><p>def  &lt;函数名&gt;(&lt;参数&gt;,  *b  ) :<br>        &lt;函数体&gt;<br>return  &lt;返回值&gt;</p>
+<h4 id="参数传递的两种方式：函数调用时，参数可以按照位置或名称方式传递"><a href="#参数传递的两种方式：函数调用时，参数可以按照位置或名称方式传递" class="headerlink" title="参数传递的两种方式：函数调用时，参数可以按照位置或名称方式传递"></a>参数传递的两种方式：函数调用时，参数可以按照位置或名称方式传递</h4><h3 id="5-1-4函数的返回值-函数可以返回0个或多个结果"><a href="#5-1-4函数的返回值-函数可以返回0个或多个结果" class="headerlink" title="5.1.4函数的返回值-函数可以返回0个或多个结果"></a>5.1.4函数的返回值-函数可以返回0个或多个结果</h3><ul>
+<li>return保留字用来传递返回值</li>
+<li>函数可以有返回值，也可以没有，可以有return，也可以没有</li>
+<li>return可以传递0个返回值，也可以传递任意多个返回值</li>
+</ul>
+<h3 id="5-1-5局部变量和全局变量-使用规则"><a href="#5-1-5局部变量和全局变量-使用规则" class="headerlink" title="5.1.5局部变量和全局变量-使用规则"></a>5.1.5局部变量和全局变量-使用规则</h3><p>组合数据类型在python中是由指针来体现的，如果函数中没有真实创建组合数据类型，它使用的变量是使用的指针。</p>
+<ul>
+<li>基本数据类型，无论是否重名，局部变量与全局变量不同</li>
+<li>可以通过global保留字在函数内部声明全局变量</li>
+<li>组合数据类型，如果局部变量未真实创建，则是全局变量</li>
+</ul>
+<h3 id="5-1-6lambda函数—-lambda函数返回函数名作为结果"><a href="#5-1-6lambda函数—-lambda函数返回函数名作为结果" class="headerlink" title="5.1.6lambda函数—-lambda函数返回函数名作为结果"></a>5.1.6lambda函数—-lambda函数返回函数名作为结果</h3><ul>
+<li>lambda函数是一种匿名函数，即没有名字的函数</li>
+<li>使用lambda保留字定义，函数名是返回结果</li>
+<li>lambda函数用于定义简单的、能够在一行内表示的函数</li>
+</ul>
+<hr>
+<p>&lt;函数名&gt; = lambda &lt;参数&gt;: &lt;表达式&gt;</p>
+<hr>
+<p>》》》f = lambdax, y : x + y</p>
+<p>》》》f = lambda: “lambda函数”</p>
+<h4 id="谨慎使用lambda函数"><a href="#谨慎使用lambda函数" class="headerlink" title="谨慎使用lambda函数"></a>谨慎使用lambda函数</h4><ul>
+<li>lambda函数主要用作一些特定函数或方法的参数</li>
+<li>lambda函数有一些固定使用方式，建议逐步掌握</li>
+<li>一般情况，建议使用def定义的普通函数</li>
+</ul>
+<h2 id="5-2-实例7-七段数码管绘制"><a href="#5-2-实例7-七段数码管绘制" class="headerlink" title="5.2 实例7: 七段数码管绘制"></a>5.2 实例7: 七段数码管绘制</h2><h3 id="步骤1：绘制单个数字对应的数码管"><a href="#步骤1：绘制单个数字对应的数码管" class="headerlink" title="步骤1：绘制单个数字对应的数码管"></a>步骤1：绘制单个数字对应的数码管</h3><ul>
+<li>七段数码管由7个基本线条组成</li>
+<li>七段数码管可以有固定顺序</li>
+<li>不同数字显示不同的线条</li>
+<li>增加七段数码管之间线条间隔</li>
+</ul>
+<h3 id="步骤2：获得一串数字，绘制对应的数码管"><a href="#步骤2：获得一串数字，绘制对应的数码管" class="headerlink" title="步骤2：获得一串数字，绘制对应的数码管"></a>步骤2：获得一串数字，绘制对应的数码管</h3><h3 id="步骤3：获得当前系统时间，绘制对应的数码管"><a href="#步骤3：获得当前系统时间，绘制对应的数码管" class="headerlink" title="步骤3：获得当前系统时间，绘制对应的数码管"></a>步骤3：获得当前系统时间，绘制对应的数码管</h3><ul>
+<li>使用time库获得系统当前时间</li>
+<li>增加年月日标记</li>
+<li>年月日颜色不同</li>
+</ul>
+<h3 id="应用问题的扩展"><a href="#应用问题的扩展" class="headerlink" title="应用问题的扩展"></a>应用问题的扩展</h3><ul>
+<li>绘制带小数点的七段数码管</li>
+<li>带刷新的时间倒计时效果</li>
+<li>绘制高级的数码管</li>
+</ul>
+<pre><code class="hljs python"><span class="hljs-comment">#SevenDigitsDrawV1.py</span>
+<span class="hljs-keyword">import</span> turtle
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawLine</span>(<span class="hljs-params">draw</span>):</span>   <span class="hljs-comment">#绘制单段数码管</span>
+    turtle.pendown() <span class="hljs-keyword">if</span> draw <span class="hljs-keyword">else</span> turtle.penup()
+    turtle.fd(<span class="hljs-number">40</span>)
+    turtle.right(<span class="hljs-number">90</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawDigit</span>(<span class="hljs-params">digit</span>):</span> <span class="hljs-comment">#根据数字绘制七段数码管</span>
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> digit <span class="hljs-keyword">in</span> [<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> digit <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> digit <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> digit <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    turtle.left(<span class="hljs-number">90</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> digit <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> digit <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> digit <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    turtle.left(<span class="hljs-number">180</span>)
+    turtle.penup()<span class="hljs-comment">#为绘制后续数字确定位置</span>
+    turtle.fd(<span class="hljs-number">20</span>) <span class="hljs-comment">#为绘制后续数字确定位置</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawDate</span>(<span class="hljs-params">date</span>):</span>  <span class="hljs-comment">#获得要输出的数字</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> date:
+        drawDigit(eval(i))  <span class="hljs-comment">#通过eval()函数将数字变为整数</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span>
+    turtle.setup(<span class="hljs-number">800</span>, <span class="hljs-number">350</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
+    turtle.penup()
+    turtle.fd(<span class="hljs-number">-300</span>)
+    turtle.pensize(<span class="hljs-number">5</span>)
+    drawDate(<span class="hljs-string">&#x27;20181010&#x27;</span>)
+    turtle.hideturtle()
+    turtle.done()
+main()</code></pre>
+<h3 id="完全版"><a href="#完全版" class="headerlink" title="完全版"></a>完全版</h3><pre><code class="hljs python"><span class="hljs-comment">#SevenDigitsDrawV2.py</span>
+<span class="hljs-keyword">import</span> turtle, time
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawGap</span>():</span> <span class="hljs-comment">#绘制数码管间隔</span>
+    turtle.penup()
+    turtle.fd(<span class="hljs-number">5</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawLine</span>(<span class="hljs-params">draw</span>):</span>   <span class="hljs-comment">#绘制单段数码管</span>
+    drawGap()
+    turtle.pendown() <span class="hljs-keyword">if</span> draw <span class="hljs-keyword">else</span> turtle.penup()
+    turtle.fd(<span class="hljs-number">40</span>)
+    drawGap()
+    turtle.right(<span class="hljs-number">90</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawDigit</span>(<span class="hljs-params">d</span>):</span> <span class="hljs-comment">#根据数字绘制七段数码管</span>
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> d <span class="hljs-keyword">in</span> [<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> d <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> d <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> d <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    turtle.left(<span class="hljs-number">90</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> d <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> d <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    drawLine(<span class="hljs-literal">True</span>) <span class="hljs-keyword">if</span> d <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>] <span class="hljs-keyword">else</span> drawLine(<span class="hljs-literal">False</span>)
+    turtle.left(<span class="hljs-number">180</span>)
+    turtle.penup()
+    turtle.fd(<span class="hljs-number">20</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">drawDate</span>(<span class="hljs-params">date</span>):</span>
+    turtle.pencolor(<span class="hljs-string">&quot;red&quot;</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> date:
+        <span class="hljs-keyword">if</span> i == <span class="hljs-string">&#x27;-&#x27;</span>:
+            turtle.write(<span class="hljs-string">&#x27;年&#x27;</span>,font=(<span class="hljs-string">&quot;Arial&quot;</span>, <span class="hljs-number">18</span>, <span class="hljs-string">&quot;normal&quot;</span>))
+            turtle.pencolor(<span class="hljs-string">&quot;green&quot;</span>)
+            turtle.fd(<span class="hljs-number">40</span>)
+        <span class="hljs-keyword">elif</span> i == <span class="hljs-string">&#x27;=&#x27;</span>:
+            turtle.write(<span class="hljs-string">&#x27;月&#x27;</span>,font=(<span class="hljs-string">&quot;Arial&quot;</span>, <span class="hljs-number">18</span>, <span class="hljs-string">&quot;normal&quot;</span>))
+            turtle.pencolor(<span class="hljs-string">&quot;blue&quot;</span>)
+            turtle.fd(<span class="hljs-number">40</span>)
+        <span class="hljs-keyword">elif</span> i == <span class="hljs-string">&#x27;+&#x27;</span>:
+            turtle.write(<span class="hljs-string">&#x27;日&#x27;</span>,font=(<span class="hljs-string">&quot;Arial&quot;</span>, <span class="hljs-number">18</span>, <span class="hljs-string">&quot;normal&quot;</span>))
+        <span class="hljs-keyword">else</span>:
+            drawDigit(eval(i))
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span>
+    turtle.setup(<span class="hljs-number">800</span>, <span class="hljs-number">350</span>, <span class="hljs-number">200</span>, <span class="hljs-number">200</span>)
+    turtle.penup()
+    turtle.fd(<span class="hljs-number">-350</span>)
+    turtle.pensize(<span class="hljs-number">5</span>)
+<span class="hljs-comment">#    drawDate(&#x27;2018-10=10+&#x27;)</span>
+    drawDate(time.strftime(<span class="hljs-string">&#x27;%Y-%m=%d+&#x27;</span>,time.gmtime()))
+    turtle.hideturtle()
+    turtle.done()
+main()</code></pre>
+<h2 id="5-3-代码复用与函数递归"><a href="#5-3-代码复用与函数递归" class="headerlink" title="5.3 代码复用与函数递归"></a>5.3 代码复用与函数递归</h2><p>函数和对象是实现代码复用的方法，也可以说是对代码抽象的不同级别</p>
+<p>函数的递归本质就是（数学归纳法）两条，通过研究第n步与第n-1步的关系，并不关心问题具体的结构。</p>
+<h3 id="5-3-1代码复用与模块化设计"><a href="#5-3-1代码复用与模块化设计" class="headerlink" title="5.3.1代码复用与模块化设计"></a>5.3.1代码复用与模块化设计</h3><h4 id="5-3-1-1函数和对象是实现代码复用的方法，也可以说是对代码抽象的不同级别"><a href="#5-3-1-1函数和对象是实现代码复用的方法，也可以说是对代码抽象的不同级别" class="headerlink" title="5.3.1.1函数和对象是实现代码复用的方法，也可以说是对代码抽象的不同级别"></a>5.3.1.1函数和对象是实现代码复用的方法，也可以说是对代码抽象的不同级别</h4><h5 id="1函数：将代码命名在代码层面建立了初步抽象"><a href="#1函数：将代码命名在代码层面建立了初步抽象" class="headerlink" title="1函数：将代码命名在代码层面建立了初步抽象"></a>1函数：将代码命名在代码层面建立了初步抽象</h5><h5 id="2对象：属性和方法-和-，在函数之上再次组织进行抽象"><a href="#2对象：属性和方法-和-，在函数之上再次组织进行抽象" class="headerlink" title="2对象：属性和方法. 和.()，在函数之上再次组织进行抽象"></a>2对象：属性和方法<a>.<b> 和<a>.<b>()，在函数之上再次组织进行抽象</h5><h3 id="5-3-1-2模块化设计-分而治之"><a href="#5-3-1-2模块化设计-分而治之" class="headerlink" title="5.3..1.2模块化设计-分而治之"></a>5.3..1.2模块化设计-分而治之</h3><ul>
+<li>通过函数或对象封装将程序划分为模块及模块间的表达</li>
+<li>具体包括：主程序、子程序和子程序间关系</li>
+<li>分而治之：一种分而治之、分层抽象、体系化的设计思想</li>
+<li>模块内部紧耦合、模块之间松耦合</li>
+</ul>
+<h3 id="5-3-2函数递归-函数定义中调用函数自身的方式"><a href="#5-3-2函数递归-函数定义中调用函数自身的方式" class="headerlink" title="5.3.2函数递归-函数定义中调用函数自身的方式"></a>5.3.2函数递归-函数定义中调用函数自身的方式</h3><h4 id="5-3-2-1两个关键特征"><a href="#5-3-2-1两个关键特征" class="headerlink" title="5.3.2.1两个关键特征"></a>5.3.2.1两个关键特征</h4><ul>
+<li>1链条：计算过程存在递归链条</li>
+<li>2基例：存在一个或多个不需要再次递归的基例</li>
+<li>总结：递归是数学归纳法思维的编程体现</li>
+</ul>
+<h4 id="5-3-2-2函数递归的调用过程—函数-分支语句"><a href="#5-3-2-2函数递归的调用过程—函数-分支语句" class="headerlink" title="5.3.2.2函数递归的调用过程—函数+ 分支语句"></a>5.3.2.2函数递归的调用过程—函数+ 分支语句</h4><ul>
+<li>递归本身是一个函数，需要函数定义方式描述</li>
+<li>函数内部，采用分支语句对输入参数进行判断</li>
+<li>基例和链条，分别编写对应代码</li>
+</ul>
+<h4 id="注意：递归不提高程序执行效率。-任何递归程序都可以通过堆栈或队列变成非递归程序（这是程序的高级应用）。"><a href="#注意：递归不提高程序执行效率。-任何递归程序都可以通过堆栈或队列变成非递归程序（这是程序的高级应用）。" class="headerlink" title="注意：递归不提高程序执行效率。//任何递归程序都可以通过堆栈或队列变成非递归程序（这是程序的高级应用）。"></a>注意：递归不提高程序执行效率。//任何递归程序都可以通过堆栈或队列变成非递归程序（这是程序的高级应用）。</h4><h4 id="5-3-2-3函数递归实例解析"><a href="#5-3-2-3函数递归实例解析" class="headerlink" title="5.3.2.3函数递归实例解析"></a>5.3.2.3函数递归实例解析</h4><h5 id="1将字符串s反转后输出"><a href="#1将字符串s反转后输出" class="headerlink" title="1将字符串s反转后输出"></a>1将字符串s反转后输出</h5><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rvs</span>(<span class="hljs-params">s</span>):</span>
+	<span class="hljs-keyword">if</span> s == <span class="hljs-string">&quot;&quot;</span>:
+		<span class="hljs-keyword">return</span> s
+	<span class="hljs-keyword">else</span> :
+		<span class="hljs-keyword">return</span> rvs(s[<span class="hljs-number">1</span>:])+s[<span class="hljs-number">0</span>]</code></pre>
+<h5 id="2斐波那契数列"><a href="#2斐波那契数列" class="headerlink" title="2斐波那契数列"></a>2斐波那契数列</h5><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">f</span>(<span class="hljs-params">n</span>):</span>
+	<span class="hljs-keyword">if</span> n ==<span class="hljs-number">1</span> <span class="hljs-keyword">or</span> n ==<span class="hljs-number">2</span>:
+		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+	<span class="hljs-keyword">else</span>:
+		<span class="hljs-keyword">return</span> f(n<span class="hljs-number">-1</span>)+f(n<span class="hljs-number">-2</span>)</code></pre>
+<h5 id="3汉诺塔问题"><a href="#3汉诺塔问题" class="headerlink" title="3汉诺塔问题"></a>3汉诺塔问题</h5><pre><code class="hljs python">count = <span class="hljs-number">0</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hanoi</span>(<span class="hljs-params">n, src, dst, mid</span>):</span>
+	<span class="hljs-keyword">global</span> count
+	<span class="hljs-keyword">if</span> n== <span class="hljs-number">1</span> :
+		print(<span class="hljs-string">&quot;&#123;&#125;:&#123;&#125;-&gt;&#123;&#125;&quot;</span>.format(<span class="hljs-number">1</span>,src,dst))
+		count+= <span class="hljs-number">1</span>
+	<span class="hljs-keyword">else</span>:
+		hanoi(n<span class="hljs-number">-1</span>, src, mid, dst)
+		print(<span class="hljs-string">&quot;&#123;&#125;:&#123;&#125;-&gt;&#123;&#125;&quot;</span>.format(n,src,dst))
+		count += <span class="hljs-number">1</span>
+		hanoi(n<span class="hljs-number">-1</span>, mid, dst, src)</code></pre>
+<h2 id="5-4-模块4-PyInstaller库的使用"><a href="#5-4-模块4-PyInstaller库的使用" class="headerlink" title="5.4 模块4: PyInstaller库的使用"></a>5.4 模块4: PyInstaller库的使用</h2><h3 id="5-4-1PyInstaller库基本介绍-将-py源代码转换成无需源代码的可执行文件"><a href="#5-4-1PyInstaller库基本介绍-将-py源代码转换成无需源代码的可执行文件" class="headerlink" title="5.4.1PyInstaller库基本介绍-将.py源代码转换成无需源代码的可执行文件"></a>5.4.1PyInstaller库基本介绍-将.py源代码转换成无需源代码的可执行文件</h3><h4 id="PyInstaller库的安装"><a href="#PyInstaller库的安装" class="headerlink" title="PyInstaller库的安装"></a>PyInstaller库的安装</h4><ul>
+<li>(cmd命令行) pip install pyinstaller</li>
+</ul>
+<h3 id="5-4-2PyInstaller库使用说明"><a href="#5-4-2PyInstaller库使用说明" class="headerlink" title="5.4.2PyInstaller库使用说明"></a>5.4.2PyInstaller库使用说明</h3><h4 id="简单的使用"><a href="#简单的使用" class="headerlink" title="简单的使用"></a>简单的使用</h4><ul>
+<li>(cmd命令行) pyinstaller -F &lt;文件名.py&gt;</li>
+</ul>
+<h4 id="PyInstaller库常用参数"><a href="#PyInstaller库常用参数" class="headerlink" title="PyInstaller库常用参数"></a>PyInstaller库常用参数</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-h</td>
+<td>查看帮助</td>
+</tr>
+<tr>
+<td>—clean</td>
+<td>清理打包过程中的临时文件</td>
+</tr>
+<tr>
+<td>-D,—onedir</td>
+<td>默认值，生成dist文件夹</td>
+</tr>
+<tr>
+<td>-F,—onefile</td>
+<td>在dist文件夹中只生成独立的打包文件</td>
+</tr>
+<tr>
+<td>-i&lt;图标文件名.ico&gt;</td>
+<td>指定打包程序使用的图标(icon)文件</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>使用：pyinstaller–icurve.ico –F SevenDigitsDrawV2.py</li>
+</ul>
+<h2 id="5-5-实例8-科赫雪花小包裹"><a href="#5-5-实例8-科赫雪花小包裹" class="headerlink" title="5.5 实例8: 科赫雪花小包裹"></a>5.5 实例8: 科赫雪花小包裹</h2><h3 id="科赫曲线的绘制"><a href="#科赫曲线的绘制" class="headerlink" title="科赫曲线的绘制"></a>科赫曲线的绘制</h3><ul>
+<li>递归思想：函数+分支</li>
+<li>递归链条：线段的组合</li>
+<li>递归基例：初始线段</li>
+</ul>
+<pre><code class="hljs python"><span class="hljs-comment">#KochDrawV1.py</span>
+<span class="hljs-keyword">import</span> turtle
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">koch</span>(<span class="hljs-params">size, n</span>):</span>
+	<span class="hljs-keyword">if</span> n == <span class="hljs-number">0</span>:
+		turtle.fd(size)
+	<span class="hljs-keyword">else</span>:
+		<span class="hljs-keyword">for</span> angle <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, <span class="hljs-number">60</span>, <span class="hljs-number">-120</span>, <span class="hljs-number">60</span>]:
+			turtle.left(angle)
+			koch(size/<span class="hljs-number">3</span>, n<span class="hljs-number">-1</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>():</span>
+	turtle.setup(<span class="hljs-number">800</span>,<span class="hljs-number">400</span>)
+	turtle.penup()
+	turtle.goto(<span class="hljs-number">-300</span>, <span class="hljs-number">-50</span>)
+	turtle.pendown()
+	turtle.pensize(<span class="hljs-number">2</span>)
+	koch(<span class="hljs-number">600</span>, <span class="hljs-number">3</span>) <span class="hljs-comment"># 3阶科赫曲线，阶数</span>
+	turtle.hideturtle()
+main()</code></pre>
+<h3 id="科赫雪花的绘制—对三角形每一条边进行分形"><a href="#科赫雪花的绘制—对三角形每一条边进行分形" class="headerlink" title="科赫雪花的绘制—对三角形每一条边进行分形"></a>科赫雪花的绘制—对三角形每一条边进行分形</h3><pre><code class="hljs python"><span class="hljs-comment">#KochDrawV2.py</span>
+<span class="hljs-keyword">import</span> turtle
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">koch</span>(<span class="hljs-params">size, n</span>):</span> <span class="hljs-comment">#绘制科赫曲线的每一个长度size，和阶数n</span>
+	<span class="hljs-keyword">if</span> n == <span class="hljs-number">0</span>:
+		turtle.fd(size)
+	<span class="hljs-keyword">else</span>:
+		<span class="hljs-keyword">for</span> angle <span class="hljs-keyword">in</span> [<span class="hljs-number">0</span>, <span class="hljs-number">60</span>, <span class="hljs-number">-120</span>, <span class="hljs-number">60</span>]:
+			turtle.left(angle)
+			koch(size/<span class="hljs-number">3</span>, n<span class="hljs-number">-1</span>)
+<span class="hljs-function"><span class="hljs-keyword">def</span>	<span class="hljs-title">main</span>():</span>
+	turtle.setup(<span class="hljs-number">600</span>,<span class="hljs-number">600</span>)
+	turtle.penup()
+	turtle.goto(<span class="hljs-number">-200</span>, <span class="hljs-number">100</span>)
+	turtle.pendown()
+	turtle.pensize(<span class="hljs-number">2</span>)
+	level = <span class="hljs-number">3</span> <span class="hljs-comment"># 3阶科赫雪花，阶数</span>
+	koch(<span class="hljs-number">400</span>, level)
+	turtle.right(<span class="hljs-number">120</span>)
+	koch(<span class="hljs-number">400</span>, level)
+	turtle.right(<span class="hljs-number">120</span>)
+	koch(<span class="hljs-number">400</span>, level)
+	turtle.hideturtle()
+main()</code></pre>
+<ul>
+<li>对编写后的科赫雪花代码进行打包处理</li>
+<li>pyinstaller –i curve.ico –F KochDrawV2.py</li>
+</ul>
+<h3 id="“科赫雪花小包裹”举一反三"><a href="#“科赫雪花小包裹”举一反三" class="headerlink" title="“科赫雪花小包裹”举一反三"></a>“科赫雪花小包裹”举一反三</h3><h4 id="绘制条件的扩展"><a href="#绘制条件的扩展" class="headerlink" title="绘制条件的扩展"></a>绘制条件的扩展</h4><ul>
+<li>修改分形几何绘制阶数</li>
+<li>修改科赫曲线的基本定义及旋转角度</li>
+<li>修改绘制科赫雪花的<strong>基础框架图形</strong></li>
+</ul>
+<h4 id="分形几何千千万"><a href="#分形几何千千万" class="headerlink" title="分形几何千千万"></a>分形几何千千万</h4><ul>
+<li>康托尔集、谢尔宾斯基三角形、门格海绵…</li>
+<li>龙形曲线、空间填充曲线、科赫曲线…</li>
+<li>函数递归的深入应用…</li>
+</ul>
+<h2 id="练习题中的思考"><a href="#练习题中的思考" class="headerlink" title="练习题中的思考"></a>练习题中的思考</h2><h3 id="例1———-任意累积：计算任意个输入数字的乘积。"><a href="#例1———-任意累积：计算任意个输入数字的乘积。" class="headerlink" title="例1———-任意累积：计算任意个输入数字的乘积。"></a>例1———-任意累积：计算任意个输入数字的乘积。</h3><pre><code class="hljs python"><span class="hljs-comment"># 官方的答案.py</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cmul</span>(<span class="hljs-params">a ,*b</span>) # 无限制数量函数定义的方法，体现在可变参数传递上</span>
+	m = a
+	<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> b
+		m*= i
+	<span class="hljs-keyword">return</span> m
+print(eval(<span class="hljs-string">&quot;cuml([])&quot;</span>.format(input())))</code></pre>
+<p><strong>官方</strong>是把输入当作多个变量来使用，<strong>我的思维</strong>是把输入当成一个变量来看。回想<strong>可变参数</strong>就是允许在调用参数的时候传入多个（≥0个）参数（类似于列表、字典），我的参数定义方法虽然使用上和列表没有区别，单数参数接收到的是一个tuple（这些参数在传入时被自动组组装为一个元祖），你细品（笑）</p>
+<pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cmul</span>(<span class="hljs-params">*s</span>):</span>
+    results = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> s:
+        results *= i
+    <span class="hljs-keyword">return</span> results
+print(eval(<span class="hljs-string">&quot;cmul(&#123;&#125;)&quot;</span>.format(input())))</code></pre>
+<h3 id="例2—————-连续质数计算"><a href="#例2—————-连续质数计算" class="headerlink" title="例2—————-连续质数计算"></a>例2—————-连续质数计算</h3><p>获得用户输入数字N，计算并输出从N开始的5个质数，单行输出，质数间用逗号,分割。‪‬‪‬‪‬‪‬‪‬‮‬‫‬‫‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‭‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬‪‬‪‬‪‬‪‬‪‬‮‬‭‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‪‬‪‬‪‬‪‬‪‬‪‬‪‬‮‬‫‬‮‬</p>
+<p>要求：需要考虑用户输入的数字N可能是浮点数，应对输入取整数；最后一个输出后不用逗号。</p>
+<pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">prime</span>(<span class="hljs-params">m</span>):</span>
+    <span class="hljs-keyword">if</span> m &lt; <span class="hljs-number">2</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+    <span class="hljs-keyword">else</span>:
+        end = int(pow(m, <span class="hljs-number">0.5</span>) + <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>, end):
+            <span class="hljs-keyword">if</span> m%i == <span class="hljs-number">0</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>
+
+n = eval(input())
+<span class="hljs-keyword">if</span> n != int(n):  <span class="hljs-comment"># 因为可能输入有浮点数</span>
+    n = int(n) + <span class="hljs-number">1</span>
+<span class="hljs-keyword">else</span>:  <span class="hljs-comment"># 保证输入5.0时，输出为整数5。这里只根据题目中只输入正浮点或者正整数时做的处理</span>
+    n = int(n)
+count = <span class="hljs-number">5</span>
+<span class="hljs-keyword">while</span> count &gt; <span class="hljs-number">0</span>:
+    <span class="hljs-keyword">if</span> prime(n):
+        <span class="hljs-keyword">if</span> count &gt; <span class="hljs-number">1</span>:
+            print(n, end=<span class="hljs-string">&#x27;,&#x27;</span>)
+        <span class="hljs-keyword">else</span>:
+            print(n)
+        count -= <span class="hljs-number">1</span>
+    n += <span class="hljs-number">1</span></code></pre>
+<p>计数用什么来着？（经典）质数是怎么判断的？</p>
+<p>下文接（二）</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/python/">python</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/28/post-9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python网络爬虫与信息提取</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/07/post-7/">
+                        <span class="hidden-mobile">Weakly Supervised Discriminative Feature Learning with State Information</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Python程序设计基础&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

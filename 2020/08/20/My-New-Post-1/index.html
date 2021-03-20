@@ -1,0 +1,685 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <link rel="icon" type="image/png" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="yang zhifei">
+  <meta name="keywords" content="">
+  <title>学术PPT的制作与讲解+Latex - 一阵风的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>一阵风</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://rmt.dogedoge.com/fetch/fluid/storage/bg/1cm6iu.png?w=1920&fmt=webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-08-20 15:01" pubdate>
+        2020年8月20日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">学术PPT的制作与讲解+Latex</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="总体原则"><a href="#总体原则" class="headerlink" title="总体原则"></a>总体原则</h1><h2 id="学习苹果发布会风格"><a href="#学习苹果发布会风格" class="headerlink" title="学习苹果发布会风格"></a>学习苹果发布会风格</h2><p>但是我觉得苹果太简洁了，学术ppt必须也有内容。大图，大字，只写数据、结论、关键字。</p>
+<p>想好目的听众是谁，是某个管钱的还是某个会议的伪同行或者某些大佬。因为不可能一份照顾到所有人，最终目的是预设的听众听得爽就行了。<br><a id="more"></a></p>
+<h2 id="制作原则："><a href="#制作原则：" class="headerlink" title="制作原则："></a>制作原则：</h2><p>1所有出现的都要解释<br>2不要让他们看到他们现在不需要看到的东西。（帮他们理清逻辑）<br>3数学公式只放结果，不推导。（懂的自然懂，不懂的也不可能看一下ppt就懂）<br>4”pretty, pretty, pretty”<br>5”clean, clean, clean”<br>6结论清晰（开会一天听十多个，保证别人累了一天还能记住你的结论）</p>
+<h2 id="注意时间"><a href="#注意时间" class="headerlink" title="注意时间"></a>注意时间</h2><p>这一点也很重要，在制作PPT的时候，一定要做到<strong>腹稿、逐字稿、PPT、演讲</strong>四者统一。千万不要定稿PPT之后，又觉得不严谨，反复加一堆东西上去，最后导致逻辑混乱，演讲超时。不过我觉得你也不敢在大佬面前乱讲hhh</p>
+<h1 id="Latex编辑ppt，用代码体现简洁"><a href="#Latex编辑ppt，用代码体现简洁" class="headerlink" title="Latex编辑ppt，用代码体现简洁"></a>Latex编辑ppt，用代码体现简洁</h1><h2 id="以-Markdown-撰写文稿，以-LaTeX-排版"><a href="#以-Markdown-撰写文稿，以-LaTeX-排版" class="headerlink" title="以 Markdown 撰写文稿，以 LaTeX 排版"></a>以 Markdown 撰写文稿，以 LaTeX 排版</h2><p>前几天，我发现了 <code>markdown</code> 宏包，它能够更好地平衡 Markdown 的便捷性和 LaTeX 对样式的控制能力和对数学公式的排版能力。并且，我认为在熟练使用它之后，可以更好地实现 LaTeX 设计之初的愿望：<a target="_blank" rel="noopener" href="https://liam.page/2019/03/18/separation-of-content-and-presentation/">内容与样式分离</a>。</p>
+<p>阅读原文:<a target="_blank" rel="noopener" href="https://liam.page/2020/03/30/writing-manuscript-in-Markdown-and-typesetting-with-LaTeX/">https://liam.page/2020/03/30/writing-manuscript-in-Markdown-and-typesetting-with-LaTeX/</a></p>
+<h2 id="latex一些排版要求和模板"><a href="#latex一些排版要求和模板" class="headerlink" title="latex一些排版要求和模板"></a>latex一些排版要求和模板</h2><p><a target="_blank" rel="noopener" href="https://www.latexstudio.net/index/lists/index/type/2/cate/13.html">https://www.latexstudio.net/index/lists/index/type/2/cate/13.html</a></p>
+<h2 id="软件下载与安装"><a href="#软件下载与安装" class="headerlink" title="软件下载与安装"></a>软件下载与安装</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/libbin/p/LaTeX_TexStudio.html">LaTeX+TexStudio安装与使用</a></p>
+<h3 id="安装宏包，更改安装源"><a href="#安装宏包，更改安装源" class="headerlink" title="安装宏包，更改安装源"></a>安装宏包，更改安装源</h3><ul>
+<li><p>由于我装的是在E盘，在文件夹窗口内空白区域右键单击（需要同时按住Shift），从菜单中选择＂windowspowershell＂的项，主要是为了使用mpm.exe命令</p>
+</li>
+<li><p>可以输入mpm.exe —list-repositories查看已有的镜像源</p>
+</li>
+<li>输入mpm.exe —set-repository=<a href="https://link.zhihu.com/?target=http%3A//mirrors.zju.edu.cn/CTAN/systems/win32/miktex/tm/packages/">http://mirrors.zju.edu.cn/CTAN/systems/win32/miktex/tm/packages/</a>修改成国内镜像源</li>
+<li>（第二部）手动安装<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiximayou/p/12239017.html#top">https://www.cnblogs.com/xiximayou/p/12239017.html#top</a></li>
+</ul>
+<h2 id="ppt常用宏包-———beamer"><a href="#ppt常用宏包-———beamer" class="headerlink" title="ppt常用宏包 ———beamer"></a>ppt常用宏包 ———beamer</h2><p>安装</p>
+<h2 id="手动安装完包之后要更新索引"><a href="#手动安装完包之后要更新索引" class="headerlink" title="手动安装完包之后要更新索引"></a>手动安装完包之后要更新索引</h2><p>MikTeX: initexmf —update-fndb；或者使用GUI，即Start -&gt; All Programs -&gt; MikTex -&gt; Settings(admin)下第一个tab，点击“Refresh FNDB”按钮即可</p>
+<h2 id="最基本的模板-baseline-转载"><a href="#最基本的模板-baseline-转载" class="headerlink" title="最基本的模板-baseline 转载"></a>最基本的模板-baseline <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b41fc167fea5">转载</a></h2><h3 id="封面部分"><a href="#封面部分" class="headerlink" title="封面部分"></a>封面部分</h3><pre><code class="hljs latex"><span class="hljs-tag">\<span class="hljs-name">documentclass</span><span class="hljs-string">[11pt]</span><span class="hljs-string">&#123;beamer&#125;</span></span>                                                                                                                 <span class="hljs-tag">\<span class="hljs-name">usetheme</span><span class="hljs-string">&#123;Madrid&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">usepackage</span><span class="hljs-string">&#123;graphicx&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">usepackage</span><span class="hljs-string">&#123;subfigure&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">usepackage</span><span class="hljs-string">[english]</span><span class="hljs-string">&#123;babel&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">usepackage</span><span class="hljs-string">&#123;times&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">usepackage</span><span class="hljs-string">[T1]</span><span class="hljs-string">&#123;fontenc&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">usepackage</span><span class="hljs-string">&#123;ctex&#125;</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;document&#125;</span></span>
+<span class="hljs-comment">%\begin&#123;frame&#125;</span>
+    <span class="hljs-tag">\<span class="hljs-name">title</span><span class="hljs-string">[Work Summary]</span><span class="hljs-string">&#123;Work Summary&#125;</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">author</span><span class="hljs-string">[Author]</span><span class="hljs-string">&#123;Author&#125;</span></span> <span class="hljs-comment">% 显示作者</span>
+    <span class="hljs-tag">\<span class="hljs-name">institute</span><span class="hljs-string">[WHU]</span><span class="hljs-string">&#123;Wuhan University&#125;</span></span> <span class="hljs-comment">% 设置学院机构</span>
+    <span class="hljs-tag">\<span class="hljs-name">date</span><span class="hljs-string">&#123;\today&#125;</span></span>  <span class="hljs-comment">% 显示日期</span>
+        <span class="hljs-tag">\<span class="hljs-name">logo</span><span class="hljs-string">&#123;\includegraphics[width=1.8cm,height=1.8cm]&#123;1.png&#125;</span></span>&#125;
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">titlepage</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span></code></pre>
+<p>1.png可以换成自己学校的校徽</p>
+<h3 id="目录部分"><a href="#目录部分" class="headerlink" title="目录部分"></a>目录部分</h3><pre><code class="hljs latex"><span class="hljs-tag">\<span class="hljs-name">section</span><span class="hljs-string">[Contents]</span><span class="hljs-string">&#123;&#125;</span></span>
+<span class="hljs-comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="hljs-tag">\<span class="hljs-name">frame</span></span> &#123;
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;\secname&#125;</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">tableofcontents</span></span>
+&#125;
+<span class="hljs-tag">\<span class="hljs-name">AtBeginSubsection</span><span class="hljs-string">[]</span></span> &#123;
+    <span class="hljs-tag">\<span class="hljs-name">frame</span></span>&lt;handout:0&gt; &#123;
+        <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;Contents&#125;</span></span>
+        <span class="hljs-tag">\<span class="hljs-name">tableofcontents</span><span class="hljs-string">[current,currentsubsection]</span></span>
+    &#125;
+&#125;</code></pre>
+<h3 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h3><pre><code class="hljs latex"><span class="hljs-tag">\<span class="hljs-name">section</span><span class="hljs-string">&#123;Section1&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">subsection</span><span class="hljs-string">&#123;1.1&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;A&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">subsection</span><span class="hljs-string">&#123;1.2&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;B&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">section</span><span class="hljs-string">&#123;Section2&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">subsection</span><span class="hljs-string">&#123;2.1&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;C&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">subsection</span><span class="hljs-string">&#123;2.2&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;D&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">section</span><span class="hljs-string">&#123;Section3&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">subsection</span><span class="hljs-string">&#123;3.1&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;E&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">subsection</span><span class="hljs-string">&#123;3.2&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;F&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span></code></pre>
+<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><p>注意：照片必须放在“.tex”文件相同的文件夹</p>
+<pre><code class="hljs latex"><span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;Pearson Correlation&#125;</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;figure&#125;</span><span class="hljs-string">[h]</span></span><span class="hljs-comment">%%图</span>
+        <span class="hljs-tag">\<span class="hljs-name">centering</span></span>  <span class="hljs-comment">%插入的图片居中表示</span>
+        <span class="hljs-tag">\<span class="hljs-name">includegraphics</span><span class="hljs-string">[width=0.9\linewidth]</span><span class="hljs-string">&#123;Result_heatmap.png&#125;</span></span>  
+        <span class="hljs-tag">\<span class="hljs-name">caption</span><span class="hljs-string">&#123;Pearson Correlation Heatmap&#125;</span></span>  <span class="hljs-comment">%图片的名称</span>
+    <span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;figure&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span></code></pre>
+<h3 id="列举"><a href="#列举" class="headerlink" title="列举"></a>列举</h3><pre><code class="hljs latex"><span class="hljs-tag">\<span class="hljs-name">subsection</span><span class="hljs-string">&#123;1.2&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;B&#125;</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;itemize&#125;</span></span>
+        <span class="hljs-tag">\<span class="hljs-name">item</span></span> 1 Hello World
+        <span class="hljs-tag">\<span class="hljs-name">item</span></span> 2 Hello World
+        <span class="hljs-tag">\<span class="hljs-name">item</span></span> 3 Hello World
+        <span class="hljs-tag">\<span class="hljs-name">item</span></span> 4 Hello World
+    <span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;itemize&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span></code></pre>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><pre><code class="hljs latex"><span class="hljs-tag">\<span class="hljs-name">section</span><span class="hljs-string">&#123;Section2&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">subsection</span><span class="hljs-string">&#123;2.1&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;C&#125;</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;block&#125;</span><span class="hljs-string">&#123;定义&#125;</span></span>
+        Definition:
+    <span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;block&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span></code></pre>
+<h3 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h3><p>对公式不熟悉的话，可以参考这个网站：<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https%3A%2F%2Fwww.codecogs.com%2Flatex%2Feqneditor.php">https://www.codecogs.com/latex/eqneditor.php</a></p>
+<pre><code class="hljs latex"><span class="hljs-tag">\<span class="hljs-name">subsection</span><span class="hljs-string">&#123;2.2&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;D&#125;</span></span>
+        <span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;block&#125;</span><span class="hljs-string">&#123;Scaling&#125;</span></span>
+        <span class="hljs-formula">$$ x^* = <span class="hljs-tag">\<span class="hljs-name">frac</span><span class="hljs-string">&#123;x - x_&#123;min&#125;</span></span>&#125;&#123;x_&#123;max&#125; - x_&#123;min&#125;&#125; $$</span>
+    <span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;block&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span>
+<span class="hljs-comment">%若要公式单独成一行使用 $$    $$</span>
+<span class="hljs-comment">%若要公式不单独一行 $   $</span></code></pre>
+<h3 id="插入表格"><a href="#插入表格" class="headerlink" title="插入表格"></a>插入表格</h3><pre><code class="hljs latex"><span class="hljs-tag">\<span class="hljs-name">section</span><span class="hljs-string">&#123;Section3&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">subsection</span><span class="hljs-string">&#123;3.1&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;frame&#125;</span><span class="hljs-string">[fragile]</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">frametitle</span><span class="hljs-string">&#123;E&#125;</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;table&#125;</span><span class="hljs-string">[]</span></span>
+        <span class="hljs-tag">\<span class="hljs-name">begin</span><span class="hljs-string">&#123;tabular&#125;</span><span class="hljs-string">&#123;|c|c|c|&#125;</span></span>
+            <span class="hljs-tag">\<span class="hljs-name">hline</span></span>
+            index &amp; yD &amp; y2 <span class="hljs-tag">\<span class="hljs-name">\</span></span> <span class="hljs-tag">\<span class="hljs-name">hline</span></span>
+            x1          &amp;      3.347&amp;    1.330<span class="hljs-tag">\<span class="hljs-name">\</span></span> <span class="hljs-tag">\<span class="hljs-name">hline</span></span>
+            x2          &amp;      828.885&amp;    172.967<span class="hljs-tag">\<span class="hljs-name">\</span></span> <span class="hljs-tag">\<span class="hljs-name">hline</span></span>
+            x3 &amp;      0.819&amp;    0.492<span class="hljs-tag">\<span class="hljs-name">\</span></span> <span class="hljs-tag">\<span class="hljs-name">hline</span></span>
+            x4 &amp;      227.881&amp;    63.610<span class="hljs-tag">\<span class="hljs-name">\</span></span> <span class="hljs-tag">\<span class="hljs-name">hline</span></span>
+        <span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;tabular&#125;</span></span>
+        <span class="hljs-tag">\<span class="hljs-name">caption</span><span class="hljs-string">&#123;表格&#125;</span></span>
+    <span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;table&#125;</span></span>
+<span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;frame&#125;</span></span></code></pre>
+<p>对于表格不熟悉的话，也可以使用如下在线编辑网站：<br><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.tablesgenerator.com">http://www.tablesgenerator.com</a><br>编辑完成后再将代码粘贴到tex文件</p>
+<p>若表格过长可以选择调整字体大小</p>
+<pre><code class="hljs latex"><span class="hljs-tag">\<span class="hljs-name">tiny</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">scriptsize</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">footnotesize</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">small</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">normalsize</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">large</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">Large</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">LARGE</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">huge</span></span>
+
+<span class="hljs-tag">\<span class="hljs-name">Huge</span></span></code></pre>
+<h3 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h3><pre><code class="hljs latex"><span class="hljs-tag">\<span class="hljs-name">end</span><span class="hljs-string">&#123;document&#125;</span></span></code></pre>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Latex/">Latex</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/08/20/my%20new%20post%202/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">机器学习名词解释</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/19/neural%20networks/">
+                        <span class="hidden-mobile">神经网络基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "学术PPT的制作与讲解+Latex&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

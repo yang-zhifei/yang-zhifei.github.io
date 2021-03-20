@@ -1,0 +1,1108 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <link rel="icon" type="image/png" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="yang zhifei">
+  <meta name="keywords" content="">
+  <title>Python网络爬虫与信息提取 - 一阵风的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>一阵风</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://rmt.dogedoge.com/fetch/fluid/storage/bg/1cm6iu.png?w=1920&fmt=webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-28 14:31" pubdate>
+        2020年10月28日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      52
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Python网络爬虫与信息提取</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="第一章：网络爬虫-规则"><a href="#第一章：网络爬虫-规则" class="headerlink" title="第一章：网络爬虫-规则"></a>第一章：网络爬虫-规则</h1><h2 id="第一单元：Requests库入门"><a href="#第一单元：Requests库入门" class="headerlink" title="第一单元：Requests库入门"></a>第一单元：Requests库入门</h2><p><strong>The Website is the API…</strong></p>
+<ul>
+<li><p>Win平台: “以管理员身份运行”cmd，执行  pip install requests</p>
+<p>import requests</p>
+<p>r = requests.get(“<a target="_blank" rel="noopener" href="https://www.baidu.com">https://www.baidu.com</a>“)</p>
+<p>print(r.status_code)</p>
+<p>r.text</p>
+</li>
+</ul>
+<h3 id="Requests库的get-方法"><a href="#Requests库的get-方法" class="headerlink" title="Requests库的get()方法"></a>Requests库的get()方法</h3><p>requests库提供7个方法，但是都是以request.request()方法为基础的，所以我们可以认为只有一种方法。</p>
+<p>r = requests.get()包含两个对象：Response和Request</p>
+<pre><code class="hljs routeros">requests.<span class="hljs-builtin-name">get</span>(url, <span class="hljs-attribute">params</span>=None, **kwargs)</code></pre>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>url</th>
+<th>拟获取页面的url链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>params</td>
+<td>url中的额外参数，字典或字节流格式，可选</td>
+</tr>
+<tr>
+<td>**kwargs</td>
+<td>12个控制访问的参数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="Response对象的属性"><a href="#Response对象的属性" class="headerlink" title="Response对象的属性"></a>Response对象的属性</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r.status_code</td>
+<td>HTTP请求的返回状态，200表示连接成功，404表示失败</td>
+</tr>
+<tr>
+<td>r.text</td>
+<td>HTTP响应内容的字符串形式，即，url对应的页面内容</td>
+</tr>
+<tr>
+<td>r.encoding</td>
+<td>从HTTP header中猜测的响应内容编码方式</td>
+</tr>
+<tr>
+<td>r.apparent_encoding</td>
+<td>从内容中分析出的响应内容编码方式（备选编码方式）</td>
+</tr>
+<tr>
+<td>r.content</td>
+<td>HTTP响应内容的二进制形式</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="理解两种编码方式"><a href="#理解两种编码方式" class="headerlink" title="理解两种编码方式"></a>理解两种编码方式</h5><ul>
+<li>r.encoding：如果header中不存在charset，则认为编码为ISO‐8859‐1<pre><code>                   r.text根据r.encoding显示网页内容
+</code></pre></li>
+<li>r.apparent_encoding：根据https网页内容分析出的编码方式<pre><code>                                     可以看作是r.encoding的备选
+</code></pre></li>
+</ul>
+<h3 id="爬取网页的通用代码框架"><a href="#爬取网页的通用代码框架" class="headerlink" title="爬取网页的通用代码框架"></a>爬取网页的通用代码框架</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>异常</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requests.ConnectionError</td>
+<td>网络连接错误异常，如DNS查询失败、拒绝连接等</td>
+</tr>
+<tr>
+<td>requests.HTTPError</td>
+<td>HTTP错误异常</td>
+</tr>
+<tr>
+<td>requests.URLRequired</td>
+<td>URL缺失异常</td>
+</tr>
+<tr>
+<td>requests.TooManyRedirects</td>
+<td>超过最大重定向次数，产生重定向异常</td>
+</tr>
+<tr>
+<td>requests.ConnectTimeout</td>
+<td>连接远程服务器超时异常</td>
+</tr>
+<tr>
+<td>requests.Timeout</td>
+<td>请求URL超时，产生超时异常</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>r.raise_for_status() —————-如果不是200，产生异常requests.HTTPError</p>
+<blockquote>
+<p>r.raise_for_status()在方法内部判断r.status_code是否等于200，不需要<br>增加额外的if语句，该语句便于利用try‐except进行异常处理</p>
+</blockquote>
+<pre><code class="hljs python"><span class="hljs-keyword">try</span>:
+	r = requests.get(url,timout = <span class="hljs-number">30</span>)
+	r.raise_for_status()
+	r.encoding = r.apparent_encoding
+	<span class="hljs-keyword">return</span> r.text
+<span class="hljs-keyword">except</span>:
+	<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;产生异常&quot;</span></code></pre>
+<h3 id="HTTP协议及Requests库方法"><a href="#HTTP协议及Requests库方法" class="headerlink" title="HTTP协议及Requests库方法"></a>HTTP协议及Requests库方法</h3><h4 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h4><h5 id="HTTP，Hypertext-Transfer-Protocol，超文本传输协议"><a href="#HTTP，Hypertext-Transfer-Protocol，超文本传输协议" class="headerlink" title="HTTP，Hypertext Transfer Protocol，超文本传输协议"></a>HTTP，Hypertext Transfer Protocol，超文本传输协议</h5><h5 id="HTTP是一个基于“请求与响应”模式的、无状态的应用层（在TCP之上）协议"><a href="#HTTP是一个基于“请求与响应”模式的、无状态的应用层（在TCP之上）协议" class="headerlink" title="HTTP是一个基于“请求与响应”模式的、无状态的应用层（在TCP之上）协议"></a>HTTP是一个基于“请求与响应”模式的、无状态的应用层（在TCP之上）协议</h5><h5 id="HTTP协议采用URL作为定位网络资源的标识，URL格式如下：-port-path"><a href="#HTTP协议采用URL作为定位网络资源的标识，URL格式如下：-port-path" class="headerlink" title="HTTP协议采用URL作为定位网络资源的标识，URL格式如下：[:port][path]"></a>HTTP协议采用URL作为定位网络资源的标识，URL格式如下：[:port][path]</h5><h5 id="URL：是通过HTTP协议存取资源的Internet路径，一个URL对应一个数据资源"><a href="#URL：是通过HTTP协议存取资源的Internet路径，一个URL对应一个数据资源" class="headerlink" title="URL：是通过HTTP协议存取资源的Internet路径，一个URL对应一个数据资源"></a>URL：是通过HTTP协议存取资源的Internet路径，一个URL对应一个数据资源</h5><ul>
+<li><p>host: 合法的Internet主机域名或IP地址</p>
+</li>
+<li><p>port: 端口号，缺省端口为80</p>
+</li>
+<li><p>path: 请求资源的路径</p>
+</li>
+</ul>
+<h4 id="HTTP协议对资源的操作"><a href="#HTTP协议对资源的操作" class="headerlink" title="HTTP协议对资源的操作"></a>HTTP协议对资源的操作</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>请求获取URL位置的资源</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>请求获取URL位置资源的响应消息报告，即获得该资源的头部信息</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>请求向URL位置的资源后附加新的数据</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>请求向URL位置存储一个资源，<strong>覆盖</strong>原URL位置的资源</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>请求局部更新URL位置的资源，即改变该处资源的<strong>部分内容</strong></td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>请求删除URL位置存储的资源</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="https://i.loli.net/2020/10/28/nzO78dkm9TYBE15.png" srcset="/img/loading.gif" alt=""></p>
+<h4 id="Requests库的方法"><a href="#Requests库的方法" class="headerlink" title="Requests库的方法"></a>Requests库的方法</h4><p>POST方法：向URL POST一个字典，自动编码为form（表单）；向URL POST一个字符串<br>自动编码为data</p>
+<h5 id="requests-request-method-url-kwargs-的参数"><a href="#requests-request-method-url-kwargs-的参数" class="headerlink" title="requests.request(method, url, **kwargs)的参数"></a>requests.request(method, url, **kwargs)的参数</h5><h6 id="params-字典或字节序列，作为参数增加到url中"><a href="#params-字典或字节序列，作为参数增加到url中" class="headerlink" title="params : 字典或字节序列，作为参数增加到url中"></a>params : 字典或字节序列，作为参数增加到url中</h6><pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; kv = &#123;<span class="hljs-string">&#x27;key1&#x27;</span>: <span class="hljs-string">&#x27;value1&#x27;</span>&#125;
+<span class="hljs-meta">&gt;&gt;</span>&gt; r = requests.request(<span class="hljs-string">&#x27;POST&#x27;</span>, <span class="hljs-string">&#x27;http://python123.io/ws&#x27;</span>, json=kv)</code></pre>
+<h6 id="data-字典、字节序列或文件对象，作为Request的内容"><a href="#data-字典、字节序列或文件对象，作为Request的内容" class="headerlink" title="data : 字典、字节序列或文件对象，作为Request的内容"></a>data : 字典、字节序列或文件对象，作为Request的内容</h6><pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; kv = &#123;<span class="hljs-string">&#x27;key1&#x27;</span>: <span class="hljs-string">&#x27;value1&#x27;</span>, <span class="hljs-string">&#x27;key2&#x27;</span>: <span class="hljs-string">&#x27;value2&#x27;</span>&#125;
+<span class="hljs-meta">&gt;&gt;</span>&gt; r = requests.request(<span class="hljs-string">&#x27;POST&#x27;</span>, <span class="hljs-string">&#x27;http://python123.io/ws&#x27;</span>, data=kv)
+<span class="hljs-meta">&gt;&gt;</span>&gt; body = <span class="hljs-string">&#x27;主体内容&#x27;</span>
+<span class="hljs-meta">&gt;&gt;</span>&gt; r = requests.request(<span class="hljs-string">&#x27;POST&#x27;</span>, <span class="hljs-string">&#x27;http://python123.io/ws&#x27;</span>, data=body)</code></pre>
+<h6 id="json-JSON格式的数据，作为Request的内容"><a href="#json-JSON格式的数据，作为Request的内容" class="headerlink" title="json : JSON格式的数据，作为Request的内容"></a>json : JSON格式的数据，作为Request的内容</h6><pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; kv = &#123;<span class="hljs-string">&#x27;key1&#x27;</span>: <span class="hljs-string">&#x27;value1&#x27;</span>&#125;
+<span class="hljs-meta">&gt;&gt;</span>&gt; r = requests.request(<span class="hljs-string">&#x27;POST&#x27;</span>, <span class="hljs-string">&#x27;http://python123.io/ws&#x27;</span>, json=kv)</code></pre>
+<h6 id="headers-字典，HTTP定制头"><a href="#headers-字典，HTTP定制头" class="headerlink" title="headers : 字典，HTTP定制头"></a>headers : 字典，HTTP定制头</h6><pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; hd = &#123;<span class="hljs-string">&#x27;user‐agent&#x27;</span>: <span class="hljs-string">&#x27;Chrome/10&#x27;</span>&#125;
+<span class="hljs-meta">&gt;&gt;</span>&gt; r = requests.request(<span class="hljs-string">&#x27;POST&#x27;</span>, <span class="hljs-string">&#x27;http://python123.io/ws&#x27;</span>,headers=hd)</code></pre>
+<h6 id="cookies-字典或CookieJar，Request中的cookie"><a href="#cookies-字典或CookieJar，Request中的cookie" class="headerlink" title="cookies : 字典或CookieJar，Request中的cookie"></a>cookies : 字典或CookieJar，Request中的cookie</h6><h6 id="auth-元组，支持HTTP认证功能"><a href="#auth-元组，支持HTTP认证功能" class="headerlink" title="auth: 元组，支持HTTP认证功能"></a>auth: 元组，支持HTTP认证功能</h6><h6 id="files-字典类型，传输文件"><a href="#files-字典类型，传输文件" class="headerlink" title="files : 字典类型，传输文件"></a>files : 字典类型，传输文件</h6><pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; fs = &#123;<span class="hljs-string">&#x27;file&#x27;</span>: open(<span class="hljs-string">&#x27;data.xls&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>)&#125;
+<span class="hljs-meta">&gt;&gt;</span>&gt; r = requests.request(<span class="hljs-string">&#x27;POST&#x27;</span>, <span class="hljs-string">&#x27;http://python123.io/ws&#x27;</span>, files=fs)</code></pre>
+<h6 id="timeout-设定超时时间，秒为单位"><a href="#timeout-设定超时时间，秒为单位" class="headerlink" title="timeout : 设定超时时间，秒为单位"></a>timeout : 设定超时时间，秒为单位</h6><pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; r = requests.request(<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;http://www.baidu.com&#x27;</span>, timeout=<span class="hljs-number">10</span>)</code></pre>
+<h6 id="proxies-字典类型，设定访问代理服务器，可以增加登录认证"><a href="#proxies-字典类型，设定访问代理服务器，可以增加登录认证" class="headerlink" title="proxies : 字典类型，设定访问代理服务器，可以增加登录认证"></a>proxies : 字典类型，设定访问代理服务器，可以增加登录认证</h6><pre><code class="hljs ruby"><span class="hljs-meta">&gt;&gt;</span>&gt; pxs = &#123; <span class="hljs-string">&#x27;http&#x27;</span>: <span class="hljs-string">&#x27;http://user:pass@10.10.10.1:1234&#x27;</span>
+            <span class="hljs-string">&#x27;https&#x27;</span>: <span class="hljs-string">&#x27;https://10.10.10.1:4321&#x27;</span> &#125;
+<span class="hljs-meta">&gt;&gt;</span>&gt; r = requests.request(<span class="hljs-string">&#x27;GET&#x27;</span>, <span class="hljs-string">&#x27;http://www.baidu.com&#x27;</span>, proxies=pxs)</code></pre>
+<h6 id="allow-redirects-True-False，默认为True，重定向开关"><a href="#allow-redirects-True-False，默认为True，重定向开关" class="headerlink" title="allow_redirects : True/False，默认为True，重定向开关"></a>allow_redirects : True/False，默认为True，重定向开关</h6><h6 id="stream-True-False，默认为True，获取内容立即下载开关"><a href="#stream-True-False，默认为True，获取内容立即下载开关" class="headerlink" title="stream  : True/False，默认为True，获取内容立即下载开关"></a>stream  : True/False，默认为True，获取内容立即下载开关</h6><h6 id="verify-True-False，默认为True，认证SSL证书开关"><a href="#verify-True-False，默认为True，认证SSL证书开关" class="headerlink" title="verify  : True/False，默认为True，认证SSL证书开关"></a>verify  : True/False，默认为True，认证SSL证书开关</h6><h6 id="cert-本地SSL证书路径"><a href="#cert-本地SSL证书路径" class="headerlink" title="cert: 本地SSL证书路径"></a>cert: 本地SSL证书路径</h6><h2 id="二单元：网络爬虫”盗亦有道“-Robots协议"><a href="#二单元：网络爬虫”盗亦有道“-Robots协议" class="headerlink" title="二单元：网络爬虫”盗亦有道“-Robots协议"></a>二单元：网络爬虫”盗亦有道“-Robots协议</h2><h3 id="网络爬虫的限制"><a href="#网络爬虫的限制" class="headerlink" title="网络爬虫的限制"></a>网络爬虫的限制</h3><p>•   来源审查：判断User‐Agent进行限制<br>检查来访HTTP协议头的User‐Agent域，只响应浏览器或友好爬虫的访问<br>•   发布公告：Robots协议<br>告知所有爬虫网站的爬取策略，要求爬虫遵守</p>
+<h3 id="Robots协议：在网站根目录下的robots-txt文件"><a href="#Robots协议：在网站根目录下的robots-txt文件" class="headerlink" title="Robots协议：在网站根目录下的robots.txt文件"></a>Robots协议：在网站根目录下的robots.txt文件</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://www.baidu.com/robots.txt">http://www.baidu.com/robots.txt</a></li>
+<li><a target="_blank" rel="noopener" href="http://news.sina.com.cn/robots.txt">http://news.sina.com.cn/robots.txt</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.qq.com/robots.txt">http://www.qq.com/robots.txt</a></li>
+<li><a target="_blank" rel="noopener" href="http://news.qq.com/robots.txt">http://news.qq.com/robots.txt</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.moe.edu.cn/robots.txt">http://www.moe.edu.cn/robots.txt</a> （无robots协议）</li>
+</ul>
+<h3 id="Robots协议基本语法"><a href="#Robots协议基本语法" class="headerlink" title="Robots协议基本语法"></a>Robots协议基本语法</h3><pre><code class="hljs groovy">注释，*代表所有，/代表根目录
+User‐<span class="hljs-attr">agent:</span> *
+<span class="hljs-attr">Disallow:</span> /</code></pre>
+<h2 id="第三单元：Requests库爬取实例"><a href="#第三单元：Requests库爬取实例" class="headerlink" title="第三单元：Requests库爬取实例"></a>第三单元：Requests库爬取实例</h2><h3 id="1-京东实例爬取"><a href="#1-京东实例爬取" class="headerlink" title="1.京东实例爬取"></a>1.京东实例爬取</h3><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+url = <span class="hljs-string">&quot;https://item.jd.com/2967929.html&quot;</span>
+<span class="hljs-keyword">try</span>:
+	r = requests.get(url,timout = <span class="hljs-number">30</span>)
+	r.raise_for_status()
+	r.encoding = r.apparent_encoding
+	print(r.text[:<span class="hljs-number">1000</span>])
+<span class="hljs-keyword">except</span>:
+	<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;产生异常，爬取失败&quot;</span></code></pre>
+<h3 id="2-亚马逊网站爬取"><a href="#2-亚马逊网站爬取" class="headerlink" title="2.亚马逊网站爬取"></a>2.亚马逊网站爬取</h3><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+url = <span class="hljs-string">&quot;https://www.amazon.cn/gp/product/B01M8L5Z3Y&quot;</span>
+<span class="hljs-keyword">try</span>:
+    kv = (<span class="hljs-string">&#x27;user-agent&#x27;</span>:<span class="hljs-string">&#x27;Mozilla/5.0&#x27;</span>)
+	r = requests.get(url,headers = kv)
+	r.raise_for_status()
+	r.encoding = r.apparent_encoding
+	print(r.text[<span class="hljs-number">1000</span>:<span class="hljs-number">2000</span>])
+<span class="hljs-keyword">except</span>:
+	<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;产生异常，爬取失败&quot;</span></code></pre>
+<h3 id="3-百度-360网站关键词提交"><a href="#3-百度-360网站关键词提交" class="headerlink" title="3.百度/360网站关键词提交"></a>3.百度/360网站关键词提交</h3><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+keyword = <span class="hljs-string">&quot;python&quot;</span>
+url = <span class="hljs-string">&quot;http://wwww.baidu.com/s&quot;</span> <span class="hljs-comment">#url = &quot;http://wwww.so.com/s&quot;</span>
+<span class="hljs-keyword">try</span>:
+    kv = (<span class="hljs-string">&#x27;wd&#x27;</span>:keyword) <span class="hljs-comment">#kv = (&#x27;q&#x27;:keyword)</span>
+	r = requests.get(url,params = kv)
+	print(r.requests.url)
+	r.raise_for_status()
+	print(len(r.text))
+	<span class="hljs-comment">#r.encoding = r.apparent_encoding</span>
+	<span class="hljs-comment">#print(r.text[1000:2000])</span>
+<span class="hljs-keyword">except</span>:
+	<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;产生异常，爬取失败&quot;</span></code></pre>
+<h3 id="4-网络图片的爬取"><a href="#4-网络图片的爬取" class="headerlink" title="4.网络图片的爬取"></a>4.网络图片的爬取</h3><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">import</span> os
+url = <span class="hljs-string">&quot;http://image.nationalgeographic.com.cn/2017/0211/20120211061910157.jpg&quot;</span>
+path = root + url.split(<span class="hljs-string">&#x27;/&#x27;</span>)[<span class="hljs-number">-1</span>]
+<span class="hljs-keyword">try</span>:
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> so.path.exists(root):
+        os.mkdir(root)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exist(path):
+        r = requests.get(url)
+        <span class="hljs-keyword">with</span> opem(path,<span class="hljs-string">&#x27;wb&#x27;</span>) <span class="hljs-keyword">as</span> f
+        f.write(r.context)
+        f.close()
+        print(<span class="hljs-string">&quot;文件保存成功&quot;</span>)
+    <span class="hljs-keyword">else</span>:
+        print(<span class="hljs-string">&quot;文件已存在&quot;</span>)
+<span class="hljs-keyword">except</span>:
+	<span class="hljs-keyword">return</span> <span class="hljs-string">&quot;产生异常，爬取失败&quot;</span></code></pre>
+<h3 id="5-ip地址归属地的自动查询"><a href="#5-ip地址归属地的自动查询" class="headerlink" title="5.ip地址归属地的自动查询"></a>5.ip地址归属地的自动查询</h3><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+url = <span class="hljs-string">&quot;http//m.ip138.com/ip.asp?ip=&quot;</span>
+<span class="hljs-keyword">try</span>:
+    r = requests.get(url+<span class="hljs-string">&#x27;202.204.80.112&#x27;</span>)
+    r.raise_for_status()
+    r.encoding = r.apparent_encoding
+    print(r.text[<span class="hljs-number">-500</span>:])
+<span class="hljs-keyword">except</span>:
+    print(<span class="hljs-string">&quot;产生异常，爬取失败&quot;</span>)</code></pre>
+<p>思考：网站上有些人机交互的按钮都是由链接的形式提交，建议挖掘一下网站的API。</p>
+<h1 id="第二章：网络爬虫-提取"><a href="#第二章：网络爬虫-提取" class="headerlink" title="第二章：网络爬虫-提取"></a>第二章：网络爬虫-提取</h1><h2 id="单元四：Beautiful库入门"><a href="#单元四：Beautiful库入门" class="headerlink" title="单元四：Beautiful库入门"></a>单元四：Beautiful库入门</h2><h4 id="Beautiful-Soup库的安装"><a href="#Beautiful-Soup库的安装" class="headerlink" title="Beautiful Soup库的安装"></a>Beautiful Soup库的安装</h4><ul>
+<li>Win平台: “以管理员身份运行”cmd<br>执行pip install beautifulsoup4</li>
+</ul>
+<h4 id="Beautiful-Soup库的安装小测"><a href="#Beautiful-Soup库的安装小测" class="headerlink" title="Beautiful Soup库的安装小测"></a>Beautiful Soup库的安装小测</h4><p>演示HTML页面地址：<a target="_blank" rel="noopener" href="http://python123.io/ws/demo.html">http://python123.io/ws/demo.html</a><br>文件名称：demo.html</p>
+<ul>
+<li><p>手工获取demo.html源代码，浏览器右键“查看源代码”：</p>
+</li>
+<li><p>或者，用Requests库获取demo.html源代码：</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+r = requests.get(<span class="hljs-string">&quot;http://python123.io/ws/demo.html&quot;</span>)
+print(r.text)
+soup = BeautifulSoup(<span class="hljs-string">&#x27;demo&#x27;</span>, <span class="hljs-string">&#x27;html.parser&#x27;</span>)
+<span class="hljs-comment">#soup = BeautifulSoup(&#x27;&lt;p&gt;data&lt;/p&gt;&#x27;, &#x27;html.parser&#x27;)</span>
+print(soup.prettify())</code></pre>
+</li>
+</ul>
+<h3 id="Beautiful-Soup库的基本元素"><a href="#Beautiful-Soup库的基本元素" class="headerlink" title="Beautiful Soup库的基本元素"></a>Beautiful Soup库的基本元素</h3><p>理解：Beautiful Soup库是解析、遍历、维护<strong>“标签树”</strong>的功能库</p>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>..<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span> : 标签  Tag
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">“title”</span>&gt;</span> … <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+名称 属性（键值对构成）</code></pre>
+<p>也就是说：BeautifulSoup对应一个HTML/XML文档的全部内容</p>
+<pre><code class="hljs python">soup = BeautifulSoup(<span class="hljs-string">&#x27;&lt;html&gt;data&lt;/html&gt;&#x27;</span>, <span class="hljs-string">&#x27;html.parser&#x27;</span>)
+soup2 = BeautifulSoup(open(<span class="hljs-string">&quot;D://demo.html&quot;</span>), <span class="hljs-string">&#x27;html.parser&#x27;</span>)</code></pre>
+<h4 id="Beautiful-Soup库解析器"><a href="#Beautiful-Soup库解析器" class="headerlink" title="Beautiful Soup库解析器"></a>Beautiful Soup库解析器</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解析器</th>
+<th>使用方法</th>
+<th>条件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bs4的HTML解析器</td>
+<td>BeautifulSoup(mk,’html.parser’)</td>
+<td>安装bs4库</td>
+</tr>
+<tr>
+<td>lxml的HTML解析器</td>
+<td>BeautifulSoup(mk,’lxml’)</td>
+<td>pip install lxml</td>
+</tr>
+<tr>
+<td>lxml的XML解析器</td>
+<td>BeautifulSoup(mk,’xml’)</td>
+<td>pip install lxml</td>
+</tr>
+<tr>
+<td>html5lib的解析器</td>
+<td>BeautifulSoup(mk,’html5lib’)</td>
+<td>pip install html5lib</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="BeautifulSoup类的基本元素"><a href="#BeautifulSoup类的基本元素" class="headerlink" title="BeautifulSoup类的基本元素"></a>BeautifulSoup类的基本元素</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>基本元素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tag</td>
+<td>标签，最基本的信息组织单元，分别用<>和</>标明开头和结尾</td>
+</tr>
+<tr>
+<td>Name</td>
+<td><strong>标签的名字</strong>，<p>…</p>的名字是’p’，格式：<tag>.name</td>
+</tr>
+<tr>
+<td>Attributes</td>
+<td><strong>标签的属性</strong>，字典形式组织，格式：<tag>.attrs</td>
+</tr>
+<tr>
+<td>NavigableString</td>
+<td><strong>标签内非属性字符串</strong>，<>…</>中字符串，格式：<tag>.string</td>
+</tr>
+<tr>
+<td>Comment</td>
+<td><strong>标签内</strong>字符串的<strong>注释部分</strong>，一种特殊的Comment类型</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>任何存在于HTML语法中的标签都可以用soup.<tag>访问获得<br>当HTML文档中存在多个相同<tag>对应内容时，soup.<tag>返回第一个</p>
+</li>
+<li><p>每个<tag>都有自己的名字，通过<tag>.name获取，字符串类型</p>
+</li>
+<li><p>一个<tag>可以有0或多个属性，字典类型</p>
+</li>
+<li><p>Comment是一种特殊类型，可能在文本分析时会在特殊地方用到</p>
+</li>
+</ul>
+<h3 id="基于bs4库的HTML内容遍历方法"><a href="#基于bs4库的HTML内容遍历方法" class="headerlink" title="基于bs4库的HTML内容遍历方法"></a>基于bs4库的HTML内容遍历方法</h3><p><img src="https://i.loli.net/2020/10/28/HGuZS2O5VKDBFl4.png" srcset="/img/loading.gif" alt=""></p>
+<h4 id="下行遍历-对选定的节点"><a href="#下行遍历-对选定的节点" class="headerlink" title="下行遍历-对选定的节点"></a>下行遍历-对选定的节点</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.contents</td>
+<td>子节点的列表，将<tag>所有儿子节点存入列表</td>
+</tr>
+<tr>
+<td>.children</td>
+<td>子节点的迭代类型，与.contents类似，用于循环遍历儿子节点</td>
+</tr>
+<tr>
+<td>.descendants</td>
+<td>子孙节点的迭代类型，包含所有子孙节点，用于循环遍历</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code class="hljs stylus"><span class="hljs-keyword">for</span> child <span class="hljs-keyword">in</span> soup<span class="hljs-selector-class">.body</span><span class="hljs-selector-class">.children</span>:
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(child)</span></span>                                              #遍历儿子节点
+<span class="hljs-keyword">for</span> child <span class="hljs-keyword">in</span> soup<span class="hljs-selector-class">.body</span><span class="hljs-selector-class">.descendants</span>:
+<span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(child)</span></span>                                              #遍历子孙节点</code></pre>
+<h4 id="上行遍历"><a href="#上行遍历" class="headerlink" title="上行遍历"></a>上行遍历</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.parent</td>
+<td>节点的父亲标签</td>
+</tr>
+<tr>
+<td>.parents</td>
+<td>节点先辈标签的迭代类型，用于循坏遍历先辈节点</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>注意：遍历所有先辈节点，包括soup本身，所以要区别判断</p>
+<h4 id="平行遍历：必须发生在同一个父节点下的各节点间"><a href="#平行遍历：必须发生在同一个父节点下的各节点间" class="headerlink" title="平行遍历：必须发生在同一个父节点下的各节点间"></a>平行遍历：必须发生在同一个父节点下的各节点间</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.next_sibling</td>
+<td>返回按照HTML文本顺序的下一个平行节点标签</td>
+</tr>
+<tr>
+<td>.previous_sibling</td>
+<td>返回按照HTML文本顺序的上一个平行节点标签</td>
+</tr>
+<tr>
+<td>.next_siblings</td>
+<td>迭代类型，返回按照HTML文本顺序的后续所有平行节点标签</td>
+</tr>
+<tr>
+<td>.previous_siblings</td>
+<td>迭代类型，返回按照HTML文本顺序的前续所有平行节点标签</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="基于bs4库的HTML格式输出-能否让HTML内容更加“友好”的显示？"><a href="#基于bs4库的HTML格式输出-能否让HTML内容更加“友好”的显示？" class="headerlink" title="基于bs4库的HTML格式输出-能否让HTML内容更加“友好”的显示？"></a>基于bs4库的HTML格式输出-能否让HTML内容更加“友好”的显示？</h3><h4 id="bs4库的prettify-方法———-易于阅读"><a href="#bs4库的prettify-方法———-易于阅读" class="headerlink" title="bs4库的prettify()方法———-易于阅读"></a>bs4库的prettify()方法———-易于阅读</h4><ul>
+<li>.prettify()为HTML文本&lt;&gt;及其内容增加更加’\n’</li>
+<li>.prettify()可用于标签，方法：<tag>.prettify()</li>
+</ul>
+<h4 id="bs4库的编码"><a href="#bs4库的编码" class="headerlink" title="bs4库的编码"></a>bs4库的编码</h4><ul>
+<li>bs4库将任何HTML输入都变成utf‐8编码</li>
+<li>Python 3.x默认支持编码是utf‐8,解析无障碍</li>
+</ul>
+<h2 id="单元五"><a href="#单元五" class="headerlink" title="单元五"></a>单元五</h2><h2 id="单元六"><a href="#单元六" class="headerlink" title="单元六"></a>单元六</h2><h1 id="python编写图形化界面"><a href="#python编写图形化界面" class="headerlink" title="python编写图形化界面"></a>python编写图形化界面</h1><h2 id="Python图形界面开发的几种方案"><a href="#Python图形界面开发的几种方案" class="headerlink" title="Python图形界面开发的几种方案"></a>Python图形界面开发的几种方案</h2><h3 id="Tkinter"><a href="#Tkinter" class="headerlink" title="Tkinter"></a>Tkinter</h3><ul>
+<li>基于Tk的Python库，这是Python官方采用的标准库，优点是作为Python标准库、稳定、发布程序较小，缺点是控件相对较少。</li>
+</ul>
+<h3 id="PySide2、PyQt5"><a href="#PySide2、PyQt5" class="headerlink" title="PySide2、PyQt5"></a>PySide2、PyQt5</h3><ul>
+<li>基于Qt 的Python库，优点是控件比较丰富、跨平台体验好、文档完善、用户多。</li>
+</ul>
+<p>缺点是 库比较大，发布出来的程序比较大。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.python3.vip/">http://www.python3.vip/</a></li>
+</ul>
+<h1 id="QT界面开发教程"><a href="#QT界面开发教程" class="headerlink" title="QT界面开发教程"></a>QT界面开发教程</h1><h2 id="通过一个例子来学习，打开你的python编辑器"><a href="#通过一个例子来学习，打开你的python编辑器" class="headerlink" title="通过一个例子来学习，打开你的python编辑器"></a>通过一个例子来学习，打开你的python编辑器</h2><p>先给出一段代码</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">from</span> PyQt5.QtWidgets <span class="hljs-keyword">import</span> QApplication, QMainWindow, QPushButton,  QPlainTextEdit
+
+app = QApplication([])<span class="hljs-comment">#提供了整个图形界面程序的底层管理功能</span>
+
+window = QMainWindow()
+window.resize(<span class="hljs-number">500</span>, <span class="hljs-number">400</span>)<span class="hljs-comment">#控制窗口大小</span>
+window.move(<span class="hljs-number">300</span>, <span class="hljs-number">310</span>)<span class="hljs-comment">#出现在显示器屏幕的什么位置</span>
+window.setWindowTitle(<span class="hljs-string">&#x27;薪资统计&#x27;</span>)<span class="hljs-comment">#窗口的标题</span>
+
+textEdit = QPlainTextEdit(window)<span class="hljs-comment">#纯文本控件</span>
+textEdit.setPlaceholderText(<span class="hljs-string">&quot;请输入薪资表&quot;</span>)<span class="hljs-comment">#当你没有输入时候的提示</span>
+textEdit.move(<span class="hljs-number">10</span>,<span class="hljs-number">25</span>)<span class="hljs-comment">#在你创建的窗口又创建的窗口距离</span>
+textEdit.resize(<span class="hljs-number">300</span>,<span class="hljs-number">350</span>)<span class="hljs-comment">#文本窗口的宽和高</span>
+
+button = QPushButton(<span class="hljs-string">&#x27;统计&#x27;</span>, window)<span class="hljs-comment">#相对于父窗口</span>
+button.move(<span class="hljs-number">380</span>,<span class="hljs-number">80</span>)
+
+window.show()
+
+app.exec_()<span class="hljs-comment">#程序正在运行，等待用户操作</span></code></pre>
+<p><code>QApplication</code> 提供了整个图形界面程序的底层管理功能，比如：</p>
+<ul>
+<li>初始化、程序入口参数的处理，用户事件（对界面的点击、输入、拖拽）分发给各个对应的控件，等等…</li>
+<li>既然QApplication要做如此重要的初始化操作，所以，我们必须在任何界面控件对象创建前，先创建它。</li>
+</ul>
+<p>QMainWindow、QPlainTextEdit、QPushButton 是3个控件类，分别对应界面的主窗口、文本框、按钮</p>
+<ul>
+<li><p>他们都是控件基类对象QWidget的子类。</p>
+</li>
+<li><p>要在界面上 <code>创建一个控件</code> ，就需要在程序代码中 <code>创建</code> 这个 <code>控件对应类</code> 的一个 <code>实例对象</code>。</p>
+</li>
+<li><p>在 Qt 系统中，控件（widget）是 <code>层层嵌套</code> 的，除了最顶层的控件，其他的控件都有父控件。</p>
+<ul>
+<li><p>QPlainTextEdit、QPushButton 实例化时，都有一个参数window，如下</p>
+<pre><code class="hljs py">QPlainTextEdit(window)
+QPushButton(<span class="hljs-string">&#x27;统计&#x27;</span>, window)</code></pre>
+<p>就是指定它的父控件对象 是 window 对应的QMainWindow 主窗口。</p>
+<p>而 实例化 QMainWindow 主窗口时，却没有指定 父控件， 因为它就是最上层的控件了。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>控件对象的 move 方法决定了这个控件显示的位置。</p>
+<p>控件对象的 resize 方法决定了这个控件显示的大小。</p>
+<h3 id="界面动作处理-signal-和-slot"><a href="#界面动作处理-signal-和-slot" class="headerlink" title="界面动作处理 (signal 和 slot)"></a>界面动作处理 (signal 和 slot)</h3><p>在 Qt 系统中， 当界面上一个控件被操作时，比如 被点击、被输入文本、被鼠标拖拽等， 就会发出 <code>信号</code> ，英文叫 <code>signal</code> 。就是表明一个事件（比如被点击、被输入文本）发生了。</p>
+<p>我们可以预先在代码中指定 处理这个 signal 的函数，这个处理 signal 的函数 叫做 <code>slot</code> 。</p>
+<ul>
+<li><p>比如，我们可以像下面这样定义一个函数</p>
+<pre><code class="hljs py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handleCalc</span>():</span>
+    print(<span class="hljs-string">&#x27;统计按钮被点击了&#x27;</span>)</code></pre>
+<p>然后， 指定 如果 发生了button 按钮被点击 的事情，需要让 <code>handleCalc</code> 来处理，像这样</p>
+<pre><code class="hljs py">button.clicked.connect(handleCalc)</code></pre>
+<p>用QT的术语来解释上面这行代码，就是：把 button 被 点击（clicked） 的信号（signal）， 连接（connect）到了 handleCalc 这样的一个 slot上</p>
+<p>大白话就是：让 handleCalc 来 处理 button 被 点击的操作</p>
+</li>
+</ul>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">from</span> PyQt5.QtWidgets <span class="hljs-keyword">import</span> QApplication, QMainWindow, QPushButton,  QPlainTextEdit
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handleCalc</span>():</span>
+    print(<span class="hljs-string">&#x27;统计按钮被点击了&#x27;</span>)
+    <span class="hljs-comment">#info = textEdit.toPlainText()</span>
+
+app = QApplication([])<span class="hljs-comment">#提供了整个图形界面程序的底层管理功能</span>
+
+window = QMainWindow()
+window.resize(<span class="hljs-number">500</span>, <span class="hljs-number">400</span>)<span class="hljs-comment">#控制窗口大小</span>
+window.move(<span class="hljs-number">300</span>, <span class="hljs-number">310</span>)<span class="hljs-comment">#出现在显示器屏幕的什么位置</span>
+window.setWindowTitle(<span class="hljs-string">&#x27;薪资统计&#x27;</span>)<span class="hljs-comment">#窗口的标题</span>
+
+textEdit = QPlainTextEdit(window)<span class="hljs-comment">#纯文本控件</span>
+textEdit.setPlaceholderText(<span class="hljs-string">&quot;请输入薪资表&quot;</span>)<span class="hljs-comment">#当你没有输入时候的提示</span>
+textEdit.move(<span class="hljs-number">10</span>,<span class="hljs-number">25</span>)<span class="hljs-comment">#在你创建的窗口又创建的窗口距离</span>
+textEdit.resize(<span class="hljs-number">300</span>,<span class="hljs-number">350</span>)<span class="hljs-comment">#文本窗口的宽和高</span>
+
+button = QPushButton(<span class="hljs-string">&#x27;统计&#x27;</span>, window)<span class="hljs-comment">#相对于父窗口</span>
+button.move(<span class="hljs-number">380</span>,<span class="hljs-number">80</span>)
+button.clicked.connect(handleCalc) <span class="hljs-comment">#增加让handleCalc来处理button被点击的操作</span>
+
+window.show()
+
+app.exec_()<span class="hljs-comment">#程序正在运行，等待用户操作</span></code></pre>
+<h3 id="代码封装—python如何自定义类"><a href="#代码封装—python如何自定义类" class="headerlink" title="代码封装—python如何自定义类"></a>代码封装—python如何自定义类</h3><pre><code class="hljs python"><span class="hljs-keyword">from</span> PyQt5.QtWidgets <span class="hljs-keyword">import</span> QApplication, QMainWindow, QPushButton,  QPlainTextEdit,QMessageBox
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Stats</span>():</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span>
+        self.window = QMainWindow()
+        self.window.resize(<span class="hljs-number">500</span>, <span class="hljs-number">400</span>)
+        self.window.move(<span class="hljs-number">300</span>, <span class="hljs-number">300</span>)
+        self.window.setWindowTitle(<span class="hljs-string">&#x27;薪资统计&#x27;</span>)
+
+        self.textEdit = QPlainTextEdit(self.window)
+        self.textEdit.setPlaceholderText(<span class="hljs-string">&quot;请输入薪资表&quot;</span>)
+        self.textEdit.move(<span class="hljs-number">10</span>, <span class="hljs-number">25</span>)
+        self.textEdit.resize(<span class="hljs-number">300</span>, <span class="hljs-number">350</span>)
+
+        self.button = QPushButton(<span class="hljs-string">&#x27;统计&#x27;</span>, self.window)
+        self.button.move(<span class="hljs-number">380</span>, <span class="hljs-number">80</span>)
+
+        self.button.clicked.connect(self.handleCalc)
+
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handleCalc</span>(<span class="hljs-params">self</span>):</span>
+        info = self.textEdit.toPlainText()
+
+        <span class="hljs-comment"># 薪资20000 以上 和 以下 的人员名单</span>
+        salary_above_20k = <span class="hljs-string">&#x27;&#x27;</span>
+        salary_below_20k = <span class="hljs-string">&#x27;&#x27;</span>
+        <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> info.splitlines():
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> line.strip():
+                <span class="hljs-keyword">continue</span>
+            parts = line.split(<span class="hljs-string">&#x27; &#x27;</span>)
+            <span class="hljs-comment"># 去掉列表中的空字符串内容</span>
+            parts = [p <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> parts <span class="hljs-keyword">if</span> p]
+            name,salary,age = parts
+            <span class="hljs-keyword">if</span> int(salary) &gt;= <span class="hljs-number">20000</span>:
+                salary_above_20k += name + <span class="hljs-string">&#x27;\n&#x27;</span>
+            <span class="hljs-keyword">else</span>:
+                salary_below_20k += name + <span class="hljs-string">&#x27;\n&#x27;</span>
+
+        QMessageBox.about(self.window,
+                    <span class="hljs-string">&#x27;统计结果&#x27;</span>,
+                    <span class="hljs-string">f&#x27;&#x27;&#x27;薪资20000 以上的有：\n<span class="hljs-subst">&#123;salary_above_20k&#125;</span></span>
+<span class="hljs-string">                    \n薪资20000 以下的有：\n<span class="hljs-subst">&#123;salary_below_20k&#125;</span>&#x27;&#x27;&#x27;</span>
+                    )
+
+app = QApplication([])
+stats = Stats()
+stats.window.show()
+app.exec_()</code></pre>
+<h2 id="界面设计师-Qt-Designer"><a href="#界面设计师-Qt-Designer" class="headerlink" title="界面设计师 Qt Designer"></a>界面设计师 Qt Designer</h2><p>安装之后，在qtappliation下运行designer.exe又出现了问题，好多文章都无法解决</p>
+<p>This application failed to start because no Qt platform plugin could be init</p>
+<p><strong>解决办法：</strong>主要是designer.exe同级的platform文件夹中的两个文件少一个，将上一级的platform文件夹中的两个文件复制并且替换即可</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/python/">python</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/29/post-10/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/10/post-8/">
+                        <span class="hidden-mobile">Python程序设计基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Python网络爬虫与信息提取&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

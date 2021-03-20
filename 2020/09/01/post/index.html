@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <link rel="icon" type="image/png" href="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&from=30113&version=3.3.3.3&uin=775085618&fname=favicon2.png&size=750">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="yang zhifei">
+  <meta name="keywords" content="">
+  <title>搭建网站 - 一阵风的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>一阵风</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://rmt.dogedoge.com/fetch/fluid/storage/bg/1cm6iu.png?w=1920&fmt=webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-01 15:55" pubdate>
+        2020年9月1日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      889 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">搭建网站</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <font color=#999AAA >
+
+写这个篇文章，给自己留个记录，也欢迎大家写自己的博客来互相关注，love and share
+
+</font>
+
+<h1 id="利用GitHub和hexo搭建个人网站"><a href="#利用GitHub和hexo搭建个人网站" class="headerlink" title="利用GitHub和hexo搭建个人网站"></a>利用GitHub和hexo搭建个人网站</h1><ul>
+<li><p>准备一台计算机</p>
+</li>
+<li><p>注册一个github账号</p>
+</li>
+<li><p>参照知乎的<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60578464">这篇文章</a>搭建网站</p>
+</li>
+<li><p>在网上找一个你喜欢并且说明详实的hexo主题，并按照<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60578464">这篇文章</a>更换主题（不推荐在hexo主页上找，除非你很有时间）</p>
+</li>
+<li><p>在计算机安装markdown编辑器，我用的Typora</p>
+</li>
+<li><p>注册一个图床工具，方便上传图片</p>
+<p>考虑使用<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/">PicGo</a></p>
+</li>
+<li><p>更新网站——在hexo-blog文件夹下，右键打开Git Bash 输入</p>
+<pre><code class="hljs ebnf"><span class="hljs-attribute">hexo d -g</span></code></pre>
+</li>
+<li><p>博客图片从哪里来</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://wallpaperhub.app/">Wallpaper Hub</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wallhaven.cc/">Wallhaven</a></p>
+</li>
+<li><a target="_blank" rel="noopener" href="https://unsplash.com/">Unsplash</a></li>
+</ul>
+</li>
+<li><p>使用 hexo new post 新建自己的文章页面，然后查看主题的文章页设置和markdown文档发布你的第一篇文章</p>
+</li>
+</ul>
+<h1 id="将-Hexo-个人博客同时部署到-GitHub-和-Coding-上"><a href="#将-Hexo-个人博客同时部署到-GitHub-和-Coding-上" class="headerlink" title="将 Hexo 个人博客同时部署到 GitHub 和 Coding 上"></a>将 Hexo 个人博客同时部署到 GitHub 和 Coding 上</h1><ul>
+<li><p>由于国内GitHub访问不稳定，许多人把博客同步于coding，coding是真的反人类，但是免费且靠大厂。。</p>
+</li>
+<li><p>注册coding</p>
+<ul>
+<li>必须实名认证</li>
+<li>必须创建示例项目</li>
+</ul>
+</li>
+<li><p>建议配合以下文章操作，应该就没啥问题</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1116462">https://cloud.tencent.com/developer/article/1116462</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41890607/article/details/104338125">https://blog.csdn.net/qq_41890607/article/details/104338125</a></li>
+</ul>
+</li>
+<li><p>我写这篇文章的目的在于解决找不到（打开项目的 Pages 服务选项）怎么办？</p>
+<ul>
+<li><p>打开示例项目，在持续部署选项中创建静态网站</p>
+<ul>
+<li><img src="https://i.loli.net/2020/09/02/V7WCN53uxAd46c9.png" srcset="/img/loading.gif" style="zoom:50%;" /></li>
+<li><img src="https://i.loli.net/2020/09/02/UaSNZE7V8tAyJlW.png" srcset="/img/loading.gif" style="zoom:50%;" /></li>
+</ul>
+</li>
+<li><p>在创建好coding的静态网站链接之后，打开右上角的设置，里面会有https选项</p>
+<ul>
+<li><p><img src="https://i.loli.net/2020/09/02/DBnimVZAJLjOdp7.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+</li>
+<li><p><img src="https://i.loli.net/2020/09/02/kcXLn8zGF5OBQ3i.png" srcset="/img/loading.gif" style="zoom:50%;" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意：（1）ssh密钥连接成功（2）config配置正确</p>
+<blockquote>
+<p>感谢mrz同学的帮助</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="如果你不想折腾又想享受GitHub的方便性，可以考虑Gitbook"><a href="#如果你不想折腾又想享受GitHub的方便性，可以考虑Gitbook" class="headerlink" title="如果你不想折腾又想享受GitHub的方便性，可以考虑Gitbook"></a>如果你不想折腾又想享受GitHub的方便性，可以考虑<a target="_blank" rel="noopener" href="https://chrisniael.gitbooks.io/gitbook-documentation/content/">Gitbook</a></h1><h1 id="为自己的hexo博客添加插件"><a href="#为自己的hexo博客添加插件" class="headerlink" title="为自己的hexo博客添加插件"></a>为自己的hexo博客添加插件</h1><ul>
+<li><p>参考主题文档添加了latex功能</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.mohu.org/info/symbols/symbols.htm">https://www.mohu.org/info/symbols/symbols.htm</a></p>
+</blockquote>
+</li>
+<li><p>加密文章或页面<a target="_blank" rel="noopener" href="https://github.com/MikeCoder/hexo-blog-encrypt">hexo-blog-encrypt</a></p>
+</li>
+<li><p>插入视频<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/hexo-tag-dplayer">hexo-tag-dplayer</a>——-我使用的</p>
+<ul>
+<li><p>使用视频网站外链并美化网页，各大视频网站点击分享</p>
+<pre><code class="hljs django"><span class="hljs-template-tag">&#123;% <span class="hljs-name">raw</span> %&#125;</span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//player.bilibili.com/player.html?aid=90978812&amp;cid=155358422&amp;page=1&quot;</span> <span class="hljs-attr">scrolling</span>=<span class="hljs-string">&quot;no&quot;</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">frameborder</span>=<span class="hljs-string">&quot;no&quot;</span> <span class="hljs-attr">framespacing</span>=<span class="hljs-string">&quot;0&quot;</span> <span class="hljs-attr">allowfullscreen</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;position: absolute; width: 100%; height: 100%; Left: 0; top: 0;&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+<span class="hljs-template-tag">&#123;% <span class="hljs-name">endraw</span> %&#125;</span></code></pre>
+</li>
+<li><p>插件语法——-困难在于<strong>获取视频的直链</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.datablog.top/2019/04/25/hexo-with-music-and-movie/">https://www.datablog.top/2019/04/25/hexo-with-music-and-movie/</a><br>视频地址解析<a target="_blank" rel="noopener" href="http://www.flvurl.cn/">http://www.flvurl.cn/</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>插入音乐<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/APlayer">hexo-tag-aplayer</a></p>
+<p>参看<a target="_blank" rel="noopener" href="https://blog.fengcl.com/2017/11/26/hexo-blog-add-music-and-video/">https://blog.fengcl.com/2017/11/26/hexo-blog-add-music-and-video/</a></p>
+<p><a target="_blank" rel="noopener" href="https://helloblack2017.github.io/2018/04/22/use-hexo-tag-aplayer/">Hexo使用 hexo-tag-aplayer 播放音乐</a></p>
+<p>可以看看<a target="_blank" rel="noopener" href="https://hakurei.red/2019/11/25/为Hexo博客添加全局APlayer播放器/#Show-me-the-CODE">https://hakurei.red/2019/11/25/%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%85%A8%E5%B1%80APlayer%E6%92%AD%E6%94%BE%E5%99%A8/#Show-me-the-CODE</a></p>
+<p><a target="_blank" rel="noopener" href="https://suagnes.com/2018/12/12/musicLinks/">用网易云生成你自己的音乐外链、提取lrc歌词文件、专辑图片</a></p>
+<p>骚操作<a target="_blank" rel="noopener" href="http://lyxf.live/posts/51370/">http://lyxf.live/posts/51370/</a></p>
+<pre><code class="hljs gcode">&#123;<span class="hljs-meta">%</span> aplayer <span class="hljs-string">&quot;山丘&quot;</span> <span class="hljs-string">&quot;李宗盛&quot;</span> <span class="hljs-string">&quot;http://fm.mtyyw.com//928399392/201307/7000-shanqiu-lizongsheng.MTYYW.COM.mp3?_=1&quot;</span> <span class="hljs-string">&quot;autoplay=false&quot;</span> <span class="hljs-meta">%</span>&#125;</code></pre>
+</li>
+<li><p>整合音视频插件<a href="[https://easyhexo.com/3-Plugins-use-and-config/3-5-hexo-tag-mmedia/#%E7%AE%80%E4%BB%8B](https://easyhexo.com/3-Plugins-use-and-config/3-5-hexo-tag-mmedia/#简介">hexo-tag-mmedia</a>)</p>
+</li>
+<li><p>在hexo博客md文章中添加pdf文件预览功能<a target="_blank" rel="noopener" href="https://github.com/superalsrk/hexo-pdf">hexo-pdf</a></p>
+<pre><code class="hljs text">&#123;% pdf http://7xov2f.com1.z0.glb.clouddn.com/bash_freshman.pdf %&#125;</code></pre>
+</li>
+<li><p>在blog中内嵌PPT，利用hexo-pdf</p>
+<pre><code class="hljs awk">&#123;% pdf https:<span class="hljs-regexp">//</span>drive.google.com<span class="hljs-regexp">/file/</span>d<span class="hljs-regexp">/0B6qSwdwPxPRdTEliX0dhQ2JfUEU/</span>preview %&#125;</code></pre>
+<ul>
+<li><p>google drive</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://ougl.cn/2019/05/29/测试在线播放ppt/">https://ougl.cn/2019/05/29/测试在线播放ppt/</a></p>
+</blockquote>
+</li>
+<li><p>one drive</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://lailin.xyz/post/7944.html">https://lailin.xyz/post/7944.html</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>制作网页版PPT—-nodePPT</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/ksky521/nodePPT">https://github.com/ksky521/nodePPT</a></p>
+</blockquote>
+</li>
+<li><p>页中页</p>
+</li>
+</ul>
+<blockquote>
+<p>本主题的优秀博客<a target="_blank" rel="noopener" href="https://i.vince.pub/">https://i.vince.pub/</a></p>
+</blockquote>
+<h1 id="重装系统配置Hexo"><a href="#重装系统配置Hexo" class="headerlink" title="重装系统配置Hexo"></a><a target="_blank" rel="noopener" href="https://ougl.cn/2019/08/01/重装系统配置hexo/">重装系统配置Hexo</a></h1>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/">网站搭建</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/09/01/post1/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">markdown的一些常用书写</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/08/23/post-2/">
+                        <span class="hidden-mobile">虚拟试衣Try- on论文与评价方法改进的Reid</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "搭建网站&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 100,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
