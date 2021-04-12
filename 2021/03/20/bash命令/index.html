@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="yang zhifei">
   <meta name="keywords" content="">
-  <title>Git 的基础使用与jupyter端口转发 - 一阵风的博客</title>
+  <title>bash命令和dataset - 一阵风的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-22 22:14" pubdate>
-        2020年11月22日 晚上
+      <time datetime="2021-03-20 10:27" pubdate>
+        2021年3月20日 上午
       </time>
     </span>
   
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1k 字
+      1.6k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13
+      20
        分钟
     </span>
   
@@ -229,90 +229,140 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">Git 的基础使用与jupyter端口转发</h1>
+            <h1 style="display: none">bash命令和dataset</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="torch-geometric"><a href="#torch-geometric" class="headerlink" title="torch-geometric"></a>torch-geometric</h1><ul>
-<li><p>在<a target="_blank" rel="noopener" href="https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html">官网</a>上查看pytorch-geometric的安装方法</p>
-</li>
-<li><p>For PyTorch 1.6.0 and CUDA 10.2, type:</p>
-</li>
-</ul>
-<pre><code class="hljs apache"><span class="hljs-attribute">pip</span> install torch-scatter==latest+cu<span class="hljs-number">102</span> -f https://pytorch-geometric.com/whl/torch-<span class="hljs-number">1</span>.<span class="hljs-number">6</span>.<span class="hljs-number">0</span>.html
-<span class="hljs-attribute">pip</span> install torch-sparse==latest+cu<span class="hljs-number">102</span> -f https://pytorch-geometric.com/whl/torch-<span class="hljs-number">1</span>.<span class="hljs-number">6</span>.<span class="hljs-number">0</span>.html
-<span class="hljs-attribute">pip</span> install torch-cluster==latest+cu<span class="hljs-number">102</span> -f https://pytorch-geometric.com/whl/torch-<span class="hljs-number">1</span>.<span class="hljs-number">6</span>.<span class="hljs-number">0</span>.html
-<span class="hljs-attribute">pip</span> install torch-spline-conv==latest+cu<span class="hljs-number">102</span> -f https://pytorch-geometric.com/whl/torch-<span class="hljs-number">1</span>.<span class="hljs-number">6</span>.<span class="hljs-number">0</span>.html
-<span class="hljs-attribute">pip</span> install torch-geometric</code></pre>
-<h1 id="Git-的基础使用-学会这个就能畅玩Github"><a href="#Git-的基础使用-学会这个就能畅玩Github" class="headerlink" title="Git 的基础使用-学会这个就能畅玩Github"></a>Git 的基础使用-学会这个就能畅玩Github</h1><p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html?bsh_bid=458247941">http://www.ruanyifeng.com/blog/2014/06/git_remote.html?bsh_bid=458247941</a></p>
-<p>Git有很多优势，其中之一就是远程操作非常简便。</p>
-<ul>
-<li>git clone</li>
-<li>git remote</li>
-<li>git fetch</li>
-<li>git pull</li>
-<li>git push</li>
-</ul>
-<p>本文针对初级用户，从最简单的讲起，但是需要读者对Git的基本用法有所了解。同时，本文覆盖了上面5个命令的几乎所有的常用用法，所以对于熟练用户也有参考价值。</p>
-<p><img src="http://www.ruanyifeng.com/blogimg/asset/2014/bg2014061202.jpg" srcset="/img/loading.gif" alt="git"></p>
-<h2 id="分支操作branch"><a href="#分支操作branch" class="headerlink" title="分支操作branch"></a>分支操作branch</h2><p>（1）使用命令git branch -a 查看所有分支</p>
-<p>注： 其中，remote/origin/master表示的是远程分支</p>
-<p>查看当前所有分支</p>
-<pre><code class="hljs ebnf"><span class="hljs-attribute">git checkout</span></code></pre>
-<p>   不按回车，按空格+tab键就能查看当前所有本地的分支</p>
-<p>（2）删除远程分支  </p>
-<p>注：如上所示，使用命令 git push origin —delete Chapater6  可以删除远程分支Chapater6  </p>
-<p>​    再次使用命令 git branch -a  可以发现，远程分支Chapater6已经被删除。</p>
-<p>（3）删除本地分支</p>
-<p>​      使用命令，git branch -d Chapater8 可以删除本地分支（在主分支中）</p>
-<h3 id="提交本地代码到远程分支"><a href="#提交本地代码到远程分支" class="headerlink" title="提交本地代码到远程分支"></a>提交本地代码到远程分支</h3><ul>
-<li>Add-添加本地需要提交的代码</li>
-</ul>
-<pre><code class="hljs c">git add .</code></pre>
-<ul>
-<li>Commit-提交代码到本地仓库</li>
-</ul>
-<pre><code class="hljs c">git commit -m <span class="hljs-string">&quot;提交代码的注</span></code></pre>
-<ul>
-<li>push提交代码</li>
-</ul>
-<pre><code class="hljs maxima">git <span class="hljs-built_in">push</span> -u <span class="hljs-built_in">origin</span> add_loss</code></pre>
-<h1 id="设置-jupyter-notebook-可远程访问（完全可以用vscode代替，还没搞）"><a href="#设置-jupyter-notebook-可远程访问（完全可以用vscode代替，还没搞）" class="headerlink" title="设置 jupyter notebook 可远程访问（完全可以用vscode代替，还没搞）"></a>设置 jupyter notebook 可远程访问（完全可以用vscode代替，还没搞）</h1><h2 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h2><h3 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h3><p>进入 IPython 交互IDE，为 Jupyter 创建密钥。</p>
-<pre><code class="hljs python">&gt;&gt; <span class="hljs-keyword">from</span> notebook.auth <span class="hljs-keyword">import</span> passwd
-&gt;&gt; passwd()
-Enter password: 
-Verify password: 
-<span class="hljs-string">&#x27;sha1:543421885a71:d3c7a6e4f2110b7c7e02ed837717b9f281efd4b0&#x27;</span></code></pre>
-<h3 id="设置配置文件"><a href="#设置配置文件" class="headerlink" title="设置配置文件"></a>设置配置文件</h3><p>看了网上其他人的策略通常是直接修改配置文件 <code>~/.jupyter/jupyter_notebook_config.py</code> ，但是个人不推荐这种做法，因为这样需要改动到默认的配置文件。</p>
-<p>我推荐的做法是自行创建一个配置文件，然后在运行 Jupyter notebook 的时候动态加载配置信息。</p>
-<p>创建配置文件，可以取名为 <code>jupyter_config.py</code> 。</p>
-<p>配置内容如下：</p>
-<pre><code class="hljs python">c.NotebookApp.ip = <span class="hljs-string">&#x27;localhost&#x27;</span> <span class="hljs-comment"># 指定ip地址，示例设置可以保护网址</span>
-c.NotebookApp.open_browser = <span class="hljs-literal">False</span> <span class="hljs-comment"># 关闭自动打开浏览器</span>
-c.NotebookApp.port = <span class="hljs-number">8888</span> <span class="hljs-comment"># 端口随意指定</span>
-c.NotebookApp.password = <span class="hljs-string">u&#x27;sha1:d8334*******&#x27;</span> <span class="hljs-comment"># 复制前一步生成的密钥</span></code></pre>
-<h3 id="启动-Jupyter-服务器"><a href="#启动-Jupyter-服务器" class="headerlink" title="启动 Jupyter 服务器"></a>启动 Jupyter 服务器</h3><p>接下来运行 Jupyter 。</p>
-<pre><code class="hljs bash">$ jupyter notebook --config=jupyter_config.py</code></pre>
-<p>所以为了让程序能忽视 hangup 信号，可以使用 <code>nohup</code> 命令。同时还要配合 <code>&amp;</code> 来将程序放入后台运行。</p>
-<pre><code class="hljs bash">$ nohup jupyter notebook --config=jupyter_config.py &amp;</code></pre>
-<h3 id="SSH-端口转发"><a href="#SSH-端口转发" class="headerlink" title="SSH 端口转发"></a>SSH 端口转发</h3><pre><code class="hljs bash">ssh -L &lt;<span class="hljs-built_in">local</span> port&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;SSH hostname&gt;</code></pre>
-<h2 id="最终操作"><a href="#最终操作" class="headerlink" title="最终操作"></a>最终操作</h2><p>step1:cd到你想打开文件夹的位置</p>
-<p>step2：jupyter notebook —config=/root/config.py —allow-root</p>
-<p>step3：ssh -L 4000:localhost:8888 -p 2087 root@10.7.13.35</p>
-<p>step4：在浏览器中输入<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
-<p>关闭：</p>
-<ul>
-<li><p>通过在服务器主页上选中 notebook 旁边的复选框，然后点击“Shutdown”，就可以关闭各个 notebook。</p>
-</li>
-<li><p>通过在终端中按 Ctrl + C（Mac及Linux上是按两次Ctrl + C），可以关闭整个服务器</p>
-</li>
-</ul>
-<p><strong>Warning！目前还有局限，jupyter notebook操作还未完全掌握</strong></p>
-<h1 id="关闭jupyter-notebook-进程"><a href="#关闭jupyter-notebook-进程" class="headerlink" title="关闭jupyter notebook 进程"></a>关闭jupyter notebook 进程</h1><p>查看linux初体验中进程控制</p>
-<h2 id="linux服务器指定GPU方法"><a href="#linux服务器指定GPU方法" class="headerlink" title="linux服务器指定GPU方法"></a>linux服务器指定GPU方法</h2><p>命令 nvidia-smi 查看当前GPU使用情况</p>
-<h3 id="１．在终端执行程序时指定GPU"><a href="#１．在终端执行程序时指定GPU" class="headerlink" title="１．在终端执行程序时指定GPU"></a>１．在终端执行程序时指定GPU</h3><p>CUDA_VISIBLE_DEVICES=0  python your_file.py # 指定GPU集群中第一块GPU使用,其他的屏蔽掉</p>
-<p>CUDA_VISIBLE_DEVICES=1      Only device 1 will be seen<br>CUDA_VISIBLE_DEVICES=0,1     Devices 0 and 1 will be visible<br>CUDA_VISIBLE_DEVICES=”0,1”    Same as above, quotation marks are optional 多GPU一起使用<br>CUDA_VISIBLE_DEVICES=0,2,3    Devices 0, 2, 3 will be visible; device 1 is masked<br>CUDA_VISIBLE_DEVICES=””     No GPU will be visible</p>
-<h3 id="２．在Python代码中指定GPU"><a href="#２．在Python代码中指定GPU" class="headerlink" title="２．在Python代码中指定GPU"></a>２．在Python代码中指定GPU</h3><p>import os<br>os.environ[“CUDA_VISIBLE_DEVICES”] = “0” 　#指定第一块gpu</p>
-<h3 id="３．设置定量的GPU使用量"><a href="#３．设置定量的GPU使用量" class="headerlink" title="３．设置定量的GPU使用量"></a>３．设置定量的GPU使用量</h3><p>config = tf.ConfigProto()<br>config.gpu_options.per_process_gpu_memory_fraction = 0.9 # 占用GPU90%的显存<br>session = tf.Session(config=config)</p>
+              <p>source  config.sh</p>
+<p>ehco $BUILD_PATH</p>
+<p>mkdir -p  $BUILD_PATH</p>
+<p>echo</p>
+<h1 id="传输工具filezilla"><a href="#传输工具filezilla" class="headerlink" title="传输工具filezilla"></a>传输工具filezilla</h1><p>类似winscp</p>
+<h1 id="断点续传下载数据集ubuntu"><a href="#断点续传下载数据集ubuntu" class="headerlink" title="断点续传下载数据集ubuntu"></a>断点续传下载数据集ubuntu</h1><p>转自<a target="_blank" rel="noopener" href="https://www.qingsword.com/qing/1284.html">https://www.qingsword.com/qing/1284.html</a></p>
+<p>Aria2 是一个轻量级多协议多源命令行下载工具；支持 HTTP, HTTPS, FTP, SFTP, BT, Metalink等协议；下面是Aria2的常用实例：</p>
+<p>1）下载单个文件</p>
+<pre><code class="hljs bash"><span class="hljs-comment">#a.下载单个文件,将要下载的文件地址包含在一对英文双引号中，aria会将文件下载到当前目录中，可以使用ctrl+c来中断下载，如果需要断点续传，只需要在相同的目录下执行相同的命令，只要http源地址文件不变，就能直接断点续传，没有下载完的任务会同时存在两个文件，其中以.aria2结尾的文件保存着当前的下载进度和信息</span>
+
+qing@qingsword.com:~$ aria2c <span class="hljs-string">&quot;http：//URL/file.zip&quot;</span>
+
+<span class="hljs-comment">#b.使用多连接，多线程下载单个文件，-x15同一服务器连接数15，-s15单个任务最大线程数15（比起单线程会明显快很多，一般会达到当前网络最大下载速度）</span>
+
+qing@qingsword.com:~$ aria2c -x15 -s15 <span class="hljs-string">&quot;http：//URL/file.zip&quot;</span></code></pre>
+<p>2）并行下载多个文件</p>
+<pre><code class="hljs bash"><span class="hljs-comment">#c.使用参数-Z（大写）并行下载任意数目的URL，每个URL用空格分隔</span>
+qing@qingsword.com:~$  aria2c -Z <span class="hljs-string">&quot;http：//URL/file1.zip&quot;</span> <span class="hljs-string">&quot;http：//URL/fileN.zip&quot;</span>
+
+<span class="hljs-comment">#d.将URL放在文本文件中，让aria2下载文本文件中所有的URL</span>
+qing@qingsword.com:~$ gedit TextFile
+
+<span class="hljs-comment">#每行一个URL，保存在TextFile文件中</span>
+http：//URL/file1.zip
+http：//URL/file2.zip
+......
+http：//URL/fileN.zip
+
+<span class="hljs-comment">#-i后面是文件名，-j3表示，一次并行下载这个文件中的3条URL文件</span>
+qing@qingsword.com:~$ aria2c -i TextFile -j3</code></pre>
+<p>3)下载BT和磁力链接</p>
+<pre><code class="hljs bash"><span class="hljs-comment">#e.显示一个.torrent文件中的内容</span>
+qing@qingsword.com:~$ aria2c -S  <span class="hljs-string">&quot;file.torrent&quot;</span>
+
+<span class="hljs-comment">#f.直接解析URL中的种子文件内容下载</span>
+qing@qingsword.com:~$ aria2c <span class="hljs-string">&quot;http：//URL/file.torrent&quot;</span>
+
+<span class="hljs-comment">#g.解析本地种子文件内容下载</span>
+qing@qingsword.com:~$ aria2c <span class="hljs-string">&quot;file.torrent&quot;</span>
+
+<span class="hljs-comment">#h.限制上传速度为20K，当下载速度低于100K时，尝试增加连接数来提高下载速度</span>
+qing@qingsword.com:~$ aria2c -u20K --bt-request-peer-speed-limit=200K <span class="hljs-string">&quot;file.torrent&quot;</span>
+
+<span class="hljs-comment">#i.下载磁力连接</span>
+qing@qingsword.com:~$ aria2c <span class="hljs-string">&quot;magnet:?xxx&quot;</span>
+
+<span class="hljs-comment">#j.选择下载种子中的哪些文件，配合-S参数使用，先列出种子文件内容，再根据内容选择下载哪几个文件,本例选择下载种子文件中第1~3以及第6个文件</span>
+qing@qingsword.com:~$ aria2c --select-file=1-3,6 -T <span class="hljs-string">&quot;file.torrent&quot;</span></code></pre>
+<p>4）使用本地配置文件中的属性</p>
+<p>上面的例子中的所有属性都可以直接写在aria2的本地配置文件aria2.conf中，在使用aria2下载的时候，只需要在aria2c后面写上文件或者bt连接地址就可以了，aria2会自动调用本地配置文件中的参数下载；</p>
+<pre><code class="hljs bash"><span class="hljs-comment">#k.创建本地配置文件</span>
+qing@qingsword.com:~$ gedit ~/.aria2/aria2.conf
+
+<span class="hljs-comment">#在文件中输入下面的内容，请根据自己的环境修改部分参数（比如下载文件夹，监听端口等）</span>
+<span class="hljs-comment"># &#x27;#&#x27;开头为注释内容, 选项都有相应的注释说明, 根据需要修改</span>
+<span class="hljs-comment">#被注释的选项填写的是默认值, 建议在需要修改时再取消注释</span>
+<span class="hljs-comment">## 基本选项 ##</span>
+<span class="hljs-comment"># 文件的保存路径(可使用绝对路径或相对路径，推荐使用绝对路径), 默认: 当前启动位置</span>
+dir=/home/qing/download
+
+<span class="hljs-comment"># 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc</span>
+<span class="hljs-comment"># 预分配所需时间: none &lt; falloc &lt; trunc &lt; prealloc</span>
+<span class="hljs-comment"># falloc和trunc则需要文件系统和内核支持</span>
+<span class="hljs-comment"># NTFS建议使用falloc, EXT3/4建议trunc, MAC 下需要注释此项</span>
+file-allocation=trunc
+
+<span class="hljs-comment"># 断点续传，目前只支持 HTTP/HTTPS/FTP 协议</span>
+<span class="hljs-built_in">continue</span>=<span class="hljs-literal">true</span>
+
+<span class="hljs-comment">## 下载连接相关 ##</span>
+<span class="hljs-comment"># 最大同时下载任务数, 运行时可修改, 默认:5</span>
+max-concurrent-downloads=20
+
+<span class="hljs-comment"># 同一服务器连接数, 添加时可指定, 默认:1</span>
+max-connection-per-server=15
+
+<span class="hljs-comment"># 单个任务最大线程数, 添加时可指定, 默认:5</span>
+split=5
+
+<span class="hljs-comment"># 整体下载速度限制,单位K或M, 运行时可修改, 默认:0</span>
+<span class="hljs-comment">#max-overall-download-limit=0</span>
+<span class="hljs-comment"># 单个任务下载速度限制, 默认:0</span>
+<span class="hljs-comment">#max-download-limit=0</span>
+<span class="hljs-comment"># 整体上传速度限制, 运行时可修改, 默认:0</span>
+<span class="hljs-comment">#max-overall-upload-limit=10K</span>
+<span class="hljs-comment"># 单个任务上传速度限制, 默认:0</span>
+<span class="hljs-comment">#max-upload-limit=0</span>
+
+
+<span class="hljs-comment">## RPC相关设置 ##</span>
+<span class="hljs-comment"># 启用RPC, 默认:false</span>
+<span class="hljs-built_in">enable</span>-rpc=<span class="hljs-literal">true</span>
+<span class="hljs-comment"># 允许所有来源, 默认:false</span>
+rpc-allow-origin-all=<span class="hljs-literal">true</span>
+<span class="hljs-comment"># 允许非外部访问, 默认:false</span>
+rpc-listen-all=<span class="hljs-literal">true</span>
+<span class="hljs-comment"># RPC监听端口, 端口被占用时可以修改, 默认:6800</span>
+rpc-listen-port=51112
+<span class="hljs-comment"># 设置的RPC授权令牌, v1.18.4新增功能, 取代 --rpc-user 和 --rpc-passwd 选项</span>
+<span class="hljs-comment">#rpc-secret=TOKEN</span>
+<span class="hljs-comment"># 设置的RPC访问用户名, 此选项新版已废弃, 建议改用 --rpc-secret 选项</span>
+<span class="hljs-comment">#rpc-user=USER</span>
+<span class="hljs-comment"># 设置的RPC访问密码, 此选项新版已废弃, 建议改用 --rpc-secret 选项</span>
+<span class="hljs-comment">#rpc-passwd=PASSWD</span>
+
+
+<span class="hljs-comment">## BT/PT下载相关 ##</span>
+<span class="hljs-comment"># 当下载的是一个种子(以.torrent结尾)时, 自动开始BT任务, 默认:true</span>
+<span class="hljs-comment">#follow-torrent=true</span>
+<span class="hljs-comment"># BT监听端口, 当端口被屏蔽时使用, 默认:6881-6999</span>
+listen-port=51111
+<span class="hljs-comment"># 单个种子最大连接数, 默认:55</span>
+bt-max-peers=500
+<span class="hljs-comment"># 打开DHT功能, PT需要禁用, 默认:true</span>
+<span class="hljs-built_in">enable</span>-dht=<span class="hljs-literal">true</span>
+<span class="hljs-comment"># 打开IPv6 DHT功能, PT需要禁用</span>
+<span class="hljs-comment">#enable-dht6=true</span>
+<span class="hljs-comment"># DHT网络监听端口, 默认:6881-6999</span>
+dht-listen-port=16881-16999
+<span class="hljs-comment"># 客户端伪装, PT需要</span>
+peer-id-prefix=-TR2770-
+user-agent=Transmission/2.77
+<span class="hljs-comment"># 继续之前的BT任务时, 无需再次校验, 默认:false</span>
+bt-seed-unverified=<span class="hljs-literal">true</span>
+<span class="hljs-comment"># 保存磁力链接元数据为种子文件(.torrent文件), 默认:false</span>
+bt-save-metadata=<span class="hljs-literal">true</span>
+<span class="hljs-comment"># 当速度总是低于200K/s，aria2将临时增加连接数来试着提高下载速度</span>
+bt-request-peer-speed-limit=100K
+<span class="hljs-comment"># 下载完成多少分钟后停止做种，本例设置为1分钟</span>
+seed-time=1</code></pre>
+<p>Ps：经过测试，aria2对热门的bt资源下载速度可以达到带宽上限，对于一些冷门的资源，建议大家用迅雷离线下好后再以上方法下载到本地。另外，aria2的本地配置文件与uGet并不兼容，创建了本地aria2.conf后会导致uGet启动后不能启动aria2，所以，建议大家选择一种自己喜欢的下载方式，或者不创建本地配置文件，在使用aria2终端下载的时候手动添加一些常用参数。</p>
 
             </div>
             <hr>
@@ -336,9 +386,9 @@ c.NotebookApp.password = <span class="hljs-string">u&#x27;sha1:d8334*******&#x27
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/20/bash%E5%91%BD%E4%BB%A4/">
+                      <a href="/2021/03/20/post-14/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">bash命令和dataset</span>
+                        <span class="hidden-mobile">服务器维护+重装</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -346,8 +396,8 @@ c.NotebookApp.password = <span class="hljs-string">u&#x27;sha1:d8334*******&#x27
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/11/07/post-11/">
-                        <span class="hidden-mobile">第一次跑代码</span>
+                      <a href="/2020/11/22/post-12/">
+                        <span class="hidden-mobile">Git 的基础使用与jupyter端口转发</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -490,7 +540,7 @@ c.NotebookApp.password = <span class="hljs-string">u&#x27;sha1:d8334*******&#x27
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "Git 的基础使用与jupyter端口转发&nbsp;",
+        "bash命令和dataset&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 100,
