@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>sshlink</title>
+    <link href="/2021/05/08/sshlink/"/>
+    <url>/2021/05/08/sshlink/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="关于Linux服务器重装centos系统后ssh的连接问题"><a href="#关于Linux服务器重装centos系统后ssh的连接问题" class="headerlink" title="关于Linux服务器重装centos系统后ssh的连接问题"></a>关于Linux服务器重装centos系统后ssh的连接问题</h1><p>1、保存镜像</p><p>2、新建容器，把原来docker镜像挂上，修改端口</p><p><a href="https://docs.docker.com/config/containers/container-networking/#published-ports">https://docs.docker.com/config/containers/container-networking/#published-ports</a></p><p><img src="https://i.loli.net/2021/04/26/LKie1P5NGhpTEOf.png" alt=""></p><p>3、网络选择桥接</p><p><img src="https://i.loli.net/2021/05/08/kMmtiaND9wsHWn2.png" alt=""></p><p>4、config设置</p><p><img src="https://i.loli.net/2021/05/08/wP1boRI9aKOQgd5.png" alt=""></p><p>5、改密</p><p>6、重启服务</p><p>OK！</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>ssh</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>reloadsystem</title>
     <link href="/2021/05/07/reloadsystem/"/>
     <url>/2021/05/07/reloadsystem/</url>
