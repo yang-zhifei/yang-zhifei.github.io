@@ -249,17 +249,20 @@ OK！
           
             
           
-          ❯ history
-    1  ls
-    2  cd .Deploy
-    3  ls
-    4  cat install-oh-my-zsh.sh
-    5  cp ./.zshrc ~/
-    6  cp ./.p10k.zsh ~/
-    7  ln -s .myexport.zsh ~/
-    8  vim .zshrc
-    9  rm .myexport.zsh
- 
+          centos重装 1、echo $CUDA_HOME
+ 2、设置挂载
+sudo mkdir /data
+
+sudo mount /dev/nvme0n1 /data
+
+sudo mkdir Users
+
+sudo mount /dev/nvme1n1 /Users
+
+sudo vim /etc/fstab
+3、设置开机自动挂载
+sudo vim /etc/fstab
+(2条消息) /etc/fst
         </a>
       </p>
 

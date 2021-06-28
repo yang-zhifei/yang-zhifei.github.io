@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.9k 字
+      2.5k 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      37
+      48
        分钟
     </span>
   
@@ -232,7 +232,124 @@
             <h1 style="display: none">reloadsystem</h1>
             
             <div class="markdown-body" id="post-body">
-              <pre><code class="hljs bash">❯ <span class="hljs-built_in">history</span>
+              <h1 id="centos重装"><a href="#centos重装" class="headerlink" title="centos重装"></a>centos重装</h1><p> 1、echo $CUDA_HOME</p>
+<p> 2、设置挂载</p>
+<pre><code class="hljs bash">sudo mkdir /data
+
+sudo mount /dev/nvme0n1 /data
+
+sudo mkdir Users
+
+sudo mount /dev/nvme1n1 /Users
+
+sudo vim /etc/fstab</code></pre>
+<p>3、设置开机自动挂载</p>
+<pre><code class="hljs awk">sudo vim <span class="hljs-regexp">/etc/</span>fstab</code></pre>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/duyiwuer2009/article/details/8644753">(2条消息) /etc/fstab 参数详解及如何设置开机自动挂载_码农-CSDN博客</a></p>
+<p>4、删除不必要文件夹</p>
+<pre><code class="hljs powershell"><span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> Documents
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> Downloads
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> Music
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> Pictures
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> Templates
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> Desktop
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> Public
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> Videos
+
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> 下载
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> 公共
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> 图片
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> 文档
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> 模板
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> 桌面
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> 视频
+<span class="hljs-built_in">rm</span> <span class="hljs-literal">-rf</span> 音乐</code></pre>
+<p>5、安装显卡驱动</p>
+<pre><code class="hljs apache"><span class="hljs-attribute">wget</span> https://us.download.nvidia.com/XFree<span class="hljs-number">86</span>/Linux-x<span class="hljs-number">86</span>_<span class="hljs-number">64</span>/<span class="hljs-number">460</span>.<span class="hljs-number">73</span>.<span class="hljs-number">01</span>/NVIDIA-Linux-x<span class="hljs-number">86</span>_<span class="hljs-number">64</span>-<span class="hljs-number">460</span>.<span class="hljs-number">73</span>.<span class="hljs-number">01</span>.run
+
+<span class="hljs-attribute">mv</span> NVIDIA-Linux-x<span class="hljs-number">86</span>_<span class="hljs-number">64</span>-<span class="hljs-number">460</span>.<span class="hljs-number">73</span>.<span class="hljs-number">01</span>.run ~/
+<span class="hljs-comment">#系统信息</span>
+<span class="hljs-attribute">sudo</span> lshw -C display
+
+<span class="hljs-attribute">lsmod</span> | grep nouveau
+
+<span class="hljs-attribute">sudo</span> yum -y update
+
+<span class="hljs-attribute">sudo</span> yum -y groupinstall <span class="hljs-string">&quot;GNOME Desktop&quot;</span>
+
+<span class="hljs-attribute">sudo</span> yum -y install kernel-devel epel-release dkms gcc gcc-g++
+
+<span class="hljs-attribute">chmod</span> a+x NVIDIA-Linux-x<span class="hljs-number">86</span>_<span class="hljs-number">64</span>-<span class="hljs-number">460</span>.<span class="hljs-number">73</span>.<span class="hljs-number">01</span>.run
+
+<span class="hljs-attribute">sudo</span> init <span class="hljs-number">3</span>
+
+<span class="hljs-attribute">sudo</span> sh ./NVIDIA-Linux-x<span class="hljs-number">86</span>_<span class="hljs-number">64</span>-<span class="hljs-number">460</span>.<span class="hljs-number">73</span>.<span class="hljs-number">01</span>.run --no-opengl-files
+
+<span class="hljs-attribute">nvidia</span>-smi
+</code></pre>
+<p>更改内核</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lazyfang/p/7645438.html">Centos7修改默认启动内核 - lazyll - 博客园 (cnblogs.com)</a></p>
+<pre><code class="hljs apache"><span class="hljs-attribute">rpm</span> -qa | grep kernel
+<span class="hljs-attribute">vim</span> /boot/grub/grub.cfg
+<span class="hljs-attribute">cat</span> /boot/grub<span class="hljs-number">2</span>/grub.cfg | grep kernel-<span class="hljs-number">3</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span>-<span class="hljs-number">1160</span>.el<span class="hljs-number">7</span>.x<span class="hljs-number">86</span>_<span class="hljs-number">64</span>
+<span class="hljs-attribute">cat</span> /boot/grub/grub.cfg | grep kernel-<span class="hljs-number">3</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span>-<span class="hljs-number">1160</span>.el<span class="hljs-number">7</span>.x<span class="hljs-number">86</span>_<span class="hljs-number">64</span>
+<span class="hljs-attribute">cat</span> /boot/grub/grub.cfg | grep kernel-<span class="hljs-number">3</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span>-
+<span class="hljs-attribute">cat</span> /boot/grub/grub.cfg | grep kernel-<span class="hljs-number">3</span>.<span class="hljs-number">10</span>.
+<span class="hljs-attribute">cat</span> /boot/grub/grub.cfg | <span class="hljs-number">3</span>.<span class="hljs-number">10</span>.
+<span class="hljs-attribute">cat</span> /boot/grub/grub.cfg | grep <span class="hljs-number">3</span>.<span class="hljs-number">10</span>.
+<span class="hljs-attribute">cat</span> /boot/grub/grub.cfg | grep <span class="hljs-number">3</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span>-<span class="hljs-number">1160</span>.el<span class="hljs-number">7</span>.x<span class="hljs-number">86</span>_<span class="hljs-number">64</span>
+<span class="hljs-attribute">540</span>  grub<span class="hljs-number">2</span>-editenv list
+<span class="hljs-attribute">541</span>  grub-editenv list
+<span class="hljs-attribute">542</span>  sudo grub<span class="hljs-number">2</span>-editenv list
+<span class="hljs-attribute">543</span>  sudo grub<span class="hljs-number">2</span>-set-default <span class="hljs-number">3</span>.<span class="hljs-number">10</span>.<span class="hljs-number">0</span>-<span class="hljs-number">1160</span>.el<span class="hljs-number">7</span>.x<span class="hljs-number">86</span>_<span class="hljs-number">64</span>
+<span class="hljs-attribute">544</span>  sudo grub<span class="hljs-number">2</span>-editenv list
+<span class="hljs-attribute">545</span>  mv /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
+<span class="hljs-attribute">546</span>  sudo mv /boot/grub/grub.cfg /boot/grub/grub.cfg.bak
+<span class="hljs-attribute">547</span>  grub<span class="hljs-number">2</span>-mkconfig -o /boot/grub/grub.cfg
+<span class="hljs-attribute">548</span>  sudo grub<span class="hljs-number">2</span>-mkconfig -o /boot/grub/grub.cfg
+<span class="hljs-attribute">549</span>  sudo grub<span class="hljs-number">2</span>-editenv list</code></pre>
+<p>禁用显卡驱动</p>
+<pre><code class="hljs properties"><span class="hljs-attr">禁用</span>
+<span class="hljs-attr">sudo</span> <span class="hljs-string">modprobe -b nouveau</span>
+
+<span class="hljs-attr">lsmod</span> <span class="hljs-string">| grep nouveau</span>
+
+<span class="hljs-attr">sudo</span> <span class="hljs-string">sh ./NVIDIA-Linux-x86_64-460.73.01.run --no-opengl-files</span>
+<span class="hljs-attr">卸载</span>
+<span class="hljs-attr">sudo</span> <span class="hljs-string">modprobe -r nouveau</span></code></pre>
+<p>安装docker</p>
+<pre><code class="hljs awk">sudo yum-config-manager --add-repo=https:<span class="hljs-regexp">//</span>download.docker.com<span class="hljs-regexp">/linux/</span>centos/docker-ce.repo
+
+sudo yum repolist -v
+
+sudo yum install -y https:<span class="hljs-regexp">//</span>download.docker.com<span class="hljs-regexp">/linux/</span>centos<span class="hljs-regexp">/7/</span>x86_64<span class="hljs-regexp">/stable/</span>Packages/containerd.io-<span class="hljs-number">1.4</span>.<span class="hljs-number">3</span>-<span class="hljs-number">3.1</span>.el7.x86_64.rpm
+
+sudo systemctl --now enable docker
+
+sudo systemctl enable docker
+
+<span class="hljs-number">307</span>  sudo yum install docker-ce -y
+<span class="hljs-number">308</span>  sudo systemctl --now enable docker
+<span class="hljs-number">309</span>  sudo docker run --rm hello-world
+<span class="hljs-number">310</span>  distribution=$(. <span class="hljs-regexp">/etc/</span>os-release;echo <span class="hljs-variable">$ID</span><span class="hljs-variable">$VERSION_ID</span>) \\n   &amp;&amp; curl -s -L https:<span class="hljs-regexp">//</span>nvidia.github.io<span class="hljs-regexp">/nvidia-docker/</span><span class="hljs-variable">$distribution</span><span class="hljs-regexp">/nvidia-docker.repo | sudo tee /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>nvidia-docker.repo
+<span class="hljs-number">311</span>  sudo yum clean expire-cache
+<span class="hljs-number">312</span>  sudo yum install -y nvidia-docker2
+<span class="hljs-number">313</span>  sudo systemctl restart docker
+
+sudo cat <span class="hljs-regexp">/etc/g</span>roup | grep docker
+
+sudo usermod -aG docker CG
+
+docker info
+
+docker container ls -a
+
+sudo mount -t nfs <span class="hljs-number">10.8</span>.<span class="hljs-number">130.30</span>:<span class="hljs-regexp">/CG /</span>nas
+
+sudo yum install -y openssl openssh-server
+
+sudo gedit <span class="hljs-regexp">/etc/</span>ssh/sshd_config</code></pre>
+<pre><code class="hljs bash">❯ <span class="hljs-built_in">history</span>
     1  ls
     2  <span class="hljs-built_in">cd</span> .Deploy
     3  ls
