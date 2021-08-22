@@ -1,0 +1,192 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>bashcommd | 一阵风</title><meta name="keywords" content="服务器"><meta name="author" content="Yang Zhifei"><meta name="copyright" content="Yang Zhifei"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="source  config.sh ehco $BUILD_PATH mkdir -p  $BUILD_PATH echo 一次性解压目录下所有zip文件-正则表达式1find . -name &quot;2000????.zip&quot; -exec unzip &amp;#123;&amp;#125; \;  那么一次性删除呢？传输工具filezilla类似winscp 断点续传下载数据集ubuntu转自h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bashcommd">
+<meta property="og:url" content="https://yang-zhifei.github.io/2021/04/12/bashcommd/index.html">
+<meta property="og:site_name" content="一阵风">
+<meta property="og:description" content="source  config.sh ehco $BUILD_PATH mkdir -p  $BUILD_PATH echo 一次性解压目录下所有zip文件-正则表达式1find . -name &quot;2000????.zip&quot; -exec unzip &amp;#123;&amp;#125; \;  那么一次性删除呢？传输工具filezilla类似winscp 断点续传下载数据集ubuntu转自h">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png">
+<meta property="article:published_time" content="2021-04-12T06:33:09.000Z">
+<meta property="article:modified_time" content="2021-04-12T13:29:30.367Z">
+<meta property="article:author" content="Yang Zhifei">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://yang-zhifei.github.io/2021/04/12/bashcommd/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'bashcommd',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2021-04-12 21:29:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=775085618&amp;fname=favicon2.png&amp;size=750" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">22</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">一阵风</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">bashcommd</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-12T06:33:09.000Z" title="发表于 2021-04-12 14:33:09">2021-04-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-04-12T13:29:30.367Z" title="更新于 2021-04-12 21:29:30">2021-04-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="bashcommd"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>source  config.sh</p>
+<p>ehco $BUILD_PATH</p>
+<p>mkdir -p  $BUILD_PATH</p>
+<p>echo</p>
+<h1 id="一次性解压目录下所有zip文件-正则表达式"><a href="#一次性解压目录下所有zip文件-正则表达式" class="headerlink" title="一次性解压目录下所有zip文件-正则表达式"></a>一次性解压目录下所有zip文件-正则表达式</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name <span class="string">&quot;2000????.zip&quot;</span> -<span class="built_in">exec</span> unzip &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+
+<h2 id="那么一次性删除呢？"><a href="#那么一次性删除呢？" class="headerlink" title="那么一次性删除呢？"></a>那么一次性删除呢？</h2><h1 id="传输工具filezilla"><a href="#传输工具filezilla" class="headerlink" title="传输工具filezilla"></a>传输工具filezilla</h1><p>类似winscp</p>
+<h1 id="断点续传下载数据集ubuntu"><a href="#断点续传下载数据集ubuntu" class="headerlink" title="断点续传下载数据集ubuntu"></a>断点续传下载数据集ubuntu</h1><p>转自<a target="_blank" rel="noopener" href="https://www.qingsword.com/qing/1284.html">https://www.qingsword.com/qing/1284.html</a></p>
+<p>Aria2 是一个轻量级多协议多源命令行下载工具；支持 HTTP, HTTPS, FTP, SFTP, BT, Metalink等协议；下面是Aria2的常用实例：</p>
+<p>1）下载单个文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#a.下载单个文件,将要下载的文件地址包含在一对英文双引号中，aria会将文件下载到当前目录中，可以使用ctrl+c来中断下载，如果需要断点续传，只需要在相同的目录下执行相同的命令，只要http源地址文件不变，就能直接断点续传，没有下载完的任务会同时存在两个文件，其中以.aria2结尾的文件保存着当前的下载进度和信息</span></span><br><span class="line"></span><br><span class="line">qing@qingsword.com:~$ aria2c <span class="string">&quot;http：//URL/file.zip&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#b.使用多连接，多线程下载单个文件，-x15同一服务器连接数15，-s15单个任务最大线程数15（比起单线程会明显快很多，一般会达到当前网络最大下载速度）</span></span><br><span class="line"></span><br><span class="line">qing@qingsword.com:~$ aria2c -x15 -s15 <span class="string">&quot;http：//URL/file.zip&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>2）并行下载多个文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#c.使用参数-Z（大写）并行下载任意数目的URL，每个URL用空格分隔</span></span><br><span class="line">qing@qingsword.com:~$  aria2c -Z <span class="string">&quot;http：//URL/file1.zip&quot;</span> <span class="string">&quot;http：//URL/fileN.zip&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#d.将URL放在文本文件中，让aria2下载文本文件中所有的URL</span></span><br><span class="line">qing@qingsword.com:~$ gedit TextFile</span><br><span class="line"></span><br><span class="line"><span class="comment">#每行一个URL，保存在TextFile文件中</span></span><br><span class="line">http：//URL/file1.zip</span><br><span class="line">http：//URL/file2.zip</span><br><span class="line">......</span><br><span class="line">http：//URL/fileN.zip</span><br><span class="line"></span><br><span class="line"><span class="comment">#-i后面是文件名，-j3表示，一次并行下载这个文件中的3条URL文件</span></span><br><span class="line">qing@qingsword.com:~$ aria2c -i TextFile -j3</span><br></pre></td></tr></table></figure>
+
+<p>3)下载BT和磁力链接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#e.显示一个.torrent文件中的内容</span></span><br><span class="line">qing@qingsword.com:~$ aria2c -S  <span class="string">&quot;file.torrent&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#f.直接解析URL中的种子文件内容下载</span></span><br><span class="line">qing@qingsword.com:~$ aria2c <span class="string">&quot;http：//URL/file.torrent&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#g.解析本地种子文件内容下载</span></span><br><span class="line">qing@qingsword.com:~$ aria2c <span class="string">&quot;file.torrent&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#h.限制上传速度为20K，当下载速度低于100K时，尝试增加连接数来提高下载速度</span></span><br><span class="line">qing@qingsword.com:~$ aria2c -u20K --bt-request-peer-speed-limit=200K <span class="string">&quot;file.torrent&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#i.下载磁力连接</span></span><br><span class="line">qing@qingsword.com:~$ aria2c <span class="string">&quot;magnet:?xxx&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#j.选择下载种子中的哪些文件，配合-S参数使用，先列出种子文件内容，再根据内容选择下载哪几个文件,本例选择下载种子文件中第1~3以及第6个文件</span></span><br><span class="line">qing@qingsword.com:~$ aria2c --select-file=1-3,6 -T <span class="string">&quot;file.torrent&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>4）使用本地配置文件中的属性</p>
+<p>上面的例子中的所有属性都可以直接写在aria2的本地配置文件aria2.conf中，在使用aria2下载的时候，只需要在aria2c后面写上文件或者bt连接地址就可以了，aria2会自动调用本地配置文件中的参数下载；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#k.创建本地配置文件</span></span><br><span class="line">qing@qingsword.com:~$ gedit ~/.aria2/aria2.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">#在文件中输入下面的内容，请根据自己的环境修改部分参数（比如下载文件夹，监听端口等）</span></span><br><span class="line"><span class="comment"># &#x27;#&#x27;开头为注释内容, 选项都有相应的注释说明, 根据需要修改</span></span><br><span class="line"><span class="comment">#被注释的选项填写的是默认值, 建议在需要修改时再取消注释</span></span><br><span class="line"><span class="comment">## 基本选项 ##</span></span><br><span class="line"><span class="comment"># 文件的保存路径(可使用绝对路径或相对路径，推荐使用绝对路径), 默认: 当前启动位置</span></span><br><span class="line">dir=/home/qing/download</span><br><span class="line"></span><br><span class="line"><span class="comment"># 文件预分配方式, 能有效降低磁盘碎片, 默认:prealloc</span></span><br><span class="line"><span class="comment"># 预分配所需时间: none &lt; falloc &lt; trunc &lt; prealloc</span></span><br><span class="line"><span class="comment"># falloc和trunc则需要文件系统和内核支持</span></span><br><span class="line"><span class="comment"># NTFS建议使用falloc, EXT3/4建议trunc, MAC 下需要注释此项</span></span><br><span class="line">file-allocation=trunc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 断点续传，目前只支持 HTTP/HTTPS/FTP 协议</span></span><br><span class="line"><span class="built_in">continue</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 下载连接相关 ##</span></span><br><span class="line"><span class="comment"># 最大同时下载任务数, 运行时可修改, 默认:5</span></span><br><span class="line">max-concurrent-downloads=20</span><br><span class="line"></span><br><span class="line"><span class="comment"># 同一服务器连接数, 添加时可指定, 默认:1</span></span><br><span class="line">max-connection-per-server=15</span><br><span class="line"></span><br><span class="line"><span class="comment"># 单个任务最大线程数, 添加时可指定, 默认:5</span></span><br><span class="line">split=5</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整体下载速度限制,单位K或M, 运行时可修改, 默认:0</span></span><br><span class="line"><span class="comment">#max-overall-download-limit=0</span></span><br><span class="line"><span class="comment"># 单个任务下载速度限制, 默认:0</span></span><br><span class="line"><span class="comment">#max-download-limit=0</span></span><br><span class="line"><span class="comment"># 整体上传速度限制, 运行时可修改, 默认:0</span></span><br><span class="line"><span class="comment">#max-overall-upload-limit=10K</span></span><br><span class="line"><span class="comment"># 单个任务上传速度限制, 默认:0</span></span><br><span class="line"><span class="comment">#max-upload-limit=0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## RPC相关设置 ##</span></span><br><span class="line"><span class="comment"># 启用RPC, 默认:false</span></span><br><span class="line">enable-rpc=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 允许所有来源, 默认:false</span></span><br><span class="line">rpc-allow-origin-all=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 允许非外部访问, 默认:false</span></span><br><span class="line">rpc-listen-all=<span class="literal">true</span></span><br><span class="line"><span class="comment"># RPC监听端口, 端口被占用时可以修改, 默认:6800</span></span><br><span class="line">rpc-listen-port=51112</span><br><span class="line"><span class="comment"># 设置的RPC授权令牌, v1.18.4新增功能, 取代 --rpc-user 和 --rpc-passwd 选项</span></span><br><span class="line"><span class="comment">#rpc-secret=TOKEN</span></span><br><span class="line"><span class="comment"># 设置的RPC访问用户名, 此选项新版已废弃, 建议改用 --rpc-secret 选项</span></span><br><span class="line"><span class="comment">#rpc-user=USER</span></span><br><span class="line"><span class="comment"># 设置的RPC访问密码, 此选项新版已废弃, 建议改用 --rpc-secret 选项</span></span><br><span class="line"><span class="comment">#rpc-passwd=PASSWD</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">## BT/PT下载相关 ##</span></span><br><span class="line"><span class="comment"># 当下载的是一个种子(以.torrent结尾)时, 自动开始BT任务, 默认:true</span></span><br><span class="line"><span class="comment">#follow-torrent=true</span></span><br><span class="line"><span class="comment"># BT监听端口, 当端口被屏蔽时使用, 默认:6881-6999</span></span><br><span class="line">listen-port=51111</span><br><span class="line"><span class="comment"># 单个种子最大连接数, 默认:55</span></span><br><span class="line">bt-max-peers=500</span><br><span class="line"><span class="comment"># 打开DHT功能, PT需要禁用, 默认:true</span></span><br><span class="line">enable-dht=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 打开IPv6 DHT功能, PT需要禁用</span></span><br><span class="line"><span class="comment">#enable-dht6=true</span></span><br><span class="line"><span class="comment"># DHT网络监听端口, 默认:6881-6999</span></span><br><span class="line">dht-listen-port=16881-16999</span><br><span class="line"><span class="comment"># 客户端伪装, PT需要</span></span><br><span class="line">peer-id-prefix=-TR2770-</span><br><span class="line">user-agent=Transmission/2.77</span><br><span class="line"><span class="comment"># 继续之前的BT任务时, 无需再次校验, 默认:false</span></span><br><span class="line">bt-seed-unverified=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 保存磁力链接元数据为种子文件(.torrent文件), 默认:false</span></span><br><span class="line">bt-save-metadata=<span class="literal">true</span></span><br><span class="line"><span class="comment"># 当速度总是低于200K/s，aria2将临时增加连接数来试着提高下载速度</span></span><br><span class="line">bt-request-peer-speed-limit=100K</span><br><span class="line"><span class="comment"># 下载完成多少分钟后停止做种，本例设置为1分钟</span></span><br><span class="line">seed-time=1</span><br></pre></td></tr></table></figure>
+
+
+<p>Ps：经过测试，aria2对热门的bt资源下载速度可以达到带宽上限，对于一些冷门的资源，建议大家用迅雷离线下好后再以上方法下载到本地。另外，aria2的本地配置文件与uGet并不兼容，创建了本地aria2.conf后会导致uGet启动后不能启动aria2，所以，建议大家选择一种自己喜欢的下载方式，或者不创建本地配置文件，在使用aria2终端下载的时候手动添加一些常用参数。</p>
+<h1 id="腾讯会议ppt播放实现"><a href="#腾讯会议ppt播放实现" class="headerlink" title="腾讯会议ppt播放实现"></a>腾讯会议ppt播放实现</h1><p>实现共享主界面，自己看备注</p>
+<p>首先开始放映，然后变成窗口模式，然后共享主屏幕，再切换到复平面</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Yang Zhifei</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yang-zhifei.github.io/2021/04/12/bashcommd/">https://yang-zhifei.github.io/2021/04/12/bashcommd/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yang-zhifei.github.io" target="_blank">一阵风</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/05/07/reloadsystem/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">reloadsystem</div></div></a></div><div class="next-post pull-right"><a href="/2021/03/20/post-14/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">服务器维护+重装</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/11/22/post-12/" title="Git 的基础使用与jupyter端口转发"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-22</div><div class="title">Git 的基础使用与jupyter端口转发</div></div></a></div><div><a href="/2021/03/20/post-14/" title="服务器维护+重装"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-20</div><div class="title">服务器维护+重装</div></div></a></div><div><a href="/2021/05/07/reloadsystem/" title="reloadsystem"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-07</div><div class="title">reloadsystem</div></div></a></div><div><a href="/2021/08/21/usenas/" title="使用nas储存数据"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg3.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-21</div><div class="title">使用nas储存数据</div></div></a></div><div><a href="/2020/09/13/post-4/" title="Linux初体验"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-13</div><div class="title">Linux初体验</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E6%AC%A1%E6%80%A7%E8%A7%A3%E5%8E%8B%E7%9B%AE%E5%BD%95%E4%B8%8B%E6%89%80%E6%9C%89zip%E6%96%87%E4%BB%B6-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">一次性解压目录下所有zip文件-正则表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%A3%E4%B9%88%E4%B8%80%E6%AC%A1%E6%80%A7%E5%88%A0%E9%99%A4%E5%91%A2%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">那么一次性删除呢？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B7%A5%E5%85%B7filezilla"><span class="toc-number">2.</span> <span class="toc-text">传输工具filezilla</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86ubuntu"><span class="toc-number">3.</span> <span class="toc-text">断点续传下载数据集ubuntu</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%85%BE%E8%AE%AF%E4%BC%9A%E8%AE%AEppt%E6%92%AD%E6%94%BE%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">腾讯会议ppt播放实现</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://w.wallhaven.cc/full/39/wallhaven-39god9.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Yang Zhifei</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog !</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
