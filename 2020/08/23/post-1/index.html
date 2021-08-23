@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>对抗性reid论文学习中知识补充 | Fei's Blog</title><meta name="keywords" content="论文阅读"><meta name="author" content="Yang Zhifei"><meta name="copyright" content="Yang Zhifei"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="论文题目 Transferable, Controllable, and Inconspicuous Adversarial Attacks on Person参考https:&#x2F;&#x2F;juejin.im&#x2F;post&#x2F;6854573214853496846 PPT展示   	 		 	      对抗样本是什么？ 定义：在数据中加入人眼不可察觉的扰动，使得模型对数据的标签预测发生混淆和错误。  非正式定义">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对抗性reid论文学习中知识补充">
+<meta property="og:url" content="https://yang-zhifei.github.io/2020/08/23/post-1/index.html">
+<meta property="og:site_name" content="Fei&#39;s Blog">
+<meta property="og:description" content="论文题目 Transferable, Controllable, and Inconspicuous Adversarial Attacks on Person参考https:&#x2F;&#x2F;juejin.im&#x2F;post&#x2F;6854573214853496846 PPT展示   	 		 	      对抗样本是什么？ 定义：在数据中加入人眼不可察觉的扰动，使得模型对数据的标签预测发生混淆和错误。  非正式定义">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/xingjiahui/CDN/index_01.png">
+<meta property="article:published_time" content="2020-08-23T08:19:15.000Z">
+<meta property="article:modified_time" content="2021-08-22T15:24:10.481Z">
+<meta property="article:author" content="Yang Zhifei">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/xingjiahui/CDN/index_01.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://yang-zhifei.github.io/2020/08/23/post-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '对抗性reid论文学习中知识补充',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2021-08-22 23:24:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/70204ad2acf0ef3948732ebebed1fc3c552c7b3bb92cd4e786783587c158df8ff584eef138f7c08ab6a8b6112a4b68ac?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=775085618&amp;fname=favicon2.png&amp;size=750" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/xingjiahui/CDN/index_01.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fei's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">对抗性reid论文学习中知识补充</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-23T08:19:15.000Z" title="发表于 2020-08-23 16:19:15">2020-08-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-08-22T15:24:10.481Z" title="更新于 2021-08-22 23:24:10">2021-08-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="对抗性reid论文学习中知识补充"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h5 id="论文题目-Transferable-Controllable-and-Inconspicuous-Adversarial-Attacks-on-Person"><a href="#论文题目-Transferable-Controllable-and-Inconspicuous-Adversarial-Attacks-on-Person" class="headerlink" title="论文题目 Transferable, Controllable, and Inconspicuous Adversarial Attacks on Person"></a>论文题目 Transferable, Controllable, and Inconspicuous Adversarial Attacks on Person</h5><p>参考<a target="_blank" rel="noopener" href="https://juejin.im/post/6854573214853496846">https://juejin.im/post/6854573214853496846</a></p>
+<h5 id="PPT展示"><a href="#PPT展示" class="headerlink" title="PPT展示"></a>PPT展示</h5><p><br> 
+
+	<div class="row">
+		<iframe src="https://drive.google.com/file/d/1ltLoclun4oN9hzmDyENHPe24X4J9VXpT/preview" style="width:100%; height:550px"></iframe>
+	</div>
+
+
+</p>
+<br>
+
+<h5 id="对抗样本是什么？"><a href="#对抗样本是什么？" class="headerlink" title="对抗样本是什么？"></a>对抗样本是什么？</h5><ul>
+<li><p>定义：在数据中加入人眼不可察觉的扰动，使得模型对数据的标签预测发生混淆和错误。</p>
+</li>
+<li><p>非正式定义：以人类不可感知的方式对输入进行修改，使得修改后的输入能够被机器学习系统误分类，尽管原始输入是被正确分类的。这一修改后的输入即被称为对抗样本。</p>
+</li>
+<li><p>数学符号表示：</p>
+</li>
+</ul>
+<p>$$<br>x_{adv} = max_{\delta} L(f,x_{orig}, y)<br>$$</p>
+<p>$$<br>such that |\delta|_{p}\leq\epsilon<br>$$</p>
+<p>$$<br>and x_{orig}+\delta\in[0,1]^D<br>$$</p>
+<p>其中 L 是我们试图最大化的损失函数，x_orig 是原始图像，𝛿是扰动，y 是真实标签，所选的ε用于确保扰动后的图像看上去没有那么杂乱，并且对于人类来说仍然像是原始类别的图片。</p>
+<h5 id="什么是感知损失？"><a href="#什么是感知损失？" class="headerlink" title="什么是感知损失？"></a>什么是感知损失？</h5><p>问：其实还不是很理解感知损失是什么，是feature map之间的差异吗？</p>
+<p>答：因为high-level features 指的是图片全局的模样，感知损失就相当于是看图片是否一致，若相似损失就小，如果不相似损失就大。</p>
+<p>答：个人理解，区别于MSE那种基于每个pixel来做loss，我们理解一副图片往往不是基于单独某个pixel的，你是通过一张图片的形状，轮廓之类的高级语义信息来理解。那么我们就不再对每个pixel求loss，而是比较待生成的图片经过CNN的feature map与目标图片经过同样网络结构的CNN的feature map，根据高级语义信息的误差来做loss</p>
+<h5 id="什么是feature-map？"><a href="#什么是feature-map？" class="headerlink" title="什么是feature map？"></a>什么是feature map？</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/dengheCSDN/article/details/77848246">https://blog.csdn.net/dengheCSDN/article/details/77848246</a></li>
+</ul>
+<h5 id="四个最大的-re-ID-基准数据集（即-Market1501，CUHK03，DukeMTMC-和-MSMT17）"><a href="#四个最大的-re-ID-基准数据集（即-Market1501，CUHK03，DukeMTMC-和-MSMT17）" class="headerlink" title="四个最大的 re-ID 基准数据集（即 Market1501，CUHK03，DukeMTMC 和 MSMT17）"></a>四个最大的 <strong>re-ID</strong> 基准数据集（即 Market1501，CUHK03，DukeMTMC 和 MSMT17）</h5><h5 id="MSE（Mean-Squared-Error）均方误差"><a href="#MSE（Mean-Squared-Error）均方误差" class="headerlink" title="MSE（Mean Squared Error）均方误差"></a>MSE（Mean Squared Error）均方误差</h5><p>$$<br>MSE= \frac{1}{M\times N} \sum_{i=1}^{M}\sum_{i=1}^{N}(K(i,j)-I(i,j))^2<br>$$</p>
+<p>K(i,j)和I(i,j)分别表示的是待评价图像和原始图像，M,N分别表示图像的长与宽.</p>
+<ul>
+<li>MSE指参数估计值与参数真值之差平方的期望值，在图像处理算法中就是处理后图像像素值与原始像素值之差平方和的均值。</li>
+</ul>
+<h6 id="GAN-的谱归一化-Spectral-Norm-和矩阵的奇异值分解-Singular-Value-Decompostion"><a href="#GAN-的谱归一化-Spectral-Norm-和矩阵的奇异值分解-Singular-Value-Decompostion" class="headerlink" title="GAN 的谱归一化(Spectral Norm)和矩阵的奇异值分解(Singular Value Decompostion"></a>GAN 的谱归一化(<strong>Spectral Norm</strong>)和矩阵的奇异值分解(Singular Value Decompostion</h6><p>  具体内容见<a target="_blank" rel="noopener" href="http://kaizhao.net/posts/spectral-norm">http://kaizhao.net/posts/spectral-norm</a></p>
+<h5 id="非线性激活函数ReLu"><a href="#非线性激活函数ReLu" class="headerlink" title="非线性激活函数ReLu"></a>非线性激活函数ReLu</h5><h5 id="损失函数-Loss-function"><a href="#损失函数-Loss-function" class="headerlink" title="损失函数 Loss function"></a>损失函数 Loss function</h5><ul>
+<li>损失函数和激活函数softmax会一起使用。<br>激活函数会根据输入的参数（一个矢量，表示每个分类的可能性），计算每个分类的概率(0, 1)。<br>损失函数根据softmax的计算结果$ y\head $和期望结果$ y $，根据交叉熵方法(cross entropy loss) 可得到损失L。</li>
+</ul>
+<h5 id="BatchNorm"><a href="#BatchNorm" class="headerlink" title="BatchNorm"></a>BatchNorm</h5><p>为了在深度神经网络训练过程中使得每一层神经网络的输入保持相同分布，通过一定的规范化手段，把每层神经网络任意神经元这个输入值的分布强行拉回到均值为0方差为1的标准正态分布</p>
+<h5 id="下采样"><a href="#下采样" class="headerlink" title="下采样"></a>下采样</h5><ul>
+<li>定义：对于一个样值序列间隔几个样值取样一次，这样得到新序列就是原序列的下采样。</li>
+</ul>
+<ul>
+<li><p>缩小图像（或称为下采样（subsampled）或降采样（downsampled））</p>
+</li>
+<li><p><strong>下采样原理：</strong>对于一幅图像I尺寸为MXN，对其进行s倍下采样，即得到(M/s)X(N/s)尺寸的得分辨率图像，当然s应该是M和N的公约数才行，如果考虑的是矩阵形式的图像，就是把原始图像sXs窗口内的图像变成一个像素，这个像素点的值就是窗口内所有像素的均值</p>
+</li>
+<li><p>深度学习中卷积、池化都可以用于下采样（其实就是提取数据，卷积结果就是提取特征）</p>
+</li>
+</ul>
+<h5 id="上采样"><a href="#上采样" class="headerlink" title="上采样"></a>上采样</h5><ul>
+<li><p>放大图像（或称为上采样（upsampling）或图像插值（interpolating））</p>
+</li>
+<li><p><strong>上采样原理：</strong>图像放大几乎都是采用内插值方法，即在原有图像像素的基础上在像素点之间采用合适的插值算法插入新的元素。（数值计算中的插值方法）</p>
+</li>
+</ul>
+<h5 id="逐元素运算-element-wise"><a href="#逐元素运算-element-wise" class="headerlink" title="逐元素运算(element-wise)"></a>逐元素运算(element-wise)</h5><p>这个类别包含了 Tensor 的一些基础运算，由于输出的数据点只跟对应的哪一个输入的数据点有关，因此可以称为 element-wise 运算，这类运算与输入的数据的维度和结构无关，可以等价的认为是一维向量运算的 Tensor 等效表示。</p>
+<h5 id="双线性池化bilinear-pooling与双线性插值Bilinear-Interpolation"><a href="#双线性池化bilinear-pooling与双线性插值Bilinear-Interpolation" class="headerlink" title="双线性池化bilinear pooling与双线性插值Bilinear Interpolation"></a>双线性池化bilinear pooling与双线性插值Bilinear Interpolation</h5><ul>
+<li><p>在数学上，双线性插值是有两个变量的插值函数的线性插值扩展，其核心思想是在两个方向分别进行一次线性插值，参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/xbinworld/article/details/65660665">https://blog.csdn.net/xbinworld/article/details/65660665</a></p>
+</li>
+<li><p>bilinear pooling主要用于特征融合，对于从同一个样本提取出来的特征x和特征y，通过bilinear pooling得到两个特征融合后的向量，进而用来分类。</p>
+</li>
+</ul>
+<h5 id="空洞卷积-Dilated-Atrous-Convolution"><a href="#空洞卷积-Dilated-Atrous-Convolution" class="headerlink" title="空洞卷积(Dilated/Atrous Convolution)"></a>空洞卷积(Dilated/Atrous Convolution)</h5><p>在nXn卷积核中间填充0，有两种实现方式，第一，卷积核填充0，第二，输入等间隔采样。</p>
+<h5 id="1x1卷积方法：可以理解为给所有通道应用一个全连接神经网络"><a href="#1x1卷积方法：可以理解为给所有通道应用一个全连接神经网络" class="headerlink" title="1x1卷积方法：可以理解为给所有通道应用一个全连接神经网络**"></a>1x1卷积方法：可以理解为给所有通道应用一个<strong>全连接神经网络</strong>**</h5><h5 id="全连接神经网络"><a href="#全连接神经网络" class="headerlink" title="全连接神经网络"></a>全连接神经网络</h5><ul>
+<li><p>指除输出层外，每一个神经元都与下一层中的各神经元相连接。</p>
+</li>
+<li><p>神经网络结构详解<a target="_blank" rel="noopener" href="https://blog.csdn.net/hennyxu/article/details/102990123">https://blog.csdn.net/hennyxu/article/details/102990123</a></p>
+</li>
+</ul>
+<h5 id="示意图中加号和乘号的含义（找的我心累）"><a href="#示意图中加号和乘号的含义（找的我心累）" class="headerlink" title="示意图中加号和乘号的含义（找的我心累）"></a>示意图中加号和乘号的含义（找的我心累）</h5><ul>
+<li><p>加号：concatenate操作是网络结构设计中很重要的一种操作，经常用于将特征联合，多个卷积特征提取框架提取的特征融合或者是将输出层的信息进行融合，而add层更像是信息之间的叠加。</p>
+</li>
+<li><p>你可以这么理解，add是描述图像的特征下的信息量增多了，但是描述图像的维度本身并没有增加，只是每一维下的信息量在增加，这显然是对最终的图像的分类是有益的。而concatenate是通道数的合并，也就是说描述图像本身的特征增加了，而每一特征下的信息是没有增加。只看单个输出通道<br>$$<br>Z_{concat}=\sum_{i=1}^{C}X_{i}*K_{i}+\sum_{i=1}^{C}Y_{i}*K_{i+c}<br>$$</p>
+<p>$$<br>Z_{add}=\sum_{i=1}^{C}(X_{i}+Y_{i})*K_{i}=\sum_{i=1}^{C}X_{i}*K_{i}+\sum_{i=1}^{C}Y_{i}*K_{i}<br>$$</p>
+</li>
+<li><p>乘法：element wise mltipliction</p>
+</li>
+</ul>
+<h5 id="生成式对抗网络（GAN）"><a href="#生成式对抗网络（GAN）" class="headerlink" title="生成式对抗网络（GAN）"></a>生成式对抗网络（GAN）</h5><ul>
+<li><p><strong>生成模型</strong>，以图像生成模型举例。假设我们有一个图片生成模型（generator），它的目标是生成一张真实的图片。与此同时我们有一个图像判别模型（discriminator），它的目标是能够正确判别一张图片是生成出来的还是真实存在的。那么如果我们把刚才的场景映射成图片生成模型和判别模型之间的博弈，就变成了如下模式：生成模型生成一些图片-&gt;判别模型学习区分生成的图片和真实图片-&gt;生成模型根据判别模型改进自己，生成新的图片-&gt;····</p>
+</li>
+<li><p>这个场景直至生成模型与判别模型无法提高自己——即判别模型无法判断一张图片是生成出来的还是真实的而结束，此时生成模型就会成为一个完美的模型。</p>
+</li>
+</ul>
+<h5 id="SSIM与MS-SSIM图像评价函数"><a href="#SSIM与MS-SSIM图像评价函数" class="headerlink" title="SSIM与MS-SSIM图像评价函数"></a>SSIM与MS-SSIM图像评价函数</h5><ul>
+<li>SSIM的全称为structural similarity index，即为结构相似性，是一种衡量两幅图像相似度的指标</li>
+<li>MS-SSIM多级结构相似性</li>
+</ul>
+<h5 id="在损失函数中出现了margin，如何理解"><a href="#在损失函数中出现了margin，如何理解" class="headerlink" title="在损失函数中出现了margin，如何理解"></a>在损失函数中出现了margin，如何理解</h5><h5 id="前向和后向传播指的是什么？"><a href="#前向和后向传播指的是什么？" class="headerlink" title="前向和后向传播指的是什么？"></a>前向和后向传播指的是什么？</h5></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Yang Zhifei</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yang-zhifei.github.io/2020/08/23/post-1/">https://yang-zhifei.github.io/2020/08/23/post-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yang-zhifei.github.io" target="_blank">Fei's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/xingjiahui/CDN/index_01.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/23/post-2/"><img class="prev-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">虚拟试衣Try- on论文与评价方法改进的Reid</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/23/My-New-Post-3/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">关于论文学习中的几点疑惑</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/08/23/post-2/" title="虚拟试衣Try- on论文与评价方法改进的Reid"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-23</div><div class="title">虚拟试衣Try- on论文与评价方法改进的Reid</div></div></a></div><div><a href="/2020/10/07/post-7/" title="Weakly Supervised Discriminative Feature Learning with State Information"><img class="cover" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-07</div><div class="title">Weakly Supervised Discriminative Feature Learning with State Information</div></div></a></div><div><a href="/2020/09/04/post4/" title="Person Re-identification in the 3D Space + 第一次跑代码"><img class="cover" src="https://cdn.jsdelivr.net/gh/xingjiahui/CDN/index_01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-09-04</div><div class="title">Person Re-identification in the 3D Space + 第一次跑代码</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%A2%98%E7%9B%AE-Transferable-Controllable-and-Inconspicuous-Adversarial-Attacks-on-Person"><span class="toc-number">1.</span> <span class="toc-text">论文题目 Transferable, Controllable, and Inconspicuous Adversarial Attacks on Person</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#PPT%E5%B1%95%E7%A4%BA"><span class="toc-number">2.</span> <span class="toc-text">PPT展示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%B9%E6%8A%97%E6%A0%B7%E6%9C%AC%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">对抗样本是什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%84%9F%E7%9F%A5%E6%8D%9F%E5%A4%B1%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">什么是感知损失？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFfeature-map%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">什么是feature map？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9B%9B%E4%B8%AA%E6%9C%80%E5%A4%A7%E7%9A%84-re-ID-%E5%9F%BA%E5%87%86%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%88%E5%8D%B3-Market1501%EF%BC%8CCUHK03%EF%BC%8CDukeMTMC-%E5%92%8C-MSMT17%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">四个最大的 re-ID 基准数据集（即 Market1501，CUHK03，DukeMTMC 和 MSMT17）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MSE%EF%BC%88Mean-Squared-Error%EF%BC%89%E5%9D%87%E6%96%B9%E8%AF%AF%E5%B7%AE"><span class="toc-number">7.</span> <span class="toc-text">MSE（Mean Squared Error）均方误差</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#GAN-%E7%9A%84%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96-Spectral-Norm-%E5%92%8C%E7%9F%A9%E9%98%B5%E7%9A%84%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3-Singular-Value-Decompostion"><span class="toc-number">7.1.</span> <span class="toc-text">GAN 的谱归一化(Spectral Norm)和矩阵的奇异值分解(Singular Value Decompostion</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0ReLu"><span class="toc-number">8.</span> <span class="toc-text">非线性激活函数ReLu</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0-Loss-function"><span class="toc-number">9.</span> <span class="toc-text">损失函数 Loss function</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#BatchNorm"><span class="toc-number">10.</span> <span class="toc-text">BatchNorm</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8B%E9%87%87%E6%A0%B7"><span class="toc-number">11.</span> <span class="toc-text">下采样</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8A%E9%87%87%E6%A0%B7"><span class="toc-number">12.</span> <span class="toc-text">上采样</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%90%E5%85%83%E7%B4%A0%E8%BF%90%E7%AE%97-element-wise"><span class="toc-number">13.</span> <span class="toc-text">逐元素运算(element-wise)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8C%E7%BA%BF%E6%80%A7%E6%B1%A0%E5%8C%96bilinear-pooling%E4%B8%8E%E5%8F%8C%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BCBilinear-Interpolation"><span class="toc-number">14.</span> <span class="toc-text">双线性池化bilinear pooling与双线性插值Bilinear Interpolation</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A9%BA%E6%B4%9E%E5%8D%B7%E7%A7%AF-Dilated-Atrous-Convolution"><span class="toc-number">15.</span> <span class="toc-text">空洞卷积(Dilated&#x2F;Atrous Convolution)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1x1%E5%8D%B7%E7%A7%AF%E6%96%B9%E6%B3%95%EF%BC%9A%E5%8F%AF%E4%BB%A5%E7%90%86%E8%A7%A3%E4%B8%BA%E7%BB%99%E6%89%80%E6%9C%89%E9%80%9A%E9%81%93%E5%BA%94%E7%94%A8%E4%B8%80%E4%B8%AA%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">16.</span> <span class="toc-text">1x1卷积方法：可以理解为给所有通道应用一个全连接神经网络**</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%A8%E8%BF%9E%E6%8E%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">17.</span> <span class="toc-text">全连接神经网络</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A4%BA%E6%84%8F%E5%9B%BE%E4%B8%AD%E5%8A%A0%E5%8F%B7%E5%92%8C%E4%B9%98%E5%8F%B7%E7%9A%84%E5%90%AB%E4%B9%89%EF%BC%88%E6%89%BE%E7%9A%84%E6%88%91%E5%BF%83%E7%B4%AF%EF%BC%89"><span class="toc-number">18.</span> <span class="toc-text">示意图中加号和乘号的含义（找的我心累）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9C%EF%BC%88GAN%EF%BC%89"><span class="toc-number">19.</span> <span class="toc-text">生成式对抗网络（GAN）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SSIM%E4%B8%8EMS-SSIM%E5%9B%BE%E5%83%8F%E8%AF%84%E4%BB%B7%E5%87%BD%E6%95%B0"><span class="toc-number">20.</span> <span class="toc-text">SSIM与MS-SSIM图像评价函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%AD%E5%87%BA%E7%8E%B0%E4%BA%86margin%EF%BC%8C%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3"><span class="toc-number">21.</span> <span class="toc-text">在损失函数中出现了margin，如何理解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%89%8D%E5%90%91%E5%92%8C%E5%90%8E%E5%90%91%E4%BC%A0%E6%92%AD%E6%8C%87%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">22.</span> <span class="toc-text">前向和后向传播指的是什么？</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://w.wallhaven.cc/full/39/wallhaven-39god9.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Yang Zhifei</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog !</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
